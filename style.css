@@ -135,7 +135,7 @@ button {
 }
 
 .section {
-  padding: 120px 0;
+  padding: 144px 0;
 }
 
 .section-title {
@@ -162,12 +162,12 @@ button {
 
 @media (max-width: 960px) {
   .wrap { padding: 0 20px; }
-  .section { padding: 72px 0; }
+  .section { padding: 88px 0; }
 }
 
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
-  .section { padding: 56px 0; }
+  .section { padding: 68px 0; }
 }
 
 
