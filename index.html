@@ -323,7 +323,7 @@
         <div class="services-grid">
 
           <article class="services-col">
-            <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=80&auto=format&fit=crop');"></div>
+            <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1554825959-e9a6670d4f18?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
                 <span class="mono services-col__num">01 &mdash; Restore</span>
@@ -368,7 +368,7 @@
           </article>
 
           <article class="services-col">
-            <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=900&q=80&auto=format&fit=crop');"></div>
+            <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1647502191516-68a4f8c74ed4?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
                 <span class="mono services-col__num">03 &mdash; Repair</span>
@@ -391,7 +391,7 @@
           </article>
 
           <article class="services-col">
-            <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=900&q=80&auto=format&fit=crop');"></div>
+            <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1628483211662-9bcc692c46dc?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
                 <span class="mono services-col__num">04 &mdash; Alter</span>
@@ -830,50 +830,73 @@
 
 
     <!-- ====================================================================
-         COMPONENT: Social proof (video)
+         COMPONENT: From the atelier — founder slider (YouTube Shorts)
+         Single iframe + side text. JS swaps src + caption on prev/next.
          ==================================================================== -->
-    <section class="section social-proof" id="stories">
+    <section class="section atelier" id="atelier">
       <div class="wrap">
-        <div class="sp-head">
-          <div class="eyebrow">On camera</div>
-          <h2 class="section-title">Restorations, <em>in their words.</em></h2>
+        <div class="atelier-head">
+          <div class="eyebrow">From the atelier</div>
+          <h2 class="section-title">
+            In his own words, <em>by Rishi.</em>
+          </h2>
           <p class="lede">
-            Real customers, real pieces brought back to life — filmed at the bench
-            and on doorsteps across nine cities.
+            Meet Rishi, the founder of De Leather Craft. On what inspired the
+            atelier, how he reads a piece of leather, and the cases that stay
+            with him long after they leave the bench.
           </p>
         </div>
 
-        <div class="sp-featured">
-          <div class="sp-frame">
-            <iframe src="https://www.youtube-nocookie.com/embed/1DhFzWJcaqk" title="Customer story 01" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
+        <div class="atelier-slider" id="atelierSlider">
 
-        <div class="sp-grid">
-          <figure class="sp-item">
-            <div class="sp-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/FeQZSHTHXxk" title="Customer story 02" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <!-- Video pane -->
+          <div class="atelier-slider__media">
+            <div class="atelier-frame">
+              <iframe
+                id="atelierFrame"
+                src="https://www.youtube-nocookie.com/embed/8CdpyLNFpnU?loop=1&amp;playlist=8CdpyLNFpnU"
+                title="Meet Rishi, founder of De Leather Craft"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
             </div>
-            <figcaption class="mono sp-cap">Customer story · 02</figcaption>
-          </figure>
-          <figure class="sp-item">
-            <div class="sp-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/gDZNreL6I80" title="Customer story 03" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+
+          <!-- Text + controls pane -->
+          <div class="atelier-slider__body">
+            <div class="atelier-text" id="atelierText">
+              <span class="mono atelier-text__num" id="atelierNum">Intro</span>
+              <h3 class="atelier-text__q" id="atelierQ">Meet Rishi.</h3>
+              <p class="atelier-text__body" id="atelierBody">
+                A short introduction to Rishi and the atelier he built &mdash; what
+                the studio stands for and the kind of pieces it lives for.
+              </p>
+              <div class="mono atelier-text__by">Rishi &middot; founder, De Leather Craft</div>
             </div>
-            <figcaption class="mono sp-cap">Customer story · 03</figcaption>
-          </figure>
-          <figure class="sp-item">
-            <div class="sp-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/bgzSNAFQa_w" title="Customer story 04" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="atelier-controls">
+              <button type="button" class="atelier-btn" id="atelierPrev" aria-label="Previous video">
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M10 2 L4 8 L10 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <span class="mono atelier-counter" id="atelierCounter">01 / 05</span>
+              <button type="button" class="atelier-btn" id="atelierNext" aria-label="Next video">
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M6 2 L12 8 L6 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
             </div>
-            <figcaption class="mono sp-cap">Customer story · 04</figcaption>
-          </figure>
-          <figure class="sp-item">
-            <div class="sp-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/KM6SUzdiikI" title="Customer story 05" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="atelier-dots" id="atelierDots">
+              <button type="button" class="is-active" data-i="0" aria-label="Show video 1"></button>
+              <button type="button" data-i="1" aria-label="Show video 2"></button>
+              <button type="button" data-i="2" aria-label="Show video 3"></button>
+              <button type="button" data-i="3" aria-label="Show video 4"></button>
+              <button type="button" data-i="4" aria-label="Show video 5"></button>
             </div>
-            <figcaption class="mono sp-cap">Customer story · 05</figcaption>
-          </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -1428,6 +1451,89 @@
         window.addEventListener('resize', function () {
           clearTimeout(headerResizeT);
           headerResizeT = setTimeout(watchHeroForHeader, 200);
+        });
+      }
+
+
+      /* ---- 6. Atelier slider — founder Q&A YouTube Shorts ----------- */
+      var atelierSlider = document.getElementById('atelierSlider');
+      if (atelierSlider) {
+        var atelierSlides = [
+          {
+            id: '8CdpyLNFpnU',
+            num: 'Intro',
+            q: 'Meet Rishi.',
+            body: 'A short introduction to Rishi and the atelier he built — what the studio stands for and the kind of pieces it lives for.'
+          },
+          {
+            id: 'XEbdPnERzP8',
+            num: 'Q·01',
+            q: 'What inspired De Leather Craft?',
+            body: 'Rishi on the obsession that started it all — the first piece he refused to throw away, and the craftsmen he turned to when no one else would.'
+          },
+          {
+            id: 'J6AwtH07cMA',
+            num: 'Q·02',
+            q: 'How do you approach a piece of leather?',
+            body: 'The first 60 seconds with a new piece — how Rishi reads the grain, the wear and the history before he ever picks up a tool.'
+          },
+          {
+            id: 'gABdwmEIjEw',
+            num: 'Q·03',
+            q: 'The most challenging case.',
+            body: 'The piece that kept Rishi at the bench past midnight — what made it so hard, and how the atelier brought it back.'
+          },
+          {
+            id: 'DOHMi4CeJ4c',
+            num: 'Q·04',
+            q: 'Working with exotic leathers.',
+            body: 'Crocodile, ostrich, python, lizard — how Rishi treats exotic hides differently, and what most workshops get wrong.'
+          }
+        ];
+
+        var atFrame    = document.getElementById('atelierFrame');
+        var atText     = document.getElementById('atelierText');
+        var atNum      = document.getElementById('atelierNum');
+        var atQ        = document.getElementById('atelierQ');
+        var atBody     = document.getElementById('atelierBody');
+        var atCounter  = document.getElementById('atelierCounter');
+        var atDots     = document.getElementById('atelierDots').querySelectorAll('button');
+        var atPrev     = document.getElementById('atelierPrev');
+        var atNext     = document.getElementById('atelierNext');
+        var atIndex    = 0;
+
+        function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+        function showAtelier(idx) {
+          atIndex = ((idx % atelierSlides.length) + atelierSlides.length) % atelierSlides.length;
+          var s = atelierSlides[atIndex];
+
+          // Fade out current text
+          atText.classList.add('is-changing');
+
+          setTimeout(function () {
+            atFrame.src = 'https://www.youtube-nocookie.com/embed/' + s.id + '?loop=1&playlist=' + s.id;
+            atFrame.title = s.q;
+            atNum.textContent  = s.num;
+            atQ.textContent    = s.q;
+            atBody.textContent = s.body;
+            atCounter.textContent = pad2(atIndex + 1) + ' / ' + pad2(atelierSlides.length);
+
+            atDots.forEach(function (d, i) {
+              d.classList.toggle('is-active', i === atIndex);
+            });
+
+            // Fade text back in
+            atText.classList.remove('is-changing');
+          }, 180);
+        }
+
+        atPrev.addEventListener('click', function () { showAtelier(atIndex - 1); });
+        atNext.addEventListener('click', function () { showAtelier(atIndex + 1); });
+        atDots.forEach(function (d) {
+          d.addEventListener('click', function () {
+            showAtelier(parseInt(d.getAttribute('data-i'), 10));
+          });
         });
       }
     })();
