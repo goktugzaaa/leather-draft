@@ -1996,6 +1996,10 @@ button {
   align-items: center;
 }
 
+/* The question list is desktop-only — hidden by default so mobile keeps
+   the same simple stacked layout (video + text + dots). */
+.atelier-list { display: none; }
+
 .atelier-slider__media .atelier-frame {
   position: relative;
   aspect-ratio: 9 / 16;
@@ -2137,6 +2141,91 @@ button {
     max-width: 340px;
     margin: 0 auto;
   }
+}
+
+/* — Desktop — fill the wide area with a 3rd column: scrollable
+   question list. Bigger typography, bigger video. Dots hidden,
+   list takes over as the primary navigator. */
+@media (min-width: 1024px) {
+  .atelier-slider {
+    grid-template-columns: minmax(360px, 440px) minmax(0, 1fr) minmax(220px, 300px);
+    gap: 56px;
+    align-items: stretch;
+  }
+  .atelier-slider__body {
+    max-width: none;
+    justify-content: center;
+    gap: 40px;
+  }
+  .atelier-text__q   { font-size: clamp(34px, 3.4vw, 46px); }
+  .atelier-text__body { font-size: 17px; line-height: 1.7; }
+  .atelier-dots      { display: none; }
+
+  .atelier-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-self: stretch;
+    border-left: 1px solid var(--line);
+    padding-left: 28px;
+  }
+  .atelier-list li { display: block; }
+  .atelier-list button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--ink-2);
+    transition: color 0.25s ease, padding-left 0.3s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .atelier-list li:last-child button { border-bottom: 0; }
+
+  .atelier-list__num {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    transition: color 0.25s ease;
+  }
+  .atelier-list__q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.3;
+    color: inherit;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+  }
+
+  .atelier-list button:hover {
+    color: var(--ink);
+    padding-left: 10px;
+  }
+  .atelier-list button:hover .atelier-list__num { color: var(--cognac); }
+
+  .atelier-list button.is-active {
+    color: var(--ink);
+    padding-left: 14px;
+    position: relative;
+  }
+  .atelier-list button.is-active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 70%;
+    background: var(--cognac);
+  }
+  .atelier-list button.is-active .atelier-list__num { color: var(--cognac); }
 }
 
 @media (max-width: 520px) {

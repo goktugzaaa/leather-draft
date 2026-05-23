@@ -897,6 +897,41 @@
               <button type="button" data-i="4" aria-label="Show video 5"></button>
             </div>
           </div>
+
+          <!-- Desktop only: vertical question list, fills the empty
+               right-hand area on PC. Hidden on mobile (dots used instead). -->
+          <ol class="atelier-list" id="atelierList">
+            <li>
+              <button type="button" class="is-active" data-i="0">
+                <span class="mono atelier-list__num">Intro</span>
+                <span class="atelier-list__q">Meet Rishi.</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-i="1">
+                <span class="mono atelier-list__num">Q&middot;01</span>
+                <span class="atelier-list__q">What inspired De Leather Craft?</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-i="2">
+                <span class="mono atelier-list__num">Q&middot;02</span>
+                <span class="atelier-list__q">How do you approach a piece of leather?</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-i="3">
+                <span class="mono atelier-list__num">Q&middot;03</span>
+                <span class="atelier-list__q">The most challenging case.</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-i="4">
+                <span class="mono atelier-list__num">Q&middot;04</span>
+                <span class="atelier-list__q">Working with exotic leathers.</span>
+              </button>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -1498,6 +1533,8 @@
         var atBody     = document.getElementById('atelierBody');
         var atCounter  = document.getElementById('atelierCounter');
         var atDots     = document.getElementById('atelierDots').querySelectorAll('button');
+        var atListEl   = document.getElementById('atelierList');
+        var atList     = atListEl ? atListEl.querySelectorAll('button') : [];
         var atPrev     = document.getElementById('atelierPrev');
         var atNext     = document.getElementById('atelierNext');
         var atIndex    = 0;
@@ -1522,6 +1559,9 @@
             atDots.forEach(function (d, i) {
               d.classList.toggle('is-active', i === atIndex);
             });
+            atList.forEach(function (li, i) {
+              li.classList.toggle('is-active', i === atIndex);
+            });
 
             // Fade text back in
             atText.classList.remove('is-changing');
@@ -1533,6 +1573,11 @@
         atDots.forEach(function (d) {
           d.addEventListener('click', function () {
             showAtelier(parseInt(d.getAttribute('data-i'), 10));
+          });
+        });
+        atList.forEach(function (li) {
+          li.addEventListener('click', function () {
+            showAtelier(parseInt(li.getAttribute('data-i'), 10));
           });
         });
       }
