@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>De Leather Craft — Premium Leather Repair, Cleaning &amp; Restoration</title>
+  <meta name="description" content="India's leather atelier since 2001. Premium repair, deep cleaning and restoration of luxury handbags, shoes, jackets and sofas. Doorstep pickup in 9 cities." />
+
+  <!--
+    Type system:
+      - Display: Cormorant Garamond — refined serif, strong italics. Suits a luxury atelier brand.
+      - Body: Inter Tight — compact modern sans, legible at small sizes.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter+Tight:wght@300;400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================================================================
+       COMPONENT: Header / Navigation
+       ====================================================================== -->
+  <header class="site-header site-header--over-hero">
+    <div class="wrap site-header__inner">
+
+      <!-- Logo -->
+      <a href="#" class="dlc-logo" aria-label="De Leather Craft — home">
+        <span class="dlc-word">
+          <span class="is-dark">De </span><span class="is-cognac">Leather </span><span class="is-dark">Craft</span>
+        </span>
+        <span class="dlc-tag">luxury care for your luxury leather&hellip;</span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">Products</a>
+
+        <div class="nav-menu">
+          <button type="button" class="nav-link" aria-haspopup="true">
+            We Service
+            <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+          <div class="nav-panel">
+            <a href="#" class="nav-panel-link">Leather Coat / Leather Jacket</a>
+            <a href="#" class="nav-panel-link">Leather Bags</a>
+            <a href="#" class="nav-panel-link">Shoes</a>
+            <a href="#" class="nav-panel-link">Women Shoes</a>
+            <a href="#" class="nav-panel-link">Belts Restoration</a>
+            <a href="#" class="nav-panel-link">Wallets Restoration</a>
+            <a href="#" class="nav-panel-link">Leather Sofa Cleaning &amp; Repair — Delhi NCR</a>
+            <a href="#" class="nav-panel-link">Sneakers Restoration</a>
+            <a href="#" class="nav-panel-link">Trolley Bag Repair</a>
+          </div>
+        </div>
+
+        <a href="#" class="nav-link">New Customized Products</a>
+        <a href="#" class="nav-link">What do we do</a>
+        <a href="#" class="nav-link">dlc vs other</a>
+
+        <div class="nav-menu">
+          <button type="button" class="nav-link" aria-haspopup="true">
+            More
+            <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+          <div class="nav-panel nav-panel--right">
+            <a href="#" class="nav-panel-link">Testimonials</a>
+            <a href="#" class="nav-panel-link">Terms and Conditions</a>
+            <a href="#" class="nav-panel-link">Contact Us</a>
+            <a href="#" class="nav-panel-link">Media</a>
+            <a href="#" class="nav-panel-link">Area</a>
+            <a href="#" class="nav-panel-link">Cobbler Shop Near Me | Cobbler Shoe Repair Service</a>
+            <a href="#" class="nav-panel-link">Shoes Cleaning &amp; Drycleaning Near Me</a>
+            <a href="#" class="nav-panel-link">Reviews</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="nav-desktop-cta">
+        <a href="#contact" class="btn btn--ghost">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </div>
+
+      <!-- Burger toggle (mobile) -->
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+          <path id="burgerPath" d="M2 2 L16 2 M2 7 L16 7 M2 12 L16 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav__list">
+        <li><a href="#" class="mobile-nav__link">Home</a></li>
+        <li><a href="#" class="mobile-nav__link">About</a></li>
+        <li><a href="#" class="mobile-nav__link">Blog</a></li>
+        <li><a href="#" class="mobile-nav__link">Products</a></li>
+        <li>
+          <button type="button" class="mobile-nav__toggle" aria-expanded="false">
+            We Service
+            <span class="caret"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <ul class="mobile-nav__sub" hidden>
+            <li><a href="#">Leather Coat / Leather Jacket</a></li>
+            <li><a href="#">Leather Bags</a></li>
+            <li><a href="#">Shoes</a></li>
+            <li><a href="#">Women Shoes</a></li>
+            <li><a href="#">Belts Restoration</a></li>
+            <li><a href="#">Wallets Restoration</a></li>
+            <li><a href="#">Leather Sofa Cleaning &amp; Repair — Delhi NCR</a></li>
+            <li><a href="#">Sneakers Restoration</a></li>
+            <li><a href="#">Trolley Bag Repair</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="mobile-nav__link">New Customized Products</a></li>
+        <li><a href="#" class="mobile-nav__link">What do we do</a></li>
+        <li><a href="#" class="mobile-nav__link">dlc vs other</a></li>
+        <li>
+          <button type="button" class="mobile-nav__toggle" aria-expanded="false">
+            More
+            <span class="caret"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <ul class="mobile-nav__sub" hidden>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Area</a></li>
+            <li><a href="#">Cobbler Shop Near Me | Cobbler Shoe Repair Service</a></li>
+            <li><a href="#">Shoes Cleaning &amp; Drycleaning Near Me</a></li>
+            <li><a href="#">Reviews</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="mobile-nav__cta">
+        <a href="#contact" class="btn btn--primary btn--cognac btn--lg" style="justify-content:center;">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+        <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" class="mobile-nav__whatsapp">WhatsApp us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ====================================================================
+         COMPONENT: Hero (orijinal — yoruma alindi, video hero ile degistirildi)
+         ==================================================================== -->
+    <!--
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+
+          <div>
+            <div class="hero-eyebrow">
+              <span class="rule"></span>
+              <span class="eyebrow">India&rsquo;s leather atelier · Since 2001</span>
+            </div>
+
+            <h1 class="hero-title">
+              Bring leather <br />
+              <em>back to life.</em>
+            </h1>
+
+            <p class="lede hero-lede">
+              Four decades of premium repair, deep cleaning &amp; restoration for the leather you
+              can&rsquo;t replace — handbags, shoes, jackets, wallets, belts and sofas. Pan-India
+              doorstep pickup.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn--primary btn--cognac btn--lg">
+                Get in touch
+                <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </a>
+              <a href="#services" class="btn btn--ghost btn--lg">Browse services</a>
+            </div>
+
+            <div class="hero-anchor">
+              <div class="hero-stat-num serif">40<em>+</em></div>
+              <div class="hero-anchor__text">
+                <div class="mono hero-stat-label">Years restoring</div>
+                <div class="hero-stat-text">
+                  India&rsquo;s longest-running leather atelier, three generations and counting.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visuals">
+            <div class="hero-main">
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1400&q=80&auto=format&fit=crop" alt="Cognac leather handbag restored at De Leather Craft" loading="eager" />
+              <div class="hero-tag">
+                <span class="hero-dot"></span>
+                <span class="mono">Now restoring · 14 pieces</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    -->
+
+
+    <!-- ====================================================================
+         COMPONENT: Hero (video)
+         ==================================================================== -->
+    <section class="hero-video" id="heroVideo" aria-label="Luxury Leather Restoration &amp; Repair Experts">
+      <video class="hero-video__bg" autoplay muted loop playsinline preload="auto">
+        <source src="Promo-2.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video__shade"></div>
+
+      <div class="wrap hero-video__inner">
+        <div class="hero-video__eyebrow">
+          <span class="rule"></span>
+          <span class="eyebrow">India&rsquo;s leather atelier &middot; Since 2001</span>
+        </div>
+
+        <h1 class="hero-video__title">
+          Luxury Leather Restoration <em>&amp;&nbsp;Repair Experts</em>
+        </h1>
+
+        <p class="hero-video__sub">
+          The leather you treasure &mdash; restored to its former glory.
+        </p>
+
+        <div class="hero-video__actions">
+          <a href="#contact" class="btn btn--hero">
+            <span>Get In Touch</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Intro
+         ==================================================================== -->
+    <section class="section intro">
+      <div class="wrap">
+        <div class="intro-grid">
+          <div>
+            <div class="eyebrow">Who we are</div>
+            <h2 class="section-title intro-title">
+              Leather laundry &amp; repair service, <em>near you.</em>
+            </h2>
+          </div>
+
+          <div class="intro-body">
+            <p class="lede">
+              De Leather Craft is your go-to leather care shop for premium repair,
+              restoration and dry cleaning across India. Our skilled technicians know the
+              intricate craft needed to revive the original allure and lustre of your bags,
+              shoes, jackets, wallets, belts, sofas and other leather goods.
+            </p>
+            <p class="intro-note">
+              <span class="intro-rule" aria-hidden="true"></span>
+              Over two decades in the leather industry &mdash; unparalleled cleaning, repair
+              and care for the luxury pieces you treasure most.
+            </p>
+          </div>
+        </div>
+
+        <div class="intro-seo">
+          <p>
+            Looking for a &ldquo;leather laundry near me&rdquo;, a local shoe repair shop or
+            &ldquo;mobile leather furniture repair near me&rdquo;? De Leather Craft offers
+            professional leather repair, shoe repair, restoration and dry cleaning with
+            convenient doorstep pickup across India:
+          </p>
+
+          <div class="city-marquee" aria-label="Doorstep pickup cities across India">
+            <div class="city-marquee__track">
+              <!-- listed twice for a seamless infinite loop -->
+              <span>Delhi</span><span>Mumbai</span><span>Bangalore</span><span>Chandigarh</span><span>Amritsar</span><span>Noida</span><span>Gurgaon</span><span>Jalandhar</span><span>Hyderabad</span><span>Ahmedabad</span><span>Kolkata</span><span>Pune</span><span>Jaipur</span><span aria-hidden="true">Delhi</span><span aria-hidden="true">Mumbai</span><span aria-hidden="true">Bangalore</span><span aria-hidden="true">Chandigarh</span><span aria-hidden="true">Amritsar</span><span aria-hidden="true">Noida</span><span aria-hidden="true">Gurgaon</span><span aria-hidden="true">Jalandhar</span><span aria-hidden="true">Hyderabad</span><span aria-hidden="true">Ahmedabad</span><span aria-hidden="true">Kolkata</span><span aria-hidden="true">Pune</span><span aria-hidden="true">Jaipur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Services list
+         ==================================================================== -->
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="services-head">
+          <div>
+            <div class="eyebrow">Services</div>
+            <h2 class="section-title">
+              Everything leather, <br />
+              <em>under one roof.</em>
+            </h2>
+          </div>
+          <p class="lede">
+            From a hairline crack on a vintage Birkin to a complete reupholster of a chesterfield —
+            our atelier handles 40+ leather services with the same patience and obsession.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="services-col">
+            <h3>Restoration</h3>
+            <ul>
+              <li>Color restoration</li>
+              <li>Patchwork</li>
+              <li>Polishing</li>
+              <li>Re-conditioning</li>
+              <li>Edge &amp; seam repair</li>
+            </ul>
+          </div>
+          <div class="services-col">
+            <h3>Cleaning</h3>
+            <ul>
+              <li>Deep leather laundry</li>
+              <li>Suede &amp; nubuck care</li>
+              <li>Stain removal</li>
+              <li>Sneaker spa</li>
+              <li>Sofa cleaning</li>
+            </ul>
+          </div>
+          <div class="services-col">
+            <h3>Repair</h3>
+            <ul>
+              <li>Zipper replacement</li>
+              <li>Handle re-stitching</li>
+              <li>Sole replacement</li>
+              <li>Hardware repair</li>
+              <li>Lining fix</li>
+            </ul>
+          </div>
+          <div class="services-col">
+            <h3>Alteration</h3>
+            <ul>
+              <li>Resize &amp; re-fit</li>
+              <li>Strap shortening</li>
+              <li>Belt cut &amp; buckle</li>
+              <li>Monogramming</li>
+              <li>Custom lining</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Category grid
+         ==================================================================== -->
+    <section class="section category-grid" id="categories">
+      <div class="wrap">
+        <div class="cat-head">
+          <div>
+            <div class="eyebrow">What we restore</div>
+            <h2 class="section-title">
+              From hairline crack <br />
+              <em>to heirloom revival.</em>
+            </h2>
+          </div>
+          <a href="#contact" class="cat-head__link">Don&rsquo;t see your item? Get in touch →</a>
+        </div>
+
+        <div class="cat-grid">
+
+          <a href="#contact" class="cat-card cat-card--wide">
+            <div class="cat-card__media"><img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80&auto=format&fit=crop" alt="Handbags restored by De Leather Craft" loading="lazy" /></div>
+            <div class="cat-card__shade"></div>
+            <div class="cat-meta">
+              <div>
+                <div class="cat-name">Handbags</div>
+                <div class="mono cat-count">24K+ restored</div>
+                <div class="cat-blurb">Birkin to Speedy — colour, stitch, handle, hardware.</div>
+              </div>
+              <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.4" fill="none" /></svg></div>
+            </div>
+          </a>
+
+          <a href="#contact" class="cat-card">
+            <div class="cat-card__media"><img src="https://images.unsplash.com/photo-1582897085656-c636d006a246?w=1200&q=80&auto=format&fit=crop" alt="Shoes restored by De Leather Craft" loading="lazy" /></div>
+            <div class="cat-card__shade"></div>
+            <div class="cat-meta">
+              <div>
+                <div class="cat-name">Shoes</div>
+                <div class="mono cat-count">18K+ restored</div>
+                <div class="cat-blurb">Resoling, re-dyeing, edge work, heel replacement.</div>
+              </div>
+              <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.4" fill="none" /></svg></div>
+            </div>
+          </a>
+
+          <a href="#contact" class="cat-card">
+            <div class="cat-card__media"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&q=80&auto=format&fit=crop" alt="Jackets restored by De Leather Craft" loading="lazy" /></div>
+            <div class="cat-card__shade"></div>
+            <div class="cat-meta">
+              <div>
+                <div class="cat-name">Jackets</div>
+                <div class="mono cat-count">6K+ restored</div>
+                <div class="cat-blurb">Re-conditioning, zipper, lining, structural patches.</div>
+              </div>
+              <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.4" fill="none" /></svg></div>
+            </div>
+          </a>
+
+          <a href="#contact" class="cat-card">
+            <div class="cat-card__media"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&q=80&auto=format&fit=crop" alt="Sneakers restored by De Leather Craft" loading="lazy" /></div>
+            <div class="cat-card__shade"></div>
+            <div class="cat-meta">
+              <div>
+                <div class="cat-name">Sneakers</div>
+                <div class="mono cat-count">11K+ restored</div>
+                <div class="cat-blurb">Sole whitening, mesh, midsole — your daily kicks.</div>
+              </div>
+              <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.4" fill="none" /></svg></div>
+            </div>
+          </a>
+
+          <a href="#contact" class="cat-card">
+            <div class="cat-card__media"><img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80&auto=format&fit=crop" alt="Wallets &amp; Belts restored by De Leather Craft" loading="lazy" /></div>
+            <div class="cat-card__shade"></div>
+            <div class="cat-meta">
+              <div>
+                <div class="cat-name">Wallets &amp; Belts</div>
+                <div class="mono cat-count">21K+ restored</div>
+                <div class="cat-blurb">Edge re-finishing, monogram, hardware swap.</div>
+              </div>
+              <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.4" fill="none" /></svg></div>
+            </div>
+          </a>
+
+          <a href="#contact" class="cat-card cat-card--wide">
+            <div class="cat-card__media"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=1400&q=80&auto=format&fit=crop" alt="Sofas &amp; Upholstery restored by De Leather Craft" loading="lazy" /></div>
+            <div class="cat-card__shade"></div>
+            <div class="cat-meta">
+              <div>
+                <div class="cat-name">Sofas &amp; Upholstery</div>
+                <div class="mono cat-count">2.4K+ restored</div>
+                <div class="cat-blurb">Chesterfield reupholstery, cushion patching, deep clean.</div>
+              </div>
+              <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.4" fill="none" /></svg></div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Before / After (interactive slider)
+         ==================================================================== -->
+    <section class="section before-after" id="before-after">
+      <div class="wrap">
+        <div class="ba-head">
+          <div>
+            <div class="eyebrow">Before / After</div>
+            <h2 class="section-title">
+              Drag, and see <br />
+              <em>what&rsquo;s possible.</em>
+            </h2>
+          </div>
+          <div class="mono ba-head__hint">&larr; Drag the handle &rarr;</div>
+        </div>
+
+        <div class="ba-grid">
+
+          <!-- Slider: the "after" image sits underneath, the "before" overlay is clipped -->
+          <div class="ba-slider" id="baSlider">
+            <img class="ba-after-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1400&q=80&auto=format&fit=crop" alt="After restoration" draggable="false" />
+
+            <div class="ba-before" id="baBefore">
+              <img class="ba-before-img" src="before-bag.jpg" alt="Before restoration" draggable="false" />
+            </div>
+
+            <div class="ba-tag ba-tag--before">Before</div>
+            <div class="ba-tag ba-tag--after">After</div>
+
+            <div class="ba-divider" id="baDivider"></div>
+            <div class="ba-handle" id="baHandle">
+              <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M7 1 L1 7 L7 13 M13 1 L19 7 L13 13" stroke="var(--ink)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+          </div>
+
+          <!-- Caption: single restoration case + CTA (replaces old case picker) -->
+          <aside class="ba-caption">
+            <div class="ba-caption__row">
+              <span class="ba-caption__title">Louis Vuitton Speedy</span>
+              <span class="mono ba-caption__age">12 years</span>
+            </div>
+            <p class="ba-caption__issue">
+              Faded vachetta, cracked handle, lining tear &mdash; brought back to its
+              original lustre by our master technicians, by hand, over four quiet weeks.
+            </p>
+            <a href="#contact" class="btn btn--primary btn--cognac">
+              Get in touch
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </a>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Process
+         ==================================================================== -->
+    <section class="section process" id="process">
+      <div class="wrap">
+        <div class="proc-head">
+          <div>
+            <div class="eyebrow">How it works</div>
+            <h2 class="section-title">
+              Four <em>quiet</em> <br />
+              weeks.
+            </h2>
+          </div>
+          <p class="lede">
+            Most restorations finish in 10–14 days. Heavy structural work — re-soling boots,
+            re-upholstering a sofa — takes up to four weeks. You&rsquo;ll see every step.
+          </p>
+        </div>
+
+        <div class="proc-grid">
+          <div class="proc-step">
+            <div class="proc-dot"></div>
+            <div class="mono proc-step__count">1 of 4</div>
+            <h3>WhatsApp or call</h3>
+            <p>Tell us what needs care, send a couple of photos. We share a rough estimate within an hour.</p>
+          </div>
+          <div class="proc-step">
+            <div class="proc-dot"></div>
+            <div class="mono proc-step__count">2 of 4</div>
+            <h3>Free doorstep pickup</h3>
+            <p>We collect from your home in 9 cities — fully insured, free of charge. Outside? We accept by post, also insured.</p>
+          </div>
+          <div class="proc-step">
+            <div class="proc-dot"></div>
+            <div class="mono proc-step__count">3 of 4</div>
+            <h3>Hand-restoration</h3>
+            <p>A single dedicated artisan owns your piece — cleaning, re-dyeing, re-stitching, hardware. You see photos at every stage.</p>
+          </div>
+          <div class="proc-step">
+            <div class="proc-dot"></div>
+            <div class="mono proc-step__count">4 of 4</div>
+            <h3>Returned with care</h3>
+            <p>Delivered in protective wrapping with a 6-month workmanship warranty and a small bottle of leather conditioner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: CTA banner (cream variant)
+         ==================================================================== -->
+    <section class="cta-banner">
+      <div class="wrap">
+        <div class="eyebrow">Ready when you are</div>
+        <h2 class="cta-banner__title">Bring it back. <em>Today.</em></h2>
+        <p class="cta-banner__text">
+          Free pickup, free estimate, no commitment. We&rsquo;ll reply within 4 hours, every day of
+          the week.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="#contact" class="btn btn--primary btn--cognac btn--lg">
+            Get in touch
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">
+            WhatsApp now
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Our promise
+         ==================================================================== -->
+    <section class="section promise">
+      <div class="wrap">
+        <div class="promise-head">
+          <div>
+            <div class="eyebrow">Our promise</div>
+            <h2 class="section-title">Four <em>quiet</em> commitments.</h2>
+          </div>
+          <p class="lede">
+            What we promise every customer, no matter the brand, age or condition of the piece.
+          </p>
+        </div>
+
+        <div class="promise-grid">
+
+          <div class="promise-card">
+            <div class="promise-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M6 32 L6 18 L26 18 L26 32 Z" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M26 22 L36 22 L42 28 L42 32 L26 32 Z" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="14" cy="34" r="3.5" stroke="var(--ink)" stroke-width="1.4" fill="none" />
+                <circle cx="34" cy="34" r="3.5" stroke="var(--ink)" stroke-width="1.4" fill="none" />
+                <path d="M30 14 L34 18 L30 22" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M22 18 L34 18" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Doorstep pickup &amp; drop</h3>
+            <p>Free across 9 cities, fully insured by post elsewhere in India.</p>
+          </div>
+
+          <div class="promise-card">
+            <div class="promise-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M24 8 C 30 14, 30 22, 24 28 C 18 22, 18 14, 24 8 Z" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M24 28 L 24 40" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14 36 C 18 32, 22 32, 24 34" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M34 36 C 30 32, 26 32, 24 34" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Ethically sourced materials</h3>
+            <p>Italian dyes, German thread, hand-selected leathers — never shortcuts.</p>
+          </div>
+
+          <div class="promise-card">
+            <div class="promise-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="14" cy="14" r="6" stroke="var(--ink)" stroke-width="1.4" fill="none" />
+                <circle cx="34" cy="14" r="6" stroke="var(--ink)" stroke-width="1.4" fill="none" />
+                <path d="M14 20 L 22 36 L 30 36 L 34 20" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M18 36 L 18 42" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M26 36 L 26 42" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Service tailored to you</h3>
+            <p>Every piece gets its own treatment plan. No assembly line, no upselling.</p>
+          </div>
+
+          <div class="promise-card">
+            <div class="promise-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="22" r="13" stroke="var(--ink)" stroke-width="1.4" fill="none" />
+                <path d="M19 22 L 23 26 L 30 18" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M18 36 L 18 42 L 24 39 L 30 42 L 30 36" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>6-month workmanship warranty</h3>
+            <p>If our work doesn&rsquo;t hold, we redo it. Simple as that.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Brands
+         ==================================================================== -->
+    <section class="section brands" id="brands">
+      <div class="wrap">
+        <div class="brands-head">
+          <div>
+            <div class="eyebrow">Brands we restore</div>
+            <h2 class="section-title">
+              From everyday <br />
+              to <em>heirloom.</em>
+            </h2>
+          </div>
+          <p class="lede">
+            We work on every brand, but luxury houses trust us with the pieces they won&rsquo;t
+            service themselves. No badges, no logos — just the leather, returned right.
+          </p>
+        </div>
+
+        <div class="brands-grid">
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Hermès</span></div>
+          <div class="brands-cell"><span class="brand-name">Louis Vuitton</span></div>
+          <div class="brands-cell"><span class="brand-name">Bottega Veneta</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Gucci</span></div>
+          <div class="brands-cell"><span class="brand-name">Prada</span></div>
+          <div class="brands-cell"><span class="brand-name">Saint Laurent</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Chanel</span></div>
+          <div class="brands-cell"><span class="brand-name">Dior</span></div>
+          <div class="brands-cell"><span class="brand-name">Burberry</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Coach</span></div>
+          <div class="brands-cell"><span class="brand-name">Jimmy Choo</span></div>
+          <div class="brands-cell"><span class="brand-name">Christian Louboutin</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Balenciaga</span></div>
+          <div class="brands-cell"><span class="brand-name">Fendi</span></div>
+          <div class="brands-cell"><span class="brand-name">Mont Blanc</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Bvlgari</span></div>
+          <div class="brands-cell"><span class="brand-name">Berluti</span></div>
+          <div class="brands-cell"><span class="brand-name">Tod&rsquo;s</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Allen Edmonds</span></div>
+          <div class="brands-cell"><span class="brand-name">Church&rsquo;s</span></div>
+          <div class="brands-cell"><span class="brand-name">Schott NYC</span></div>
+          <div class="brands-cell"><span class="brand-name brand-name--italic">Valentino</span></div>
+        </div>
+        <div class="brands-note">
+          We are not affiliated with any of these houses. We&rsquo;re independent specialists.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Reviews
+         ==================================================================== -->
+    <section class="section reviews" id="reviews">
+      <div class="wrap">
+        <div class="reviews-head">
+          <div class="eyebrow">What they say</div>
+          <div class="reviews-head__row">
+            <h2 class="section-title">4.9 / 5 — from <em>2,140 reviews.</em></h2>
+            <div class="reviews-stars">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-card__stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;My mother&rsquo;s Kelly came back looking older — in the right way. The patina they preserved, the structure they rebuilt. I cried, honestly.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Anaïs Dorégan</div>
+              <div class="mono review-card__meta">Mumbai · Hermès Kelly · 1998</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;They re-dyed a black leather jacket I&rsquo;d given up on. New zip, new lining, all the same character. Two-year wait at Schott NY — two weeks here.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Vikram Suri</div>
+              <div class="mono review-card__meta">Bengaluru · Schott Perfecto · 2007</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;A 60-year-old chesterfield with three torn cushions and a cracked back. Picked up, restored, returned. The estimate was the price. No upsell.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Mira Sundaram</div>
+              <div class="mono review-card__meta">New Delhi · Chesterfield · 1962</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Social proof (video)
+         ==================================================================== -->
+    <section class="section social-proof" id="stories">
+      <div class="wrap">
+        <div class="sp-head">
+          <div class="eyebrow">On camera</div>
+          <h2 class="section-title">Restorations, <em>in their words.</em></h2>
+          <p class="lede">
+            Real customers, real pieces brought back to life — filmed at the bench
+            and on doorsteps across nine cities.
+          </p>
+        </div>
+
+        <div class="sp-featured">
+          <div class="sp-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/1DhFzWJcaqk" title="Customer story 01" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="sp-grid">
+          <figure class="sp-item">
+            <div class="sp-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/FeQZSHTHXxk" title="Customer story 02" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption class="mono sp-cap">Customer story · 02</figcaption>
+          </figure>
+          <figure class="sp-item">
+            <div class="sp-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/gDZNreL6I80" title="Customer story 03" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption class="mono sp-cap">Customer story · 03</figcaption>
+          </figure>
+          <figure class="sp-item">
+            <div class="sp-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/bgzSNAFQa_w" title="Customer story 04" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption class="mono sp-cap">Customer story · 04</figcaption>
+          </figure>
+          <figure class="sp-item">
+            <div class="sp-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/KM6SUzdiikI" title="Customer story 05" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption class="mono sp-cap">Customer story · 05</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Sustainability
+         ==================================================================== -->
+    <section class="section sustainability">
+      <div class="wrap">
+        <div class="sust-grid">
+          <div>
+            <div class="eyebrow">Sustainability</div>
+            <h2 class="section-title sust-title">
+              Repair. Re-wear. <br />
+              <em>Repeat.</em>
+            </h2>
+            <p class="sust-lead">
+              Every piece we restore is a piece that stays out of landfill. Choosing repair is
+              the most luxurious thing a leather lover can do.
+            </p>
+            <p class="sust-body">
+              We use ethically sourced dyes and threads, run a waste-water filtration system,
+              and pass every offcut to local crafts schools. Our atelier is on track to be
+              fully carbon-neutral by 2027.
+            </p>
+            <div class="sust-stats">
+              <div>
+                <div class="sust-stat__num">48 t</div>
+                <div class="sust-stat__label">Leather diverted from landfill (2025)</div>
+              </div>
+              <div>
+                <div class="sust-stat__num">92%</div>
+                <div class="sust-stat__label">Customers re-restore within 5 years</div>
+              </div>
+              <div>
+                <div class="sust-stat__num">2027</div>
+                <div class="sust-stat__label">Carbon-neutral atelier target</div>
+              </div>
+            </div>
+          </div>
+          <div class="sust-photo">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1400&q=80&auto=format&fit=crop" alt="Leather goods being cared for and worn" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: CTA banner (dark variant)
+         ==================================================================== -->
+    <section class="cta-banner cta-banner--dark">
+      <div class="wrap">
+        <div class="eyebrow">Ready when you are</div>
+        <h2 class="cta-banner__title">Bring it back. <em>Today.</em></h2>
+        <p class="cta-banner__text">
+          Free pickup, free estimate, no commitment. We&rsquo;ll reply within 4 hours, every day of
+          the week.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="#contact" class="btn btn--primary btn--cognac btn--lg">
+            Get in touch
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--ghost-light btn--lg">
+            WhatsApp now
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Media mentions
+         ==================================================================== -->
+    <section class="media-mentions">
+      <div class="wrap">
+        <div class="mono media-mentions__label">As featured in</div>
+        <div class="media-strip">
+          <span class="press-name press-name--serif press-name--italic">Vogue</span>
+          <span class="press-name press-name--serif">The Economic Times</span>
+          <span class="press-name press-name--sans">Mint</span>
+          <span class="press-name press-name--serif press-name--italic press-name--small-caps">Harper&rsquo;s Bazaar</span>
+          <span class="press-name press-name--serif">The Indian Express</span>
+          <span class="press-name press-name--sans press-name--caps">ELLE</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Instagram
+         ==================================================================== -->
+    <section class="section instagram">
+      <div class="wrap">
+        <div class="ig-head">
+          <div>
+            <div class="eyebrow">From the bench</div>
+            <h2 class="section-title">
+              Every restoration, <br />
+              <em>photographed.</em>
+            </h2>
+          </div>
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-head__link">Follow on Instagram →</a>
+        </div>
+
+        <div class="ig-grid">
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-tile">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80&auto=format&fit=crop" alt="Chanel flap — handle re-leathered" loading="lazy" />
+            <div class="ig-overlay"><span>Chanel flap — handle re-leathered</span></div>
+          </a>
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-tile">
+            <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=600&q=80&auto=format&fit=crop" alt="Church's brogues — full re-sole" loading="lazy" />
+            <div class="ig-overlay"><span>Church&rsquo;s brogues — full re-sole</span></div>
+          </a>
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-tile">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80&auto=format&fit=crop" alt="Card holder — edge re-finish" loading="lazy" />
+            <div class="ig-overlay"><span>Card holder — edge re-finish</span></div>
+          </a>
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-tile">
+            <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=600&q=80&auto=format&fit=crop" alt="Chesterfield — 23 yrs revived" loading="lazy" />
+            <div class="ig-overlay"><span>Chesterfield — 23 yrs revived</span></div>
+          </a>
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-tile">
+            <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=80&auto=format&fit=crop" alt="Belt — buckle swap & re-dye" loading="lazy" />
+            <div class="ig-overlay"><span>Belt — buckle swap &amp; re-dye</span></div>
+          </a>
+          <a href="https://instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer" class="ig-tile">
+            <img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=600&q=80&auto=format&fit=crop" alt="Atelier — Tuesday afternoon" loading="lazy" />
+            <div class="ig-overlay"><span>Atelier — Tuesday afternoon</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         COMPONENT: Quote / Contact
+         ==================================================================== -->
+    <section class="section quote" id="contact">
+      <div class="wrap">
+        <div class="quote-grid">
+
+          <!-- Left: cities -->
+          <div class="quote-cities">
+            <div class="eyebrow" id="locations">Where we are</div>
+            <h2 class="section-title">Free pickup in <em>nine cities.</em></h2>
+            <p class="lede">
+              Outside our network? We accept pieces by post from anywhere in India — fully insured,
+              both ways.
+            </p>
+            <ul class="cities-list">
+              <li><span class="cities-list__name">New Delhi</span><span class="cities-list__area">11 / Greater Kailash</span></li>
+              <li><span class="cities-list__name">Mumbai</span><span class="cities-list__area">Bandra · Lower Parel</span></li>
+              <li><span class="cities-list__name">Bengaluru</span><span class="cities-list__area">Indiranagar</span></li>
+              <li><span class="cities-list__name">Hyderabad</span><span class="cities-list__area">Banjara Hills</span></li>
+              <li><span class="cities-list__name">Chennai</span><span class="cities-list__area">Nungambakkam</span></li>
+              <li><span class="cities-list__name">Gurgaon</span><span class="cities-list__area">DLF Phase 1</span></li>
+              <li><span class="cities-list__name">Pune</span><span class="cities-list__area">Koregaon Park</span></li>
+              <li><span class="cities-list__name">Kolkata</span><span class="cities-list__area">Park Street</span></li>
+              <li><span class="cities-list__name">Ahmedabad</span><span class="cities-list__area">Vastrapur</span></li>
+            </ul>
+          </div>
+
+          <!-- Right: estimate form -->
+          <div class="quote-form">
+            <div class="eyebrow">Free estimate</div>
+            <h3 class="quote-form__title">Tell us what needs care.</h3>
+
+            <form id="quoteForm">
+              <div class="field">
+                <span class="mono field__label">Your item</span>
+                <div class="segmented" data-picker="item">
+                  <button type="button" class="segmented__option is-active">Handbag</button>
+                  <button type="button" class="segmented__option">Shoes</button>
+                  <button type="button" class="segmented__option">Jacket</button>
+                  <button type="button" class="segmented__option">Wallet</button>
+                  <button type="button" class="segmented__option">Belt</button>
+                  <button type="button" class="segmented__option">Sofa</button>
+                  <button type="button" class="segmented__option">Other</button>
+                </div>
+              </div>
+
+              <div class="field">
+                <span class="mono field__label">What it needs</span>
+                <div class="segmented" data-picker="service">
+                  <button type="button" class="segmented__option is-active">Cleaning</button>
+                  <button type="button" class="segmented__option">Restoration</button>
+                  <button type="button" class="segmented__option">Repair</button>
+                  <button type="button" class="segmented__option">Alteration</button>
+                </div>
+              </div>
+
+              <label class="field">
+                <span class="mono field__label">Pickup city</span>
+                <select class="select">
+                  <option>New Delhi</option>
+                  <option selected>Mumbai</option>
+                  <option>Bengaluru</option>
+                  <option>Hyderabad</option>
+                  <option>Chennai</option>
+                  <option>Gurgaon</option>
+                  <option>Pune</option>
+                  <option>Kolkata</option>
+                  <option>Ahmedabad</option>
+                  <option>By post</option>
+                </select>
+              </label>
+
+              <div class="field-row">
+                <label class="field">
+                  <span class="mono field__label">Your name</span>
+                  <input class="input" type="text" placeholder="Full name" />
+                </label>
+                <label class="field">
+                  <span class="mono field__label">Phone / WhatsApp</span>
+                  <input class="input" type="tel" placeholder="+91" />
+                </label>
+              </div>
+
+              <label class="field">
+                <span class="mono field__label">Tell us a little (optional)</span>
+                <textarea class="textarea" rows="3" placeholder="e.g. Vachetta darkened, handle peeling on a Speedy 30"></textarea>
+              </label>
+
+              <button type="submit" class="quote-submit">
+                Get in touch
+                <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" /></svg>
+              </button>
+              <div class="quote-form__note">No card, no commitment — we&rsquo;ll reply within 4 hours.</div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================================
+       COMPONENT: Footer
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <div class="footer-brand__name">
+            <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+              <circle cx="18" cy="18" r="17" fill="var(--bg)" />
+              <text x="18" y="24" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="20" font-style="italic" fill="var(--ink)">d</text>
+            </svg>
+            <div class="footer-brand__title">De Leather Craft</div>
+          </div>
+          <p class="footer-brand__text">
+            An independent leather atelier founded in Delhi, 2001. Premium repair, deep cleaning
+            and restoration of fine leather across India.
+          </p>
+          <div class="footer-contact">
+            <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" class="footer-contact__whatsapp">+91 99XXX XXXXX (WhatsApp)</a>
+            <a href="mailto:hello@deleathercraft.com" class="footer-contact__email">hello@deleathercraft.com</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Services</div>
+          <ul>
+            <li><a href="#">Restoration</a></li>
+            <li><a href="#">Cleaning</a></li>
+            <li><a href="#">Repair</a></li>
+            <li><a href="#">Alteration</a></li>
+            <li><a href="#">Polishing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Categories</div>
+          <ul>
+            <li><a href="#">Handbags</a></li>
+            <li><a href="#">Shoes</a></li>
+            <li><a href="#">Jackets</a></li>
+            <li><a href="#">Sofas</a></li>
+            <li><a href="#">Wallets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Company</div>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Process</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-cities">
+        <div class="mono footer-cities__label">We serve · pan India</div>
+        <ul class="footer-cities__list">
+          <li>Delhi</li>
+          <li>Mumbai</li>
+          <li>Bengaluru</li>
+          <li>Hyderabad</li>
+          <li>Chennai</li>
+          <li>Gurgaon</li>
+          <li>Pune</li>
+          <li>Kolkata</li>
+          <li>Ahmedabad</li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 De Leather Craft. All rights reserved.</div>
+        <div class="footer-bottom__links">
+          <a href="#">Instagram</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================================================
+       INLINE SCRIPT — interactive behaviour
+       Mirrors the original React component state:
+         1. Mobile navigation drawer + submenu toggles
+         2. Before / After drag slider + case switcher
+         3. Quote form segmented pickers + submit guard
+       ====================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- 1. Mobile navigation -------------------------------------- */
+      var burger = document.getElementById('navBurger');
+      var mobileNav = document.getElementById('mobileNav');
+      var burgerPath = document.getElementById('burgerPath');
+      var headerEl = document.querySelector('.site-header');
+      var ICON_CLOSED = 'M2 2 L16 2 M2 7 L16 7 M2 12 L16 12';
+      var ICON_OPEN = 'M2 2 L16 12 M2 12 L16 2';
+
+      burger.addEventListener('click', function () {
+        var open = mobileNav.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', String(open));
+        burgerPath.setAttribute('d', open ? ICON_OPEN : ICON_CLOSED);
+        headerEl.classList.toggle('site-header--menu-open', open);
+      });
+
+      // Expandable submenus inside the mobile drawer
+      mobileNav.querySelectorAll('.mobile-nav__toggle').forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+          var sub = toggle.nextElementSibling;
+          var expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          sub.hidden = expanded;
+        });
+      });
+
+      // Close the drawer when a real link is tapped
+      mobileNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileNav.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          burgerPath.setAttribute('d', ICON_CLOSED);
+          headerEl.classList.remove('site-header--menu-open');
+        });
+      });
+
+
+      /* ---- 2. Before / After slider ---------------------------------- */
+      var slider = document.getElementById('baSlider');
+      var before = document.getElementById('baBefore');
+      var divider = document.getElementById('baDivider');
+      var handle = document.getElementById('baHandle');
+      var dragging = false;
+
+      function setPos(percent) {
+        percent = Math.max(0, Math.min(100, percent));
+        before.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+        divider.style.left = percent + '%';
+        handle.style.left = percent + '%';
+      }
+
+      function updateFromX(clientX) {
+        var rect = slider.getBoundingClientRect();
+        var x = Math.max(0, Math.min(rect.width, clientX - rect.left));
+        setPos((x / rect.width) * 100);
+      }
+
+      function pointerX(e) {
+        return e.touches ? e.touches[0].clientX : e.clientX;
+      }
+
+      function onDown(e) {
+        dragging = true;
+        updateFromX(pointerX(e));
+      }
+
+      slider.addEventListener('mousedown', onDown);
+      slider.addEventListener('touchstart', onDown, { passive: true });
+
+      window.addEventListener('mousemove', function (e) {
+        if (dragging) updateFromX(e.clientX);
+      });
+      window.addEventListener('touchmove', function (e) {
+        if (dragging) updateFromX(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('mouseup', function () { dragging = false; });
+      window.addEventListener('touchend', function () { dragging = false; });
+
+      // (Case picker removed — single focused before/after comparison.)
+
+
+      /* ---- 3. Quote form --------------------------------------------- */
+      // Segmented pickers — single active option per group
+      document.querySelectorAll('.segmented').forEach(function (group) {
+        group.querySelectorAll('.segmented__option').forEach(function (option) {
+          option.addEventListener('click', function () {
+            group.querySelectorAll('.segmented__option').forEach(function (o) {
+              o.classList.remove('is-active');
+            });
+            option.classList.add('is-active');
+          });
+        });
+      });
+
+      // Prevent the demo form from navigating
+      document.getElementById('quoteForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+      });
+
+
+      /* ---- 4. Hero video — keep the background loop alive ------------ */
+      var heroVideo = document.getElementById('heroVideo');
+      if (heroVideo) {
+        var hvVideo = heroVideo.querySelector('.hero-video__bg');
+        if (hvVideo) {
+          var hvPlay = function () {
+            var p = hvVideo.play();
+            if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+          };
+          hvPlay();
+          document.addEventListener('visibilitychange', function () {
+            if (!document.hidden) hvPlay();
+          });
+        }
+      }
+
+
+      /* ---- 5. Transparent header while it overlaps the video hero ---- */
+      var siteHeader = document.querySelector('.site-header');
+      if (siteHeader && heroVideo && 'IntersectionObserver' in window) {
+        var headerIO = null;
+
+        function watchHeroForHeader() {
+          if (headerIO) headerIO.disconnect();
+          // Negative top margin = header height, so the observer flips
+          // exactly when the hero scrolls clear of the (sticky) header.
+          var rootMargin = '-' + siteHeader.offsetHeight + 'px 0px 0px 0px';
+          headerIO = new IntersectionObserver(function (entries) {
+            siteHeader.classList.toggle('site-header--over-hero', entries[0].isIntersecting);
+          }, { rootMargin: rootMargin, threshold: 0 });
+          headerIO.observe(heroVideo);
+        }
+
+        watchHeroForHeader();
+
+        // Header height shifts across breakpoints — rebuild on resize
+        var headerResizeT;
+        window.addEventListener('resize', function () {
+          clearTimeout(headerResizeT);
+          headerResizeT = setTimeout(watchHeroForHeader, 200);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
