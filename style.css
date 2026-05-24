@@ -1197,33 +1197,37 @@ button {
 
 .cat-card--wide { grid-column: span 2; }
 
-/* Hover effect — image blurs and scales gently, shade deepens, then
-   the text rises from below with staggered fade-in. */
+/* Hover effect — everything starts the instant the cursor enters.
+   Subtle layering comes from slightly different durations, not delays,
+   so the response feels immediate, not staged. */
 .cat-card__media {
   position: absolute;
   inset: 0;
   transition:
-    transform 0.65s cubic-bezier(0.2, 0, 0.2, 1),
-    filter 0.55s ease;
-  will-change: filter, transform;
+    transform 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+    filter 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .cat-card__media img { width: 100%; height: 100%; object-fit: cover; }
 
 .cat-card:hover .cat-card__media {
-  transform: scale(1.08);
-  filter: blur(6px);
+  transform: scale(1.04);
+  filter: brightness(0.18);
 }
 
 .cat-card__shade {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 35%, rgba(34, 22, 16, 0.78) 100%);
-  transition: background 0.55s ease;
+  transition: background 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
+/* Hover — image darkens almost to black with a subtle warm radial glow
+   on one side; content sits clean and readable over a near-solid dark. */
 .cat-card:hover .cat-card__shade {
-  background: linear-gradient(180deg, rgba(34, 22, 16, 0.42) 0%, rgba(34, 22, 16, 0.88) 100%);
+  background:
+    radial-gradient(120% 80% at 15% 60%, rgba(168, 98, 58, 0.16) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(20, 13, 8, 0.68) 0%, rgba(20, 13, 8, 0.82) 100%);
 }
 
 .cat-meta {
@@ -1242,41 +1246,43 @@ button {
   font-size: clamp(22px, 2.4vw, 30px);
   line-height: 1.05;
   font-weight: 400;
-  opacity: 0.88;
+  opacity: 0.9;
   transform: translateY(8px);
   transition:
-    opacity 0.45s ease,
-    transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1);
+    opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .cat-card:hover .cat-name {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.05s;
 }
 
+/* Blurb — uses a fixed reserved max-height so the height "snap" is gone.
+   Only opacity + translate animate; layout never jumps. */
 .cat-blurb {
   font-size: 13px;
   line-height: 1.5;
   opacity: 0;
-  max-height: 0;
-  margin-top: 0;
+  max-height: 90px;
+  margin-top: 6px;
   overflow: hidden;
-  transform: translateY(16px);
+  transform: translateY(10px);
+  visibility: hidden;
   transition:
-    opacity 0.55s ease,
-    max-height 0.5s ease,
-    margin-top 0.4s ease,
-    transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1);
-  transition-delay: 0s;
+    opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.55s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0s linear 0.5s;
 }
 
 .cat-card:hover .cat-blurb {
   opacity: 1;
-  max-height: 90px;
-  margin-top: 10px;
   transform: translateY(0);
-  transition-delay: 0.18s;
+  visibility: visible;
+  transition:
+    opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1) 0.1s,
+    transform 0.55s cubic-bezier(0.33, 1, 0.68, 1) 0.1s,
+    visibility 0s linear 0s;
 }
 
 .cat-arrow {
@@ -1288,11 +1294,10 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  opacity: 0.7;
-  transform: translateY(6px);
+  opacity: 0.75;
   transition:
-    transform 0.45s cubic-bezier(0.2, 0.6, 0.2, 1),
-    opacity 0.4s ease;
+    transform 0.55s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .cat-arrow svg { fill: none; stroke: currentColor; }
@@ -1300,7 +1305,9 @@ button {
 .cat-card:hover .cat-arrow {
   transform: rotate(-45deg);
   opacity: 1;
-  transition-delay: 0.28s;
+  transition:
+    transform 0.55s cubic-bezier(0.33, 1, 0.68, 1) 0.15s,
+    opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1) 0.15s;
 }
 
 @media (hover: none) {
@@ -2847,6 +2854,43 @@ button {
   content: '·';
   opacity: 0.3;
 }
+
+/* Social row — sits above the legal bottom row */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(247, 239, 225, 0.15);
+  margin-bottom: 4px;
+}
+
+.footer-social__label {
+  font-size: 10px;
+  color: var(--rose-2);
+  letter-spacing: 0.22em;
+  margin-right: 4px;
+}
+
+.footer-social__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-social__list a {
+  color: rgba(247, 239, 225, 0.85);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease;
+}
+
+.footer-social__list a:hover { color: var(--rose-2); }
 
 .footer-bottom {
   display: flex;
