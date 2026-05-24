@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leather-draft.vercel.app/sitemap.xml
