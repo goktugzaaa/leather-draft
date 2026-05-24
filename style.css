@@ -1606,13 +1606,13 @@ button {
 .before-after--feature .ba-head { margin-bottom: clamp(28px, 4vw, 44px); }
 
 .ba-slider.ba-slider--feature {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 5 / 4;
   border-radius: 6px;
   box-shadow: 0 30px 80px -28px rgba(34, 22, 16, 0.35);
 }
 
 @media (max-width: 720px) {
-  .ba-slider.ba-slider--feature { aspect-ratio: 4 / 5; }
+  .ba-slider.ba-slider--feature { aspect-ratio: 1 / 1; }
 }
 
 /* Story block below the feature slider */
