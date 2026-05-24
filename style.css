@@ -1674,6 +1674,141 @@ button {
 
 .ba-story__lede em { font-style: italic; color: var(--cognac); }
 
+/* — Process timeline (merged into Before/After) — mobile-first.
+   Mobile: vertical stack, numbered cards.
+   Desktop: 4-column horizontal timeline with hairline dividers. */
+.ba-process {
+  margin-top: clamp(56px, 8vw, 96px);
+  padding-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--line);
+}
+
+.ba-process__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+  max-width: 560px;
+}
+
+.ba-process__label {
+  font-size: 10px;
+  color: var(--cognac);
+  letter-spacing: 0.22em;
+}
+
+.ba-process__lede {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.ba-process__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.ba-process__step {
+  position: relative;
+  padding-left: 56px;
+}
+
+.ba-process__num {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--cognac);
+}
+
+.ba-process__step::before {
+  content: '';
+  position: absolute;
+  left: 36px;
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cognac);
+}
+
+.ba-process__title {
+  margin: 0 0 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+.ba-process__step p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* — Desktop side-by-side layout: slider + story on the left,
+   vertical process timeline on the right. Mobile keeps its single-
+   column stack unchanged. — */
+@media (min-width: 1024px) {
+  .before-after--feature .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: 72px;
+    row-gap: 0;
+    grid-template-areas:
+      "head    head"
+      "slider  process"
+      "story   process";
+  }
+  .before-after--feature .ba-head    { grid-area: head; }
+  .before-after--feature .ba-slider  { grid-area: slider; max-width: none; margin: 0; }
+  .before-after--feature .ba-story {
+    grid-area: story;
+    max-width: none;
+    margin: 28px 0 0;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .before-after--feature .ba-process {
+    grid-area: process;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    align-self: start;
+  }
+
+  /* Connecting hairline behind the markers — turns the stack into
+     a proper timeline. Dots sit on top of the line. */
+  .ba-process__steps { position: relative; gap: 28px; }
+  .ba-process__steps::before {
+    content: '';
+    position: absolute;
+    left: 39px;
+    top: 7px;
+    bottom: 7px;
+    width: 1px;
+    background: var(--line);
+    z-index: 0;
+  }
+  .ba-process__step::before {
+    z-index: 1;
+    width: 9px;
+    height: 9px;
+    left: 33px;
+    border: 2px solid var(--bg-2);
+  }
+}
+
 /* Slider */
 .ba-slider {
   position: relative;
@@ -2535,10 +2670,13 @@ button {
   align-self: end;
 }
 
+/* Mobile-first IG grid — 1 col tiny phones, 2 col bigger phones,
+   3 col desktop. Tiles read as real IG posts: square, generous gap,
+   soft corner radius. */
 .ig-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
 .ig-tile {
@@ -2547,38 +2685,53 @@ button {
   overflow: hidden;
   background: var(--bg-2);
   cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(34, 22, 16, 0.1);
+  transition: transform 0.45s cubic-bezier(0.2, 0.6, 0.2, 1),
+              box-shadow 0.45s ease;
+}
+
+.ig-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(34, 22, 16, 0.22);
 }
 
 .ig-tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.ig-tile:hover img { transform: scale(1.06); }
+.ig-tile:hover img { transform: scale(1.05); }
 
 .ig-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(34, 22, 16, 0.7) 100%);
+  background: linear-gradient(180deg, transparent 45%, rgba(34, 22, 16, 0.78) 100%);
   display: flex;
   align-items: flex-end;
-  padding: 12px;
+  padding: 16px;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.35s ease;
 }
 
 .ig-tile:hover .ig-overlay { opacity: 1; }
 
-.ig-overlay span { font-size: 12px; color: var(--bg); }
-
-@media (max-width: 960px) {
-  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+.ig-overlay span {
+  font-size: 13px;
+  color: var(--paper);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  letter-spacing: 0.005em;
 }
 
-@media (max-width: 520px) {
-  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 600px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+@media (min-width: 1024px) {
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
 }
 
 
