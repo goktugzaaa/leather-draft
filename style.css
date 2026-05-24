@@ -1607,12 +1607,23 @@ button {
 
 .ba-slider.ba-slider--feature {
   aspect-ratio: 5 / 4;
+  /* Cap to the source image's native resolution (each crop ~540px wide)
+     so the picture is never upscaled past its real pixels. Centred so
+     the section reads as a deliberate feature, not a screen-filling wall. */
+  max-width: 720px;
+  margin: 0 auto;
   border-radius: 6px;
   box-shadow: 0 30px 80px -28px rgba(34, 22, 16, 0.35);
+  /* Slightly nicer rendering when the browser scales the JPG */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.ba-slider.ba-slider--feature img {
+  image-rendering: -webkit-optimize-contrast;
 }
 
 @media (max-width: 720px) {
-  .ba-slider.ba-slider--feature { aspect-ratio: 1 / 1; }
+  .ba-slider.ba-slider--feature { aspect-ratio: 1 / 1; max-width: none; }
 }
 
 /* Story block below the feature slider */
