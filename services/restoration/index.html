@@ -28,11 +28,9 @@
          data-component="Breadcrumb"        -> <Breadcrumb />           (shared)
          data-component="ServiceHero"       -> <ServiceHero />          (per-service)
          data-component="TrustStrip"        -> <TrustStrip />           (shared)
-         data-component="ServiceDefinition" -> <ServiceDefinition />    (per-service)
-         data-component="ServiceScope"      -> <ServiceScope />         (per-service)
+         data-component="ServiceIntro"      -> <ServiceIntro />         (per-service)
          data-component="ServiceIncluded"   -> <ServiceIncluded />      (per-service)
          data-component="ServiceTransformation" -> <Transformation />   (per-service)
-         data-component="FeaturedPieces"    -> <FeaturedPieces />       (per-service)
          data-component="ServiceReviews"    -> <Reviews />              (per-service)
          data-component="ServiceFaq"        -> <Faq />                  (per-service)
          data-component="RelatedServices"   -> <RelatedServices />      (shared)
@@ -49,18 +47,11 @@
          heroImage: string;            // path or CDN URL (LCP-preloaded)
          ogImage: string;              // path or CDN URL for social cards
 
-         definition: {
-           lead: string;               // "<span> term </span> short statement..."
-           body: string;               // 2-3 sentence factual paragraph
-           note: string;               // single italic line, optional
+         intro: {
+           statement: string;          // serif "what it is" — wrap term in <span>
+           body: string;               // 1-2 sentence factual paragraph
+           note: string;               // single "what it's for" line, optional
          };
-
-         scope: Array<{                // 3 items recommended
-           numeral: 'i'|'ii'|'iii';    // watermark glyph
-           title: string;
-           body: string;
-           turnaround: string;         // "Typically 7-10 days"
-         }>;
 
          included: Array<{             // 4-6 items
            num: string;                // "01"
@@ -78,19 +69,12 @@
            bullets: string[];
          };
 
-         featured: Array<{             // 3 cards
-           image: string;
-           title: string;
-           meta: string;               // "Calf · Corners rebuilt · 14 days"
-         }>;
-
-         reviews: Array<{              // 5 items (first is `lead`)
+         reviews: Array<{              // 3 cards
            quote: string;
            name: string;
            city: string;
            piece: string;
            stars?: number;             // default 5
-           lead?: boolean;             // pull-quote variant
          }>;
 
          faqs: Array<{                 // 5-6 items; mirrored into FAQPage JSON-LD
@@ -406,81 +390,28 @@
 
 
     <!-- =====================================================================
-         <ServiceDefinition /> — large serif declaration + supporting note.
-         Deliberately NOT the same layout as homepage `.intro`.
+         <ServiceIntro /> — what THIS service is, in two short blocks.
+         LHS = serif "what it is" statement; RHS = factual body + a single
+         "what it's for" line. Per-service copy only — no overview of the
+         atelier or the discipline as a whole.
          ===================================================================== -->
-    <section class="sp-def section" data-component="ServiceDefinition">
-      <div class="wrap sp-def__grid">
-        <div class="sp-def__lhs">
-          <div class="eyebrow">Definition</div>
-          <p class="sp-def__statement">
+    <section class="sp-intro section" data-component="ServiceIntro">
+      <div class="wrap sp-intro__grid">
+        <div class="sp-intro__lhs">
+          <div class="eyebrow">What it is</div>
+          <p class="sp-intro__statement">
             <span>Restoration</span> brings worn leather back to a wearable, dignified state &mdash; <em>not new, but honest.</em>
           </p>
         </div>
-        <div class="sp-def__rhs">
-          <p class="sp-def__body">
-            We work on calf, suede, exotic and aniline leathers. Handbags, jackets, shoes and sofas. Re-dyeing, structural repair, edge work, deep cleaning and conditioning &mdash; by hand, by a single dedicated artisan per piece.
+        <div class="sp-intro__rhs">
+          <p class="sp-intro__body">
+            Hand work on calf, suede, exotic and aniline leathers. Re-dyeing, structural repair, edge work, deep cleaning and conditioning &mdash; by a single dedicated artisan, photo-updated at every stage.
           </p>
-          <p class="sp-def__note">
-            <span class="sp-def__rule" aria-hidden="true"></span>
+          <p class="sp-intro__note">
+            <span class="sp-intro__rule" aria-hidden="true"></span>
             For pieces too worn for a clean alone, but not beyond rebuilding.
           </p>
         </div>
-      </div>
-    </section>
-
-
-    <!-- =====================================================================
-         <ServiceScope /> — typology of work, NOT packaged tiers.
-         Editorial three-column read; no badges, no featured card, no prices.
-         ===================================================================== -->
-    <section class="sp-scope section" data-component="ServiceScope">
-      <div class="wrap">
-        <header class="sp-scope__head">
-          <div class="eyebrow">How it usually goes</div>
-          <h2 class="section-title">
-            The kinds of work <em>we see most.</em>
-          </h2>
-          <p class="sp-scope__sub">
-            Every piece is different, and every quote is written individually. These are the three situations restoration jobs tend to fall into.
-          </p>
-        </header>
-
-        <div class="sp-scope__grid">
-          <article class="sp-scope__item" data-numeral="i">
-            <div class="mono sp-scope__num">01</div>
-            <h3 class="sp-scope__title">Faded but intact.</h3>
-            <p class="sp-scope__body">
-              Colour has dulled, edges look tired, surface needs feeding &mdash; but the structure underneath is sound. Surface re-colour, edge work, deep clean and conditioning.
-            </p>
-            <div class="sp-scope__meta">
-              <span class="mono">Typically 7&ndash;10 days</span>
-            </div>
-          </article>
-
-          <article class="sp-scope__item" data-numeral="ii">
-            <div class="mono sp-scope__num">02</div>
-            <h3 class="sp-scope__title">Worn and weakening.</h3>
-            <p class="sp-scope__body">
-              The bracket most pieces fall into. Full re-dye, corner rebuilds, handle reinforcement, edge re-paint and hardware service together.
-            </p>
-            <div class="sp-scope__meta">
-              <span class="mono">Typically 10&ndash;14 days</span>
-            </div>
-          </article>
-
-          <article class="sp-scope__item" data-numeral="iii">
-            <div class="mono sp-scope__num">03</div>
-            <h3 class="sp-scope__title">Major rebuild.</h3>
-            <p class="sp-scope__body">
-              Decades-old pieces, structural failure, lining gone, exotic leathers needing scale-by-scale work. Reconstruction rather than refinishing.
-            </p>
-            <div class="sp-scope__meta">
-              <span class="mono">Typically 3&ndash;4 weeks</span>
-            </div>
-          </article>
-        </div>
-
       </div>
     </section>
 
@@ -636,52 +567,6 @@
 
 
     <!-- =====================================================================
-         <FeaturedPieces /> — 3-card gallery of recent restorations.
-         No homepage equivalent.
-         ===================================================================== -->
-    <section class="sp-gallery section" data-component="FeaturedPieces">
-      <div class="wrap">
-        <header class="sp-gallery__head">
-          <div class="eyebrow">Recent work</div>
-          <h2 class="section-title">
-            More <em>restorations</em> from the atelier.
-          </h2>
-        </header>
-
-        <div class="sp-gallery__grid">
-          <article class="sp-gallery__card">
-            <div class="sp-gallery__media">
-              <img src="/public/lv-creme-bag.jpg" alt="Louis Vuitton bag after restoration" loading="lazy" decoding="async" />
-            </div>
-            <div class="sp-gallery__body">
-              <h3 class="sp-gallery__title">Louis Vuitton Speedy</h3>
-              <p class="mono sp-gallery__meta">Calf &middot; Corners rebuilt &middot; 14 days</p>
-            </div>
-          </article>
-          <article class="sp-gallery__card">
-            <div class="sp-gallery__media">
-              <img src="/public/jimmy-choo-red-purse-bag.jpg" alt="Jimmy Choo purse after restoration" loading="lazy" decoding="async" />
-            </div>
-            <div class="sp-gallery__body">
-              <h3 class="sp-gallery__title">Jimmy Choo evening clutch</h3>
-              <p class="mono sp-gallery__meta">Aniline &middot; Full re-dye &middot; 10 days</p>
-            </div>
-          </article>
-          <article class="sp-gallery__card">
-            <div class="sp-gallery__media">
-              <img src="/public/modau-snake-leather-bag.jpg" alt="Exotic leather bag after restoration" loading="lazy" decoding="async" />
-            </div>
-            <div class="sp-gallery__body">
-              <h3 class="sp-gallery__title">Python tote</h3>
-              <p class="mono sp-gallery__meta">Exotic &middot; Scale-by-scale &middot; 21 days</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =====================================================================
          <ServiceReviews /> — DARK surface, 5 cards, lead pull-quote.
          Homepage reviews are on cream with a horizontal scroller; this
          is a deliberate visual break.
@@ -696,31 +581,13 @@
         </header>
 
         <div class="sp-reviews__grid">
-          <!-- Lead pull-quote -->
-          <article class="sp-review sp-review--lead">
-            <div class="sp-review__stars" aria-label="5 stars">
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-            </div>
-            <blockquote>
-              &ldquo;My 12-year-old Fendi looks like itself again &mdash; not new, but the way I remember it. Honest work, and they kept me updated with photos all the way through.&rdquo;
-            </blockquote>
-            <div class="sp-review__by">
-              <div class="sp-review__name">Aanya Mehta</div>
-              <div class="mono sp-review__meta">Mumbai &middot; Fendi Baguette</div>
-            </div>
-          </article>
-
           <article class="sp-review">
             <div class="sp-review__stars" aria-label="5 stars">
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
             </div>
             <blockquote>&ldquo;The corners on my LV Speedy were cracked through. Three weeks later it&rsquo;s back, structurally rebuilt and re-coloured. Worth it.&rdquo;</blockquote>
             <div class="sp-review__by">
@@ -731,11 +598,11 @@
 
           <article class="sp-review">
             <div class="sp-review__stars" aria-label="5 stars">
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
             </div>
             <blockquote>&ldquo;Father&rsquo;s 30-year-old leather jacket. Re-dyed, lining replaced, returned conditioned. Felt like an heirloom returned.&rdquo;</blockquote>
             <div class="sp-review__by">
@@ -746,31 +613,16 @@
 
           <article class="sp-review">
             <div class="sp-review__stars" aria-label="5 stars">
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
             </div>
             <blockquote>&ldquo;Sent a python tote in from Hyderabad by post. Came back better than I dared hope. Communication was excellent throughout.&rdquo;</blockquote>
             <div class="sp-review__by">
               <div class="sp-review__name">Priya Reddy</div>
               <div class="mono sp-review__meta">Hyderabad &middot; Python tote</div>
-            </div>
-          </article>
-
-          <article class="sp-review">
-            <div class="sp-review__stars" aria-label="5 stars">
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
-            </div>
-            <blockquote>&ldquo;Suede boots I&rsquo;d given up on. Came back wearable. Fair price and patient with my questions.&rdquo;</blockquote>
-            <div class="sp-review__by">
-              <div class="sp-review__name">Neha Kapoor</div>
-              <div class="mono sp-review__meta">Pune &middot; Suede boots</div>
             </div>
           </article>
         </div>

@@ -12,11 +12,9 @@
      .sp-breadcrumb   -> <Breadcrumb />
      .sp-hero         -> <ServiceHero />
      .sp-trust        -> <TrustStrip />
-     .sp-def          -> <ServiceDefinition />
-     .sp-scope        -> <ServiceScope />
+     .sp-intro        -> <ServiceIntro />
      .sp-included     -> <ServiceIncluded />
      .sp-transform    -> <ServiceTransformation />
-     .sp-gallery      -> <FeaturedPieces />
      .sp-reviews      -> <ServiceReviews />
      .sp-faq          -> <ServiceFaq />
      .sp-related      -> <RelatedServices />
@@ -294,31 +292,32 @@
 
 
 /* ==========================================================================
-   SP-DEF — Service definition
-   Two-column: large serif declaration on the left, supporting body right.
-   Deliberately NOT the same shape as homepage `.intro`.
+   SP-INTRO — Service intro (what THIS service is)
+   Two-column: large serif "what it is" statement on the left, supporting
+   factual body + a single "what it's for" line on the right.
+   Per-service copy only — not an overview of the atelier or the discipline.
    ========================================================================== */
 
-.sp-def {
+.sp-intro {
   background: var(--bg);
   padding-top: clamp(64px, 8vw, 120px);
   padding-bottom: clamp(64px, 8vw, 120px);
 }
 
-.sp-def__grid {
+.sp-intro__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(40px, 6vw, 96px);
   align-items: start;
 }
 
-.sp-def__lhs {
+.sp-intro__lhs {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.sp-def__statement {
+.sp-intro__statement {
   margin: 0;
   font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
   font-weight: 400;
@@ -328,32 +327,32 @@
   color: var(--ink);
 }
 
-.sp-def__statement span {
+.sp-intro__statement span {
   font-weight: 500;
   color: var(--cognac);
 }
 
-.sp-def__statement em {
+.sp-intro__statement em {
   font-style: italic;
   font-weight: 300;
   color: var(--ink-2);
 }
 
-.sp-def__rhs {
+.sp-intro__rhs {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-top: clamp(6px, 1vw, 18px);
 }
 
-.sp-def__body {
+.sp-intro__body {
   margin: 0;
   font-size: clamp(15px, 1.25vw, 17px);
   line-height: 1.7;
   color: var(--ink-2);
 }
 
-.sp-def__note {
+.sp-intro__note {
   margin: 0;
   display: flex;
   align-items: center;
@@ -364,7 +363,7 @@
   color: var(--muted);
 }
 
-.sp-def__rule {
+.sp-intro__rule {
   display: inline-block;
   width: 28px;
   height: 1px;
@@ -372,151 +371,7 @@
 }
 
 @media (max-width: 820px) {
-  .sp-def__grid { grid-template-columns: 1fr; gap: 28px; }
-}
-
-
-/* ==========================================================================
-   SP-SCOPE — Typology of work (NOT packaged tiers)
-   Editorial three-column read: no badges, no featured card, no chrome.
-   Each item is just a number + serif title + body + soft turnaround line,
-   separated by hairline rules so the section reads as continuous editorial
-   typography rather than three sales packages.
-   ========================================================================== */
-
-.sp-scope {
-  background: var(--paper);
-  padding-top: clamp(56px, 7vw, 100px);
-  padding-bottom: clamp(56px, 7vw, 100px);
-}
-
-.sp-scope__head {
-  max-width: 720px;
-  margin-bottom: clamp(36px, 5vw, 64px);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.sp-scope__sub {
-  margin: 0;
-  font-size: clamp(14px, 1.2vw, 16px);
-  line-height: 1.6;
-  color: var(--ink-2);
-}
-
-.sp-scope__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(18px, 2.4vw, 28px);
-}
-
-.sp-scope__item {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: clamp(28px, 3.5vw, 44px) clamp(24px, 3vw, 36px);
-  position: relative;
-  background: var(--paper-2);
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  overflow: hidden;
-  transition: transform 380ms cubic-bezier(.2, .8, .2, 1),
-              border-color 380ms ease,
-              background 380ms ease;
-}
-
-/* Oversized serif numeral as a watermark behind the content,
-   gives each item visual weight without resorting to badges. */
-.sp-scope__item::before {
-  content: attr(data-numeral);
-  position: absolute;
-  right: -8px;
-  bottom: -28px;
-  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(120px, 14vw, 180px);
-  line-height: 1;
-  color: var(--cognac);
-  opacity: 0.08;
-  pointer-events: none;
-  letter-spacing: -0.02em;
-  transition: opacity 380ms ease, transform 380ms ease;
-}
-
-.sp-scope__item:hover {
-  transform: translateY(-3px);
-  border-color: var(--cognac);
-  background: var(--paper);
-}
-
-.sp-scope__item:hover::before {
-  opacity: 0.16;
-  transform: translate(-4px, -4px);
-}
-
-.sp-scope__num {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--cognac);
-  position: relative;
-  z-index: 1;
-}
-
-.sp-scope__num::after {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: var(--cognac);
-  vertical-align: middle;
-  margin-left: 10px;
-}
-
-.sp-scope__title {
-  margin: 0;
-  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(24px, 2.8vw, 34px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  position: relative;
-  z-index: 1;
-}
-
-.sp-scope__body {
-  margin: 0;
-  font-size: clamp(14.5px, 1.2vw, 15.5px);
-  line-height: 1.7;
-  color: var(--ink-2);
-  flex-grow: 1;
-  position: relative;
-  z-index: 1;
-}
-
-.sp-scope__meta {
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  font-size: 11.5px;
-  color: var(--muted);
-  letter-spacing: 0.2em;
-  position: relative;
-  z-index: 1;
-}
-
-.sp-scope__item:hover .sp-scope__meta {
-  border-top-color: rgba(168, 98, 58, 0.4);
-  color: var(--ink-2);
-}
-
-@media (max-width: 900px) {
-  .sp-scope__grid { grid-template-columns: 1fr; }
-  .sp-scope__item + .sp-scope__item {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-  }
+  .sp-intro__grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
 
@@ -793,91 +648,13 @@
 
 
 /* ==========================================================================
-   SP-GALLERY — Featured pieces (3-card grid)
-   ========================================================================== */
-
-.sp-gallery {
-  background: var(--bg);
-  padding-top: clamp(56px, 7vw, 100px);
-  padding-bottom: clamp(56px, 7vw, 100px);
-}
-
-.sp-gallery__head {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  max-width: 720px;
-  margin-bottom: clamp(36px, 5vw, 56px);
-}
-
-.sp-gallery__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 3vw, 32px);
-}
-
-.sp-gallery__card {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.sp-gallery__media {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background: var(--paper-2);
-  position: relative;
-}
-
-.sp-gallery__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 600ms cubic-bezier(.2, .8, .2, 1);
-}
-
-.sp-gallery__card:hover .sp-gallery__media img {
-  transform: scale(1.04);
-}
-
-.sp-gallery__body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sp-gallery__title {
-  margin: 0;
-  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(18px, 1.8vw, 22px);
-  letter-spacing: -0.005em;
-  color: var(--ink);
-}
-
-.sp-gallery__meta {
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  color: var(--muted);
-}
-
-@media (max-width: 800px) {
-  .sp-gallery__grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 520px) {
-  .sp-gallery__grid { grid-template-columns: 1fr; }
-}
-
-
-/* ==========================================================================
    SP-REVIEWS — Dark reviews (intentional break from homepage cream)
    Lead pull-quote larger; 4 standard cards in a 2x2 grid below.
    ========================================================================== */
 
 .sp-reviews {
-  padding-top: clamp(64px, 8vw, 120px);
-  padding-bottom: clamp(64px, 8vw, 120px);
+  padding-top: clamp(48px, 6vw, 84px);
+  padding-bottom: clamp(48px, 6vw, 84px);
 }
 
 .sp-reviews--dark {
@@ -888,9 +665,9 @@
 .sp-reviews__head {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: clamp(36px, 5vw, 56px);
-  max-width: 720px;
+  gap: 12px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+  max-width: 640px;
 }
 
 .sp-reviews--dark .sp-reviews__head .eyebrow { color: var(--rose); }
@@ -899,20 +676,24 @@
   color: var(--rose);
 }
 
+.sp-reviews__head .section-title {
+  font-size: clamp(26px, 3.4vw, 40px);
+}
+
 .sp-reviews__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(20px, 3vw, 32px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 22px);
 }
 
 .sp-review {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: clamp(22px, 3vw, 32px);
+  gap: 12px;
+  padding: clamp(18px, 2.2vw, 24px);
   background: rgba(251, 243, 223, 0.04);
   border: 1px solid rgba(251, 243, 223, 0.08);
-  border-radius: 4px;
+  border-radius: 3px;
   transition: background 320ms ease, border-color 320ms ease;
 }
 
@@ -921,57 +702,48 @@
   border-color: rgba(168, 98, 58, 0.5);
 }
 
-.sp-review--lead {
-  grid-column: 1 / -1;
-  padding: clamp(32px, 4vw, 56px);
-  background: rgba(251, 243, 223, 0.06);
-  border-color: rgba(251, 243, 223, 0.14);
-}
-
 .sp-review__stars {
   display: inline-flex;
-  gap: 4px;
+  gap: 3px;
   color: var(--cognac);
 }
-
-.sp-review--lead .sp-review__stars { color: var(--rose); }
 
 .sp-review blockquote {
   margin: 0;
   font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(17px, 1.5vw, 20px);
-  line-height: 1.45;
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.5;
   color: #fbf3df;
-}
-
-.sp-review--lead blockquote {
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.35;
+  flex-grow: 1;
 }
 
 .sp-review__by {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding-top: 6px;
-  border-top: 1px solid rgba(251, 243, 223, 0.12);
+  gap: 2px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(251, 243, 223, 0.10);
 }
 
 .sp-review__name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #fbf3df;
 }
 
 .sp-review__meta {
-  font-size: 11px;
+  font-size: 10.5px;
   letter-spacing: 0.14em;
   color: rgba(251, 243, 223, 0.55);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
+  .sp-reviews__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
   .sp-reviews__grid { grid-template-columns: 1fr; }
 }
 
