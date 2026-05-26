@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#221610" />
+
+  <!-- ==========================================================================
+       SERVICE DETAIL TEMPLATE — reusable for every service / sub-service page.
+
+       The current file is the demo-populated version for the "Restoration"
+       service. Every per-service value is highlighted inline with a
+       `<!-- {service.fieldName} -->` comment so a Next.js implementer can
+       swap hardcoded copy for `{service.fieldName}` bindings 1:1.
+
+       NEXT.JS IMPLEMENTATION PLAN
+       -----------------------------------------------------------------
+       File route          : app/services/[slug]/page.tsx
+       Data fetch          : await getService(params.slug) on the server
+       Component split     : one React component per <section data-component>
+       Static generation   : generateStaticParams() returns the slug list
+
+       COMPONENT MAP
+       -----------------------------------------------------------------
+       Each <section data-component="..."> below is a 1:1 React component.
+
+         data-component="Header"            -> <Header />               (shared)
+         data-component="Breadcrumb"        -> <Breadcrumb />           (shared)
+         data-component="ServiceHero"       -> <ServiceHero />          (per-service)
+         data-component="TrustStrip"        -> <TrustStrip />           (shared)
+         data-component="ServiceDefinition" -> <ServiceDefinition />    (per-service)
+         data-component="ServiceScope"      -> <ServiceScope />         (per-service)
+         data-component="ServiceIncluded"   -> <ServiceIncluded />      (per-service)
+         data-component="ServiceTransformation" -> <Transformation />   (per-service)
+         data-component="FeaturedPieces"    -> <FeaturedPieces />       (per-service)
+         data-component="ServiceReviews"    -> <Reviews />              (per-service)
+         data-component="ServiceFaq"        -> <Faq />                  (per-service)
+         data-component="RelatedServices"   -> <RelatedServices />      (shared)
+         data-component="QuoteForm"         -> <QuoteForm />            (shared)
+         data-component="Footer"            -> <Footer />               (shared)
+
+       SERVICE DATA SHAPE  (TypeScript)
+       -----------------------------------------------------------------
+       type Service = {
+         slug: string;                 // "restoration"
+         name: string;                 // "Restoration"
+         tagline: string;              // "for leather worth keeping."
+         metaDescription: string;      // 150-160 chars for SEO
+         heroImage: string;            // path or CDN URL (LCP-preloaded)
+         ogImage: string;              // path or CDN URL for social cards
+
+         definition: {
+           lead: string;               // "<span> term </span> short statement..."
+           body: string;               // 2-3 sentence factual paragraph
+           note: string;               // single italic line, optional
+         };
+
+         scope: Array<{                // 3 items recommended
+           numeral: 'i'|'ii'|'iii';    // watermark glyph
+           title: string;
+           body: string;
+           turnaround: string;         // "Typically 7-10 days"
+         }>;
+
+         included: Array<{             // 4-6 items
+           num: string;                // "01"
+           title: string;
+           body: string;
+           mostRequested?: boolean;    // shows tag pill
+         }>;
+
+         transformation: {
+           beforeImage: string;
+           afterImage: string;
+           pieceName: string;          // "Fendi Mamma Baguette"
+           pieceMeta: string;          // "Calfskin · 11 years"
+           lede: string;
+           bullets: string[];
+         };
+
+         featured: Array<{             // 3 cards
+           image: string;
+           title: string;
+           meta: string;               // "Calf · Corners rebuilt · 14 days"
+         }>;
+
+         reviews: Array<{              // 5 items (first is `lead`)
+           quote: string;
+           name: string;
+           city: string;
+           piece: string;
+           stars?: number;             // default 5
+           lead?: boolean;             // pull-quote variant
+         }>;
+
+         faqs: Array<{                 // 5-6 items; mirrored into FAQPage JSON-LD
+           q: string;
+           a: string;
+         }>;
+
+         related: Array<{              // exactly 3 other service slugs
+           slug: string;
+           title: string;
+           body: string;
+         }>;
+       };
+
+       SEO / STRUCTURED DATA
+       -----------------------------------------------------------------
+       The <head> ships three JSON-LD graphs:
+         1. Service              + hasOfferCatalog
+         2. BreadcrumbList
+         3. FAQPage              — must stay in sync with the rendered FAQ
+       In Next.js, render these in the <head> via generateMetadata() or a
+       JsonLd component receiving the same `service` payload.
+
+       NAMING CONVENTION
+       -----------------------------------------------------------------
+       Service-page components use the `sp-` prefix in CSS.
+       Shared design tokens come from style.css (--cognac, --paper, etc.).
+       Service-page-specific styles live in service.css.
+
+       HOMEPAGE DIFFERENTIATION
+       -----------------------------------------------------------------
+       Service pages are conversion-focused single-piece deep dives.
+       Homepage design-system classes (.intro, .reviews, .faq, .cta-banner)
+       are deliberately NOT reused here — service.css ships its own
+       layouts so the leaf reads as a distinct sub-experience.
+       =========================================================================== -->
+
+  <title>Restoration &mdash; De Leather Craft</title>
+  <meta name="description" content="Hand-finished leather restoration in India. Re-dye, structural repair and conditioning for handbags, jackets, shoes and sofas. Free pickup in 12 cities." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://leather-draft.vercel.app/services/restoration" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="De Leather Craft" />
+  <meta property="og:title" content="Restoration &mdash; De Leather Craft" />
+  <meta property="og:description" content="Hand-finished leather restoration in India. Re-dye, structural repair and conditioning. Free pickup in 12 cities." />
+  <meta property="og:url" content="https://leather-draft.vercel.app/services/restoration" />
+  <meta property="og:image" content="https://leather-draft.vercel.app/after-fendi.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://leather-draft.vercel.app/after-fendi.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter+Tight:wght@300;400;500;600;700&display=swap" />
+
+  <!-- Preload the LCP hero image so it lands before paint. -->
+  <link rel="preload" as="image" href="/public/services-photos/restoration.jpg" fetchpriority="high" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/service.css" />
+
+  <!-- ============================================================
+       Structured data — Service + BreadcrumbList + FAQPage.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://leather-draft.vercel.app/services/restoration#service",
+        "serviceType": "Restoration",
+        "name": "Restoration",
+        "description": "Hand-finished leather restoration in India. Re-dye, structural repair and conditioning for handbags, jackets, shoes and sofas.",
+        "provider": {
+          "@type": "Organization",
+          "name": "De Leather Craft",
+          "url": "https://leather-draft.vercel.app/"
+        },
+        "areaServed": "India",
+        "url": "https://leather-draft.vercel.app/services/restoration",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Restoration tiers",
+          "itemListElement": [
+            { "@type": "Offer", "name": "Light refresh", "description": "Surface re-colour, edge work, deep clean. 7-10 days." },
+            { "@type": "Offer", "name": "Standard restoration", "description": "Full re-dye, corner rebuilds, hardware service. 10-14 days." },
+            { "@type": "Offer", "name": "Major restoration", "description": "Lining replacement, structural rebuilds, exotic-leather work. 3-4 weeks." }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://leather-draft.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://leather-draft.vercel.app/#services" },
+          { "@type": "ListItem", "position": 3, "name": "Restoration", "item": "https://leather-draft.vercel.app/services/restoration" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does a typical restoration take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most restorations finish in 10 to 14 days from the moment we receive your piece. Heavier structural work can run up to four weeks. You see photo updates at every stage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will it look brand new afterwards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, and that is deliberate. Restoration brings leather back to a wearable, dignified state, not a factory-fresh imitation. We preserve patina and grain where we can."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work on exotic leathers and suede?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We restore python, ostrich, crocodile, suede and nubuck alongside calf and aniline. Each material has its own protocol."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I am outside your pickup cities?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We accept pieces by insured post from anywhere in India. Send photos on WhatsApp first for an estimate and packing instructions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the work covered by a warranty?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All workmanship is covered for six months from the date of return. Material wear from normal use is not included."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the price determined?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each piece is quoted individually after we see photos. The tier (light, standard, major) and material drive the estimate. No commitment until you approve."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- =====================================================================
+       <Header /> — shared across all pages
+       ===================================================================== -->
+  <header class="site-header" data-component="Header">
+    <div class="wrap site-header__inner">
+
+      <a href="/" class="dlc-logo" aria-label="De Leather Craft — home">
+        <svg class="dlc-logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 150" aria-hidden="true">
+          <text y="85" font-size="84" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="700">
+            <tspan x="39" class="dlc-logo__charcoal">De</tspan>
+            <tspan x="174" class="dlc-logo__tan">Leather</tspan>
+            <tspan x="502" class="dlc-logo__charcoal">Craft</tspan>
+          </text>
+          <text x="202" y="132" font-size="28" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="300" letter-spacing="0.5" class="dlc-logo__charcoal dlc-logo__tagline">
+            luxury care for your luxury leather...
+          </text>
+        </svg>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="/#services"     class="nav-link">Services</a>
+        <a href="/#categories"   class="nav-link">What we restore</a>
+        <a href="/#before-after" class="nav-link">Transformation</a>
+        <a href="/#brands"       class="nav-link">Brands</a>
+        <a href="/#atelier"      class="nav-link">Atelier</a>
+        <a href="/#reviews"      class="nav-link">Reviews</a>
+        <a href="/#faq"          class="nav-link">FAQ</a>
+        <a href="#contact"       class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-desktop-cta">
+        <a href="#contact" class="btn btn--ghost">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+          <path id="burgerPath" d="M2 2 L16 2 M2 7 L16 7 M2 12 L16 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav__list">
+        <li><a href="/#services"     class="mobile-nav__link">Services</a></li>
+        <li><a href="/#categories"   class="mobile-nav__link">What we restore</a></li>
+        <li><a href="/#before-after" class="mobile-nav__link">Transformation</a></li>
+        <li><a href="/#brands"       class="mobile-nav__link">Brands</a></li>
+        <li><a href="/#atelier"      class="mobile-nav__link">Atelier</a></li>
+        <li><a href="/#reviews"      class="mobile-nav__link">Reviews</a></li>
+        <li><a href="/#faq"          class="mobile-nav__link">FAQ</a></li>
+        <li><a href="#contact"       class="mobile-nav__link">Contact</a></li>
+      </ul>
+      <div class="mobile-nav__cta">
+        <a href="#contact" class="btn btn--primary btn--cognac btn--lg" style="justify-content:center;">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+        <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="mobile-nav__whatsapp">WhatsApp us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+
+    <!-- =====================================================================
+         <ServiceHero /> — full-bleed image hero with breadcrumb overlay.
+         <img> for LCP; two CTAs (primary form, secondary WhatsApp).
+         ===================================================================== -->
+    <section class="sp-hero" data-component="ServiceHero" aria-label="Restoration">
+      <img class="sp-hero__img" src="/public/services-photos/restoration.jpg" alt="" fetchpriority="high" loading="eager" decoding="async" />
+      <div class="sp-hero__shade" aria-hidden="true"></div>
+
+      <!-- Breadcrumb overlay — pinned to the top of the hero, just under the header. -->
+      <nav class="sp-breadcrumb" aria-label="Breadcrumb" data-component="Breadcrumb">
+        <div class="wrap">
+          <ol class="sp-breadcrumb__list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li aria-current="page">Restoration</li>
+          </ol>
+        </div>
+      </nav>
+
+      <div class="wrap sp-hero__inner">
+        <div class="sp-hero__eyebrow">
+          <span class="rule"></span>
+          <span class="eyebrow">De Leather Craft &middot; Service</span>
+        </div>
+
+        <h1 class="sp-hero__title">
+          Restoration <em>for leather worth keeping.</em>
+        </h1>
+
+        <p class="sp-hero__sub">
+          Re-dye, structural repair and conditioning by hand. 10&ndash;14 days for most work, four weeks for heavier rebuilds.
+        </p>
+
+        <div class="sp-hero__actions">
+          <a href="#contact" class="btn btn--hero btn--hero-xl">
+            <span>Get a free quote</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="sp-hero__wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            WhatsApp now
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================================
+         <TrustStrip /> — 4 micro-signals: founded, cities, warranty, post.
+         Doesn't fabricate numbers; reuses real facts from the homepage.
+         ===================================================================== -->
+    <section class="sp-trust" data-component="TrustStrip" aria-label="Trust signals">
+      <div class="wrap">
+        <ul class="sp-trust__list">
+          <li class="sp-trust__item">
+            <span class="mono sp-trust__num">01</span>
+            <div class="sp-trust__body">
+              <strong>Since 2005</strong>
+              <span>Independent Mumbai atelier</span>
+            </div>
+          </li>
+          <li class="sp-trust__item">
+            <span class="mono sp-trust__num">02</span>
+            <div class="sp-trust__body">
+              <strong>12 cities</strong>
+              <span>Free insured pickup</span>
+            </div>
+          </li>
+          <li class="sp-trust__item">
+            <span class="mono sp-trust__num">03</span>
+            <div class="sp-trust__body">
+              <strong>6-month warranty</strong>
+              <span>On all workmanship</span>
+            </div>
+          </li>
+          <li class="sp-trust__item">
+            <span class="mono sp-trust__num">04</span>
+            <div class="sp-trust__body">
+              <strong>Pan-India</strong>
+              <span>By insured post</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <ServiceDefinition /> — large serif declaration + supporting note.
+         Deliberately NOT the same layout as homepage `.intro`.
+         ===================================================================== -->
+    <section class="sp-def section" data-component="ServiceDefinition">
+      <div class="wrap sp-def__grid">
+        <div class="sp-def__lhs">
+          <div class="eyebrow">Definition</div>
+          <p class="sp-def__statement">
+            <span>Restoration</span> brings worn leather back to a wearable, dignified state &mdash; <em>not new, but honest.</em>
+          </p>
+        </div>
+        <div class="sp-def__rhs">
+          <p class="sp-def__body">
+            We work on calf, suede, exotic and aniline leathers. Handbags, jackets, shoes and sofas. Re-dyeing, structural repair, edge work, deep cleaning and conditioning &mdash; by hand, by a single dedicated artisan per piece.
+          </p>
+          <p class="sp-def__note">
+            <span class="sp-def__rule" aria-hidden="true"></span>
+            For pieces too worn for a clean alone, but not beyond rebuilding.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <ServiceScope /> — typology of work, NOT packaged tiers.
+         Editorial three-column read; no badges, no featured card, no prices.
+         ===================================================================== -->
+    <section class="sp-scope section" data-component="ServiceScope">
+      <div class="wrap">
+        <header class="sp-scope__head">
+          <div class="eyebrow">How it usually goes</div>
+          <h2 class="section-title">
+            The kinds of work <em>we see most.</em>
+          </h2>
+          <p class="sp-scope__sub">
+            Every piece is different, and every quote is written individually. These are the three situations restoration jobs tend to fall into.
+          </p>
+        </header>
+
+        <div class="sp-scope__grid">
+          <article class="sp-scope__item" data-numeral="i">
+            <div class="mono sp-scope__num">01</div>
+            <h3 class="sp-scope__title">Faded but intact.</h3>
+            <p class="sp-scope__body">
+              Colour has dulled, edges look tired, surface needs feeding &mdash; but the structure underneath is sound. Surface re-colour, edge work, deep clean and conditioning.
+            </p>
+            <div class="sp-scope__meta">
+              <span class="mono">Typically 7&ndash;10 days</span>
+            </div>
+          </article>
+
+          <article class="sp-scope__item" data-numeral="ii">
+            <div class="mono sp-scope__num">02</div>
+            <h3 class="sp-scope__title">Worn and weakening.</h3>
+            <p class="sp-scope__body">
+              The bracket most pieces fall into. Full re-dye, corner rebuilds, handle reinforcement, edge re-paint and hardware service together.
+            </p>
+            <div class="sp-scope__meta">
+              <span class="mono">Typically 10&ndash;14 days</span>
+            </div>
+          </article>
+
+          <article class="sp-scope__item" data-numeral="iii">
+            <div class="mono sp-scope__num">03</div>
+            <h3 class="sp-scope__title">Major rebuild.</h3>
+            <p class="sp-scope__body">
+              Decades-old pieces, structural failure, lining gone, exotic leathers needing scale-by-scale work. Reconstruction rather than refinishing.
+            </p>
+            <div class="sp-scope__meta">
+              <span class="mono">Typically 3&ndash;4 weeks</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="sp-scope__note">
+          <span class="sp-scope__rule" aria-hidden="true"></span>
+          None of these are fixed packages &mdash; we look at your piece, then write the work.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <ServiceIncluded /> — sub-services covered. Numbered list with
+         a "Most requested" tag on the standout item.
+         ===================================================================== -->
+    <section class="sp-included section" data-component="ServiceIncluded">
+      <div class="wrap">
+        <header class="sp-included__head">
+          <div class="eyebrow">Included</div>
+          <h2 class="section-title">
+            What we do under <em>Restoration.</em>
+          </h2>
+        </header>
+
+        <ul class="sp-included__list">
+          <li class="sp-included__item">
+            <span class="mono sp-included__num">01</span>
+            <div class="sp-included__body">
+              <div class="sp-included__row">
+                <h3 class="sp-included__title">Colour restoration &amp; re-dyeing</h3>
+                <span class="sp-included__tag">Most requested</span>
+              </div>
+              <p>Faded and patchy leather brought back to an even, true colour. Aniline-safe pigments matched on-site.</p>
+            </div>
+          </li>
+          <li class="sp-included__item">
+            <span class="mono sp-included__num">02</span>
+            <div class="sp-included__body">
+              <div class="sp-included__row">
+                <h3 class="sp-included__title">Structural repair</h3>
+              </div>
+              <p>Torn handles, broken corners, split seams and lining replacement &mdash; rebuilt to factory tension.</p>
+            </div>
+          </li>
+          <li class="sp-included__item">
+            <span class="mono sp-included__num">03</span>
+            <div class="sp-included__body">
+              <div class="sp-included__row">
+                <h3 class="sp-included__title">Edge &amp; trim refinishing</h3>
+              </div>
+              <p>Worn edge paint stripped and re-applied in matched tone. Crisp lines on bags and wallets.</p>
+            </div>
+          </li>
+          <li class="sp-included__item">
+            <span class="mono sp-included__num">04</span>
+            <div class="sp-included__body">
+              <div class="sp-included__row">
+                <h3 class="sp-included__title">Deep cleaning &amp; conditioning</h3>
+              </div>
+              <p>Ink, oil, water stains and mould lifted with pH-balanced solvents. Leather rehydrated, not glossed.</p>
+            </div>
+          </li>
+          <li class="sp-included__item">
+            <span class="mono sp-included__num">05</span>
+            <div class="sp-included__body">
+              <div class="sp-included__row">
+                <h3 class="sp-included__title">Hardware &amp; lock service</h3>
+              </div>
+              <p>Tarnished buckles polished, broken zippers and clasps replaced with matched originals where available.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <ServiceTransformation /> — BA slider on the left, story on the
+         right (homepage runs them stacked; this leaf splits them).
+         Process timeline lives below.
+         ===================================================================== -->
+    <section class="sp-transform section" id="before-after" data-component="ServiceTransformation">
+      <div class="wrap">
+        <header class="sp-transform__head">
+          <div class="eyebrow">A recent Restoration</div>
+          <h2 class="section-title">
+            From worn to restored, <em>by hand.</em>
+          </h2>
+          <div class="mono sp-transform__hint">Drag to reveal &rarr;</div>
+        </header>
+
+        <div class="sp-transform__split">
+          <div class="sp-transform__slider">
+            <div class="ba-slider ba-slider--feature" id="baSlider">
+              <img class="ba-after-img" src="/after-fendi.jpg" alt="After restoration" draggable="false" />
+              <div class="ba-before" id="baBefore">
+                <img class="ba-before-img" src="/before-fendi.jpg" alt="Before restoration" draggable="false" />
+              </div>
+              <div class="ba-tag ba-tag--before">Before</div>
+              <div class="ba-tag ba-tag--after">After</div>
+              <div class="ba-divider" id="baDivider"></div>
+              <div class="ba-handle" id="baHandle">
+                <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M7 1 L1 7 L7 13 M13 1 L19 7 L13 13" stroke="var(--ink)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </div>
+            </div>
+          </div>
+
+          <aside class="sp-transform__story">
+            <div class="sp-transform__meta">
+              <span class="sp-transform__title">Fendi Mamma Baguette</span>
+              <span class="mono sp-transform__age">Calfskin &middot; 11 years</span>
+            </div>
+            <p class="sp-transform__lede">
+              Brought in with a torn handle, faded corners and a stain on the front panel. We re-coloured the calf, rebuilt the handle with original-spec edge tension, and conditioned the leather. Three weeks, hand-finished.
+            </p>
+            <ul class="sp-transform__bullets">
+              <li>Re-dyed front and back panels</li>
+              <li>Rebuilt handle attachment points</li>
+              <li>Replaced original lining</li>
+              <li>Polished hardware</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary btn--cognac btn--lg">
+              Get a quote for yours
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </a>
+          </aside>
+        </div>
+
+        <!-- Process timeline — slimmed from the homepage version -->
+        <div class="sp-transform__process">
+          <div class="sp-transform__process-head">
+            <span class="mono">How it works</span>
+            <p>Four steps. You see every one.</p>
+          </div>
+          <ol class="sp-transform__steps">
+            <li>
+              <span class="mono">01</span>
+              <h3>WhatsApp or call</h3>
+              <p>Send a photo. A rough estimate within the hour.</p>
+            </li>
+            <li>
+              <span class="mono">02</span>
+              <h3>Free doorstep pickup</h3>
+              <p>Fully insured, free across our 12 pickup cities. By post elsewhere in India.</p>
+            </li>
+            <li>
+              <span class="mono">03</span>
+              <h3>Hand restoration</h3>
+              <p>One dedicated artisan owns your piece. Photos at every stage.</p>
+            </li>
+            <li>
+              <span class="mono">04</span>
+              <h3>Returned with care</h3>
+              <p>Protective wrap, six-month workmanship warranty, leather conditioner.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <FeaturedPieces /> — 3-card gallery of recent restorations.
+         No homepage equivalent.
+         ===================================================================== -->
+    <section class="sp-gallery section" data-component="FeaturedPieces">
+      <div class="wrap">
+        <header class="sp-gallery__head">
+          <div class="eyebrow">Recent work</div>
+          <h2 class="section-title">
+            More <em>restorations</em> from the atelier.
+          </h2>
+        </header>
+
+        <div class="sp-gallery__grid">
+          <article class="sp-gallery__card">
+            <div class="sp-gallery__media">
+              <img src="/public/lv-creme-bag.jpg" alt="Louis Vuitton bag after restoration" loading="lazy" decoding="async" />
+            </div>
+            <div class="sp-gallery__body">
+              <h3 class="sp-gallery__title">Louis Vuitton Speedy</h3>
+              <p class="mono sp-gallery__meta">Calf &middot; Corners rebuilt &middot; 14 days</p>
+            </div>
+          </article>
+          <article class="sp-gallery__card">
+            <div class="sp-gallery__media">
+              <img src="/public/jimmy-choo-red-purse-bag.jpg" alt="Jimmy Choo purse after restoration" loading="lazy" decoding="async" />
+            </div>
+            <div class="sp-gallery__body">
+              <h3 class="sp-gallery__title">Jimmy Choo evening clutch</h3>
+              <p class="mono sp-gallery__meta">Aniline &middot; Full re-dye &middot; 10 days</p>
+            </div>
+          </article>
+          <article class="sp-gallery__card">
+            <div class="sp-gallery__media">
+              <img src="/public/modau-snake-leather-bag.jpg" alt="Exotic leather bag after restoration" loading="lazy" decoding="async" />
+            </div>
+            <div class="sp-gallery__body">
+              <h3 class="sp-gallery__title">Python tote</h3>
+              <p class="mono sp-gallery__meta">Exotic &middot; Scale-by-scale &middot; 21 days</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <ServiceReviews /> — DARK surface, 5 cards, lead pull-quote.
+         Homepage reviews are on cream with a horizontal scroller; this
+         is a deliberate visual break.
+         ===================================================================== -->
+    <section class="sp-reviews sp-reviews--dark section" id="reviews" data-component="ServiceReviews">
+      <div class="wrap">
+        <header class="sp-reviews__head">
+          <div class="eyebrow">In their words</div>
+          <h2 class="section-title">
+            From clients who chose <em>Restoration.</em>
+          </h2>
+        </header>
+
+        <div class="sp-reviews__grid">
+          <!-- Lead pull-quote -->
+          <article class="sp-review sp-review--lead">
+            <div class="sp-review__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+            </div>
+            <blockquote>
+              &ldquo;My 12-year-old Fendi looks like itself again &mdash; not new, but the way I remember it. Honest work, and they kept me updated with photos all the way through.&rdquo;
+            </blockquote>
+            <div class="sp-review__by">
+              <div class="sp-review__name">Aanya Mehta</div>
+              <div class="mono sp-review__meta">Mumbai &middot; Fendi Baguette</div>
+            </div>
+          </article>
+
+          <article class="sp-review">
+            <div class="sp-review__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+            </div>
+            <blockquote>&ldquo;The corners on my LV Speedy were cracked through. Three weeks later it&rsquo;s back, structurally rebuilt and re-coloured. Worth it.&rdquo;</blockquote>
+            <div class="sp-review__by">
+              <div class="sp-review__name">Rohan Khanna</div>
+              <div class="mono sp-review__meta">Delhi &middot; LV Speedy</div>
+            </div>
+          </article>
+
+          <article class="sp-review">
+            <div class="sp-review__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+            </div>
+            <blockquote>&ldquo;Father&rsquo;s 30-year-old leather jacket. Re-dyed, lining replaced, returned conditioned. Felt like an heirloom returned.&rdquo;</blockquote>
+            <div class="sp-review__by">
+              <div class="sp-review__name">Karthik Iyer</div>
+              <div class="mono sp-review__meta">Bangalore &middot; Vintage jacket</div>
+            </div>
+          </article>
+
+          <article class="sp-review">
+            <div class="sp-review__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+            </div>
+            <blockquote>&ldquo;Sent a python tote in from Hyderabad by post. Came back better than I dared hope. Communication was excellent throughout.&rdquo;</blockquote>
+            <div class="sp-review__by">
+              <div class="sp-review__name">Priya Reddy</div>
+              <div class="mono sp-review__meta">Hyderabad &middot; Python tote</div>
+            </div>
+          </article>
+
+          <article class="sp-review">
+            <div class="sp-review__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="currentColor" /></svg>
+            </div>
+            <blockquote>&ldquo;Suede boots I&rsquo;d given up on. Came back wearable. Fair price and patient with my questions.&rdquo;</blockquote>
+            <div class="sp-review__by">
+              <div class="sp-review__name">Neha Kapoor</div>
+              <div class="mono sp-review__meta">Pune &middot; Suede boots</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <ServiceFaq /> — Q01-style numbered FAQ, service-specific.
+         Visual treatment intentionally different from homepage `.faq`.
+         FAQPage JSON-LD lives in the <head>.
+         ===================================================================== -->
+    <section class="sp-faq section" id="faq" data-component="ServiceFaq">
+      <div class="wrap">
+        <header class="sp-faq__head">
+          <div class="eyebrow">Common questions</div>
+          <h2 class="section-title">
+            About <em>Restoration.</em>
+          </h2>
+        </header>
+
+        <div class="sp-faq__list">
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q01</span>
+              <span class="sp-faq__q">How long does a typical restoration take?</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>Most restorations finish in 10&ndash;14 days from the moment we receive your piece. Heavier structural work &mdash; full re-dyes, lining replacement, multiple corner rebuilds &mdash; can run up to four weeks. You see photo updates at every stage.</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q02</span>
+              <span class="sp-faq__q">Will it look brand new afterwards?</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>No, and that&rsquo;s deliberate. Restoration brings leather back to a wearable, dignified state &mdash; not a factory-fresh imitation. We preserve patina and grain where we can, only intervening where the leather has failed.</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q03</span>
+              <span class="sp-faq__q">Do you work on exotic leathers and suede?</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>Yes. We restore python, ostrich, crocodile, suede and nubuck alongside calf and aniline. Each material gets a different protocol &mdash; we&rsquo;ll confirm what&rsquo;s possible after seeing photos.</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q04</span>
+              <span class="sp-faq__q">What if I&rsquo;m outside your pickup cities?</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>We accept pieces by insured post from anywhere in India. Send photos on WhatsApp first &mdash; we&rsquo;ll give you an estimate and packing instructions before you ship.</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q05</span>
+              <span class="sp-faq__q">Is the work covered by a warranty?</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>All workmanship is covered for six months from the date of return. Material wear from normal use is not included, but anything that fails because of how we did the work &mdash; re-glue, re-stitch, re-paint &mdash; we fix at no cost.</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q06</span>
+              <span class="sp-faq__q">How is the price determined?</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>Each piece is quoted individually after we see photos. The tier (light, standard, major) and material drive the estimate. You see the full written quote before any work begins &mdash; no commitment until you approve.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <RelatedServices /> — cross-sell. Keeps users on the site after
+         the leaf instead of letting the page dead-end into the footer.
+         ===================================================================== -->
+    <section class="sp-related section" data-component="RelatedServices">
+      <div class="wrap">
+        <header class="sp-related__head">
+          <div class="eyebrow">Other services</div>
+          <h2 class="section-title">
+            Looking for something <em>more specific?</em>
+          </h2>
+        </header>
+
+        <div class="sp-related__grid">
+          <a href="/services/cleaning" class="sp-related__card">
+            <div class="sp-related__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <h3 class="sp-related__title">Cleaning</h3>
+            <p class="sp-related__body">Surface clean and condition without re-dye. For pieces that need a refresh, not a rebuild.</p>
+          </a>
+
+          <a href="/services/repair" class="sp-related__card">
+            <div class="sp-related__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <h3 class="sp-related__title">Repair</h3>
+            <p class="sp-related__body">Targeted fix for torn handles, broken zippers, split seams or hardware failure.</p>
+          </a>
+
+          <a href="/services/alteration" class="sp-related__card">
+            <div class="sp-related__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 14 14"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <h3 class="sp-related__title">Alteration</h3>
+            <p class="sp-related__body">Resize, re-shape or re-style your existing leather piece. Custom work on request.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         <QuoteForm /> — dark inline form. Replaces the homepage CTA banner
+         so the leaf has an inline conversion point (no jump to /#contact).
+         ===================================================================== -->
+    <section class="sp-form" id="contact" data-component="QuoteForm">
+      <div class="wrap sp-form__inner">
+        <div class="sp-form__copy">
+          <div class="eyebrow">Get your quote</div>
+          <h2 class="sp-form__title">
+            Send a photo. <em>Estimate within the hour.</em>
+          </h2>
+          <p class="sp-form__text">
+            No commitment, no cost. We&rsquo;ll review the piece and reply with a written estimate and pickup window. Or chat with us directly on WhatsApp.
+          </p>
+          <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="sp-form__wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            +91 95607 35941 (WhatsApp)
+          </a>
+        </div>
+
+        <form class="sp-form__form" action="#" method="post" aria-label="Restoration quote request">
+          <label class="sp-form__field">
+            <span>Your name</span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label class="sp-form__field">
+            <span>WhatsApp number</span>
+            <input type="tel" name="phone" required autocomplete="tel" />
+          </label>
+          <label class="sp-form__field">
+            <span>What needs restoring?</span>
+            <textarea name="description" rows="3" placeholder="Brief description of the piece, brand, material, age and what&rsquo;s wrong."></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--cognac btn--lg sp-form__submit">
+            Send for quote
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+          <p class="sp-form__legal">
+            By submitting, you agree to be contacted about your enquiry. We don&rsquo;t share your number.
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================================
+       <Footer /> — shared across all pages
+       ===================================================================== -->
+  <footer class="site-footer" data-component="Footer">
+    <div class="wrap">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="/" class="footer-brand__logo" aria-label="De Leather Craft — home">
+            <svg class="footer-brand__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 150" aria-hidden="true">
+              <text y="85" font-size="84" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="700">
+                <tspan x="39" class="footer-brand__charcoal">De</tspan>
+                <tspan x="174" class="footer-brand__tan">Leather</tspan>
+                <tspan x="502" class="footer-brand__charcoal">Craft</tspan>
+              </text>
+              <text x="202" y="132" font-size="28" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="300" letter-spacing="0.5" class="footer-brand__charcoal">
+                luxury care for your luxury leather...
+              </text>
+            </svg>
+          </a>
+          <p class="footer-brand__text">
+            An independent leather atelier founded in Mumbai, 2005. Repair, cleaning and
+            restoration of fine leather across India.
+          </p>
+          <div class="footer-contact">
+            <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="footer-contact__whatsapp">+91 95607 35941 (WhatsApp)</a>
+            <a href="mailto:deleathercraft@gmail.com" class="footer-contact__email">deleathercraft@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Services</div>
+          <ul>
+            <li><a href="/services/restoration">Restoration</a></li>
+            <li><a href="/services/cleaning">Cleaning</a></li>
+            <li><a href="/services/repair">Repair</a></li>
+            <li><a href="/services/alteration">Alteration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Categories</div>
+          <ul>
+            <li><a href="/#categories">Handbags</a></li>
+            <li><a href="/#categories">Shoes</a></li>
+            <li><a href="/#categories">Jackets</a></li>
+            <li><a href="/#categories">Sofas</a></li>
+            <li><a href="/#categories">Wallets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Company</div>
+          <ul>
+            <li><a href="/#atelier">About</a></li>
+            <li><a href="/#before-after">Process</a></li>
+            <li><a href="/#reviews">Reviews</a></li>
+            <li><a href="/#contact">Locations</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-cities">
+        <div class="mono footer-cities__label">We serve · pan India</div>
+        <ul class="footer-cities__list">
+          <li>Mumbai</li>
+          <li>Delhi</li>
+          <li>Bangalore</li>
+          <li>Pune</li>
+          <li>Hyderabad</li>
+          <li>Kolkata</li>
+          <li>Ahmedabad</li>
+          <li>Jaipur</li>
+          <li>Chandigarh</li>
+          <li>Gurgaon</li>
+          <li>Noida</li>
+          <li>Surat</li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <div class="mono footer-social__label">Follow us</div>
+        <ul class="footer-social__list">
+          <li><a href="https://www.instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.facebook.com/Deleathercraft" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://twitter.com/Deleathercraft" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+          <li><a href="https://deleathercraft.com" target="_blank" rel="noopener noreferrer">deleathercraft.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 De Leather Craft. All rights reserved.</div>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================================
+       Client script — mobile nav + before/after drag + header observer.
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- Mobile navigation ---------------------------------- */
+      var burger = document.getElementById('navBurger');
+      var mobileNav = document.getElementById('mobileNav');
+      var burgerPath = document.getElementById('burgerPath');
+      var headerEl = document.querySelector('.site-header');
+      var ICON_CLOSED = 'M2 2 L16 2 M2 7 L16 7 M2 12 L16 12';
+      var ICON_OPEN   = 'M2 2 L16 12 M2 12 L16 2';
+
+      if (burger && mobileNav) {
+        burger.addEventListener('click', function () {
+          var open = mobileNav.classList.toggle('is-open');
+          burger.setAttribute('aria-expanded', String(open));
+          burgerPath.setAttribute('d', open ? ICON_OPEN : ICON_CLOSED);
+          if (headerEl) headerEl.classList.toggle('site-header--menu-open', open);
+        });
+
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileNav.classList.remove('is-open');
+            burger.setAttribute('aria-expanded', 'false');
+            burgerPath.setAttribute('d', ICON_CLOSED);
+            if (headerEl) headerEl.classList.remove('site-header--menu-open');
+          });
+        });
+      }
+
+      /* ---- Header transparency observer ----------------------- */
+      /* Service hero is dark; we want the header to stay see-through
+         while the hero is in view, then switch to solid once we scroll
+         past it (the trust strip and below are on light surfaces). */
+      var hero = document.querySelector('.sp-hero');
+      if (hero && headerEl && 'IntersectionObserver' in window) {
+        headerEl.classList.add('site-header--over-hero');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              headerEl.classList.add('site-header--over-hero');
+            } else {
+              headerEl.classList.remove('site-header--over-hero');
+            }
+          });
+        }, { threshold: 0.1 });
+        io.observe(hero);
+      }
+
+      /* ---- Before / After drag slider ------------------------- */
+      var slider  = document.getElementById('baSlider');
+      var before  = document.getElementById('baBefore');
+      var divider = document.getElementById('baDivider');
+      var handle  = document.getElementById('baHandle');
+      var dragging = false;
+
+      if (slider && before && divider && handle) {
+        function setPos(percent) {
+          percent = Math.max(0, Math.min(100, percent));
+          before.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+          divider.style.left = percent + '%';
+          handle.style.left  = percent + '%';
+        }
+        function updateFromX(x) {
+          var r = slider.getBoundingClientRect();
+          var px = Math.max(0, Math.min(r.width, x - r.left));
+          setPos((px / r.width) * 100);
+        }
+        function pointerX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+        function onDown(e)   { dragging = true; updateFromX(pointerX(e)); }
+        slider.addEventListener('mousedown', onDown);
+        slider.addEventListener('touchstart', onDown, { passive: true });
+        window.addEventListener('mousemove', function (e) { if (dragging) updateFromX(e.clientX); });
+        window.addEventListener('touchmove', function (e) { if (dragging) updateFromX(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('mouseup',   function () { dragging = false; });
+        window.addEventListener('touchend',  function () { dragging = false; });
+      }
+    })();
+  </script>
+
+</body>
+</html>

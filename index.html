@@ -184,7 +184,7 @@
       <!-- Desktop navigation — all anchor links into existing sections.
            Drop-down menus removed for the single-page launch. -->
       <nav class="nav-desktop" aria-label="Primary">
-        <a href="#services"      class="nav-link">Services</a>
+        <a href="/services/restoration" class="nav-link">Services</a>
         <a href="#categories"    class="nav-link">What we restore</a>
         <a href="#before-after"  class="nav-link">Transformation</a>
         <a href="#brands"        class="nav-link">Brands</a>
@@ -213,7 +213,7 @@
     <!-- Mobile drawer — same anchor links as desktop nav -->
     <div class="mobile-nav" id="mobileNav">
       <ul class="mobile-nav__list">
-        <li><a href="#services"      class="mobile-nav__link">Services</a></li>
+        <li><a href="/services/restoration" class="mobile-nav__link">Services</a></li>
         <li><a href="#categories"    class="mobile-nav__link">What we restore</a></li>
         <li><a href="#before-after"  class="mobile-nav__link">Transformation</a></li>
         <li><a href="#brands"        class="mobile-nav__link">Brands</a></li>
@@ -333,7 +333,7 @@
 
         <div class="services-grid">
 
-          <article class="services-col">
+          <a class="services-col" href="/services/restoration">
             <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1554825959-e9a6670d4f18?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
@@ -353,9 +353,9 @@
                 <li>Edge &amp; seam repair</li>
               </ul>
             </div>
-          </article>
+          </a>
 
-          <article class="services-col">
+          <a class="services-col" href="/services/cleaning">
             <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
@@ -374,9 +374,9 @@
                 <li>Sofa cleaning</li>
               </ul>
             </div>
-          </article>
+          </a>
 
-          <article class="services-col">
+          <a class="services-col" href="/services/repair">
             <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1647502191516-68a4f8c74ed4?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
@@ -396,9 +396,9 @@
                 <li>Lining fix</li>
               </ul>
             </div>
-          </article>
+          </a>
 
-          <article class="services-col">
+          <a class="services-col" href="/services/alteration">
             <div class="services-col__media" style="background-image: url('https://images.unsplash.com/photo-1628483211662-9bcc692c46dc?w=900&q=80&auto=format&fit=crop');"></div>
             <div class="services-col__body">
               <div class="services-col__head">
@@ -419,7 +419,7 @@
                 <li>Custom lining</li>
               </ul>
             </div>
-          </article>
+          </a>
 
         </div>
       </div>
@@ -691,18 +691,19 @@
           <div class="reviews-head__row">
             <h2 class="section-title">Trusted by customers <em>across India.</em></h2>
           </div>
+          <div class="mono reviews-head__hint">Swipe for more &rarr;</div>
         </div>
 
-        <div class="reviews-grid">
+        <div class="reviews-scroller" id="reviewsScroller" aria-label="Customer reviews">
           <article class="review-card">
-            <div class="review-card__stars">
+            <div class="review-card__stars" aria-label="5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
             </div>
-            <blockquote>&ldquo;Got my mother&rsquo;s Kelly back looking right &mdash; older, but in the right way. They kept the patina and rebuilt the structure.&rdquo;</blockquote>
+            <blockquote>&ldquo;Got my mother&rsquo;s Kelly back looking right. They kept the patina and rebuilt the structure. Honestly didn&rsquo;t think it was possible.&rdquo;</blockquote>
             <div class="review-card__by">
               <div class="review-card__name">Priya Nair</div>
               <div class="mono review-card__meta">Mumbai &middot; Herm&egrave;s Kelly</div>
@@ -710,14 +711,14 @@
           </article>
 
           <article class="review-card">
-            <div class="review-card__stars">
+            <div class="review-card__stars" aria-label="5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
             </div>
-            <blockquote>&ldquo;Re-dyed a black leather jacket I&rsquo;d given up on. New zip, new lining, same character. Done in two weeks.&rdquo;</blockquote>
+            <blockquote>&ldquo;Re-dyed a black leather jacket I&rsquo;d given up on. New zip, new lining, same character. Two weeks, done.&rdquo;</blockquote>
             <div class="review-card__by">
               <div class="review-card__name">Vikram Suri</div>
               <div class="mono review-card__meta">Bengaluru &middot; Leather jacket</div>
@@ -725,17 +726,92 @@
           </article>
 
           <article class="review-card">
-            <div class="review-card__stars">
+            <div class="review-card__stars" aria-label="5 stars">
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
             </div>
-            <blockquote>&ldquo;Old chesterfield with torn cushions and a cracked back. Picked up, restored, returned. Estimate was the final price.&rdquo;</blockquote>
+            <blockquote>&ldquo;Old chesterfield, torn cushions, cracked back. Picked up, restored, returned. Estimate was the final price. No upsell, no drama.&rdquo;</blockquote>
             <div class="review-card__by">
               <div class="review-card__name">Rahul Mehta</div>
               <div class="mono review-card__meta">New Delhi &middot; Chesterfield sofa</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;Vachetta on my Speedy was so dark I thought it was over. Came back like the day I bought it. Pickup from Pune, took 3 weeks.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Anjali Krishnan</div>
+              <div class="mono review-card__meta">Pune &middot; Louis Vuitton Speedy</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;Father&rsquo;s old crocodile belt, almost 30 years. Re-stitched, re-conditioned. Wear it daily now.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Arjun Reddy</div>
+              <div class="mono review-card__meta">Hyderabad &middot; Crocodile belt</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;Suede Tods were filthy. Came back somehow looking better than new. Worth every rupee. Will be back.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Meera Iyer</div>
+              <div class="mono review-card__meta">Bengaluru &middot; Tod&rsquo;s loafers</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="4 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="rgba(34,22,16,0.18)" /></svg>
+            </div>
+            <blockquote>&ldquo;Heel tap wrecked after one wedding season. Fixed in 3 days, the repair is invisible. Took off one star only because pickup was delayed by a day.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Kabir Shah</div>
+              <div class="mono review-card__meta">Mumbai &middot; Jimmy Choo heels</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars" aria-label="5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" fill="var(--cognac)" /></svg>
+            </div>
+            <blockquote>&ldquo;Honest pricing, no upsell. Coach tote came back beautifully cleaned and re-edged. WhatsApp updates with photos at every stage.&rdquo;</blockquote>
+            <div class="review-card__by">
+              <div class="review-card__name">Neha Bansal</div>
+              <div class="mono review-card__meta">Chandigarh &middot; Coach tote</div>
             </div>
           </article>
         </div>
@@ -1306,33 +1382,32 @@
         <div class="footer-col">
           <div class="mono footer-col__title">Services</div>
           <ul>
-            <li><a href="#">Restoration</a></li>
-            <li><a href="#">Cleaning</a></li>
-            <li><a href="#">Repair</a></li>
-            <li><a href="#">Alteration</a></li>
-            <li><a href="#">Polishing</a></li>
+            <li><a href="/services/restoration">Restoration</a></li>
+            <li><a href="/services/cleaning">Cleaning</a></li>
+            <li><a href="/services/repair">Repair</a></li>
+            <li><a href="/services/alteration">Alteration</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <div class="mono footer-col__title">Categories</div>
           <ul>
-            <li><a href="#">Handbags</a></li>
-            <li><a href="#">Shoes</a></li>
-            <li><a href="#">Jackets</a></li>
-            <li><a href="#">Sofas</a></li>
-            <li><a href="#">Wallets</a></li>
+            <li><a href="#categories">Handbags</a></li>
+            <li><a href="#categories">Shoes</a></li>
+            <li><a href="#categories">Jackets</a></li>
+            <li><a href="#categories">Sofas</a></li>
+            <li><a href="#categories">Wallets</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <div class="mono footer-col__title">Company</div>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Process</a></li>
-            <li><a href="#">Reviews</a></li>
-            <li><a href="#">Locations</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#atelier">About</a></li>
+            <li><a href="#before-after">Process</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Locations</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
