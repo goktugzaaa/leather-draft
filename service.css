@@ -511,28 +511,6 @@
   color: var(--ink-2);
 }
 
-/* Footnote-style disclaimer making it explicit these are not packages. */
-.sp-scope__note {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: clamp(28px, 4vw, 40px) 0 0;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  font-style: italic;
-  color: var(--muted);
-  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
-  font-size: clamp(15px, 1.3vw, 18px);
-}
-
-.sp-scope__rule {
-  display: inline-block;
-  width: 28px;
-  height: 1px;
-  background: var(--cognac);
-  flex-shrink: 0;
-}
-
 @media (max-width: 900px) {
   .sp-scope__grid { grid-template-columns: 1fr; }
   .sp-scope__item + .sp-scope__item {
