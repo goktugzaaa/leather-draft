@@ -2,3 +2,5 @@
 .DS_Store
 Thumbs.db
 *.log
+/service-template.html
+services/shoe-repair/
