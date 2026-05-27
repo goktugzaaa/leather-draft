@@ -27,27 +27,27 @@
        13. Footer           -> <Footer /> (Shared)
        ========================================================================== -->
 
-  <title>{{SERVICE_TITLE}} &mdash; De Leather Craft</title>
-  <meta name="description" content="{{SERVICE_META_DESCRIPTION}}" />
+  <title>Designer Leather Bag Restoration & Repair &mdash; De Leather Craft</title>
+  <meta name="description" content="Expert leather handbag restoration and repair since 2005. Hand-detailed deep cleaning, custom color-matching, stitch repair, and lining replacement for Chanel, Hermès, Gucci, and Louis Vuitton." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link class="canonical" rel="canonical" href="https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}" />
+  <link class="canonical" rel="canonical" href="https://leather-draft.vercel.app/services/leather-bag-restoration" />
 
   <!-- Social Graphs -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="De Leather Craft" />
-  <meta property="og:title" content="{{SERVICE_TITLE}} &mdash; De Leather Craft" />
-  <meta property="og:description" content="{{SERVICE_META_DESCRIPTION}}" />
-  <meta property="og:url" content="https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}" />
-  <meta property="og:image" content="https://leather-draft.vercel.app{{SOCIAL_SHARE_IMAGE}}" />
+  <meta property="og:title" content="Designer Leather Bag Restoration & Repair &mdash; De Leather Craft" />
+  <meta property="og:description" content="Expert leather handbag restoration and repair since 2005. Hand-detailed deep cleaning, custom color-matching, stitch repair, and lining replacement for Chanel, Hermès, Gucci, and Louis Vuitton." />
+  <meta property="og:url" content="https://leather-draft.vercel.app/services/leather-bag-restoration" />
+  <meta property="og:image" content="https://leather-draft.vercel.app/public/before-after/after-fendi.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://leather-draft.vercel.app{{SOCIAL_SHARE_IMAGE}}" />
+  <meta name="twitter:image" content="https://leather-draft.vercel.app/public/before-after/after-fendi.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter+Tight:wght@300;400;500;600;700&display=swap" />
 
   <!-- Preload dynamic hero visual -->
-  <link rel="preload" as="image" href="{{HERO_IMAGE_PATH}}" fetchpriority="high" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&q=80&auto=format&fit=crop" fetchpriority="high" />
 
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/service.css" />
@@ -59,24 +59,24 @@
     "@graph": [
       {
         "@type": "Service",
-        "@id": "https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}#service",
-        "serviceType": "{{SERVICE_NAME}}",
-        "name": "{{SERVICE_NAME}}",
-        "description": "{{SERVICE_META_DESCRIPTION}}",
+        "@id": "https://leather-draft.vercel.app/services/leather-bag-restoration#service",
+        "serviceType": "Leather Bag Restoration",
+        "name": "Leather Bag Restoration",
+        "description": "Expert leather handbag restoration and repair since 2005. Hand-detailed deep cleaning, custom color-matching, stitch repair, and lining replacement for Chanel, Hermès, Gucci, and Louis Vuitton.",
         "provider": {
           "@type": "Organization",
           "name": "De Leather Craft",
           "url": "https://leather-draft.vercel.app/"
         },
         "areaServed": "India",
-        "url": "https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}"
+        "url": "https://leather-draft.vercel.app/services/leather-bag-restoration"
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://leather-draft.vercel.app/" },
           { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://leather-draft.vercel.app/#services" },
-          { "@type": "ListItem", "position": 3, "name": "{{SERVICE_NAME}}", "item": "https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}" }
+          { "@type": "ListItem", "position": 3, "name": "Leather Bag Restoration", "item": "https://leather-draft.vercel.app/services/leather-bag-restoration" }
         ]
       },
       {
@@ -84,33 +84,33 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "{{FAQ_Q1}}",
-            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A1}}" }
+            "name": "How long does a typical bag restoration take?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Most handbag restorations take 3 to 4 weeks. If structural reconstructions (like custom strap rebuilding or interior lining replacement) are needed, it may take up to 6 weeks." }
           },
           {
             "@type": "Question",
-            "name": "{{FAQ_Q2}}",
-            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A2}}" }
+            "name": "Will restoring the color affect the bag's feel?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We use water-based, luxury-grade pigments and thin binding sealers that penetrate leather pores. This preserves the original grain texture and soft hand-feel of calfskin and lambskin." }
           },
           {
             "@type": "Question",
-            "name": "{{FAQ_Q3}}",
-            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A3}}" }
+            "name": "Do you repair internal linings and pockets?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer interior detailing including pocket re-sewing, ink extraction, zipper repairs, and complete lining replacements using premium silk, suede, or genuine leather." }
           },
           {
             "@type": "Question",
-            "name": "{{FAQ_Q4}}",
-            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A4}}" }
+            "name": "Can you fix cracked Vachetta leather on Louis Vuitton bags?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Once leather is deeply cracked and split, it cannot be safely glued. We perform panel replacements, replacing the old trim with premium untreated Vachetta leather which will patina naturally over time." }
           },
           {
             "@type": "Question",
-            "name": "{{FAQ_Q5}}",
-            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A5}}" }
+            "name": "Are my luxury bags insured during transport?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, all items picked up by our doorstep couriers or sent by post are fully insured up to their current fair market valuation for complete peace of mind." }
           },
           {
             "@type": "Question",
-            "name": "{{FAQ_Q6}}",
-            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A6}}" }
+            "name": "Do you provide warranty on stitching and repairs?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We offer a 6-month warranty covering stitching, leather bonding, handle replacements, and edge paint adhesion on all bag restoration orders." }
           }
         ]
       }
@@ -193,13 +193,13 @@
          data-component="ServiceHero"
          Split premium layout: Left text details, Right image frame.
          ===================================================================== -->
-    <section class="sp-hero" data-component="ServiceHero" aria-label="{{SERVICE_NAME}}">
+    <section class="sp-hero" data-component="ServiceHero" aria-label="Leather Bag Restoration">
       <nav class="sp-breadcrumb" aria-label="Breadcrumb" data-component="Breadcrumb">
         <div class="wrap">
           <ol class="sp-breadcrumb__list">
             <li><a href="/">Home</a></li>
             <li><a href="/#services">Services</a></li>
-            <li aria-current="page">{{SERVICE_NAME}}</li>
+            <li aria-current="page">Leather Bag Restoration</li>
           </ol>
         </div>
       </nav>
@@ -212,11 +212,11 @@
           </div>
 
           <h1 class="sp-hero__title">
-            {{SERVICE_NAME}} <br /><em>{{SERVICE_TAGLINE}}</em>
+            Leather Bag Restoration <br /><em>for designer handbags worth preserving.</em>
           </h1>
 
           <p class="sp-hero__sub">
-            {{SERVICE_HERO_SUB}}
+            Restore the structure, color, and finish of your heirloom designer pieces. Our expert artisans provide custom hand-detailing, stitching, and color-matching for Hermès, Chanel, Louis Vuitton, and luxury leather goods.
           </p>
 
           <div class="sp-hero__actions">
@@ -228,7 +228,7 @@
         </div>
 
         <div class="sp-hero__visual">
-          <img class="sp-hero__img" src="{{HERO_IMAGE_PATH}}" alt="{{SERVICE_NAME}} restoration" fetchpriority="high" loading="eager" />
+          <img class="sp-hero__img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&q=80&auto=format&fit=crop" alt="Leather Bag Restoration restoration" fetchpriority="high" loading="eager" />
         </div>
       </div>
     </section>
@@ -248,38 +248,38 @@
         <div class="sp-problems__grid">
           <article class="sp-problem-card">
             <span class="sp-problem-card__indicator"></span>
-            <h3 class="sp-problem-card__title">{{PROBLEM_1_TITLE}}</h3>
-            <p class="sp-problem-card__desc">{{PROBLEM_1_DESC}}</p>
+            <h3 class="sp-problem-card__title">Scuffs & Abrasions</h3>
+            <p class="sp-problem-card__desc">Friction along base corners, piping, and edges strips color pigments and degrades delicate lambskin or calfskin.</p>
           </article>
 
           <article class="sp-problem-card">
             <span class="sp-problem-card__indicator"></span>
-            <h3 class="sp-problem-card__title">{{PROBLEM_2_TITLE}}</h3>
-            <p class="sp-problem-card__desc">{{PROBLEM_2_DESC}}</p>
+            <h3 class="sp-problem-card__title">Deep Surface Stains</h3>
+            <p class="sp-problem-card__desc">Ink spills, dye transfers from denim, watermarks, makeup, and oils penetrate raw leather grain causing permanent discoloration.</p>
           </article>
 
           <article class="sp-problem-card">
             <span class="sp-problem-card__indicator"></span>
-            <h3 class="sp-problem-card__title">{{PROBLEM_3_TITLE}}</h3>
-            <p class="sp-problem-card__desc">{{PROBLEM_3_DESC}}</p>
+            <h3 class="sp-problem-card__title">Color Fading</h3>
+            <p class="sp-problem-card__desc">Continuous exposure to UV rays and hand oils bleaches out original brand-specific pigments and dries out texture.</p>
           </article>
 
           <article class="sp-problem-card">
             <span class="sp-problem-card__indicator"></span>
-            <h3 class="sp-problem-card__title">{{PROBLEM_4_TITLE}}</h3>
-            <p class="sp-problem-card__desc">{{PROBLEM_4_DESC}}</p>
+            <h3 class="sp-problem-card__title">Torn Stitching & Piping</h3>
+            <p class="sp-problem-card__desc">Heavy load carrying pulls stress points loose, tearing seams, handles, strap loops, and exposing plastic piping cords.</p>
           </article>
 
           <article class="sp-problem-card">
             <span class="sp-problem-card__indicator"></span>
-            <h3 class="sp-problem-card__title">{{PROBLEM_5_TITLE}}</h3>
-            <p class="sp-problem-card__desc">{{PROBLEM_5_DESC}}</p>
+            <h3 class="sp-problem-card__title">Hardware Tarnish & Scratches</h3>
+            <p class="sp-problem-card__desc">Bespoke gold or silver brand hardware undergoes oxidizing, dulling, micro-scratching, or complete clasp failure.</p>
           </article>
 
           <article class="sp-problem-card">
             <span class="sp-problem-card__indicator"></span>
-            <h3 class="sp-problem-card__title">{{PROBLEM_6_TITLE}}</h3>
-            <p class="sp-problem-card__desc">{{PROBLEM_6_DESC}}</p>
+            <h3 class="sp-problem-card__title">Lining Tears & Odors</h3>
+            <p class="sp-problem-card__desc">Interior silk, suede, or canvas linings gather dirt, ink marks, structural tears, or mold odors over years of storage.</p>
           </article>
         </div>
       </div>
@@ -301,19 +301,19 @@
           <article class="sp-solution-card">
             <span class="mono sp-solution-card__num">01</span>
             <h3 class="sp-solution-card__title">Cleaning & Conditioning</h3>
-            <p class="sp-solution-card__desc">{{SOLUTION_CLEANING_DESC}}</p>
+            <p class="sp-solution-card__desc">Biological solvent wash to lift deep oils, followed by ozone sanitization and pH-neutral leather conditioning.</p>
           </article>
 
           <article class="sp-solution-card">
             <span class="mono sp-solution-card__num">02</span>
             <h3 class="sp-solution-card__title">Atelier Repair</h3>
-            <p class="sp-solution-card__desc">{{SOLUTION_REPAIR_DESC}}</p>
+            <p class="sp-solution-card__desc">Structural seam re-stitching, piping rebuilds, hardware replating, and complete inner-lining replacements.</p>
           </article>
 
           <article class="sp-solution-card">
             <span class="mono sp-solution-card__num">03</span>
             <h3 class="sp-solution-card__title">Pigment Restoration</h3>
-            <p class="sp-solution-card__desc">{{SOLUTION_RESTORATION_DESC}}</p>
+            <p class="sp-solution-card__desc">Manual pigment color matching, airbrush surface dye application, texturizing, and protective water-repellent sealing.</p>
           </article>
         </div>
       </div>
@@ -343,21 +343,21 @@
             <div class="sp-ba-panel__grid">
               <div class="sp-ba-panel__images">
                 <div class="sp-ba-img-container">
-                  <img src="{{BEFORE_AFTER_1_BEFORE}}" alt="Before treatment" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=80&auto=format&fit=crop" alt="Before treatment" loading="lazy" />
                   <span class="sp-ba-tag sp-ba-tag--before">Before</span>
                 </div>
                 <div class="sp-ba-img-container">
-                  <img src="{{BEFORE_AFTER_1_AFTER}}" alt="After treatment" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=80&auto=format&fit=crop" alt="After treatment" loading="lazy" />
                   <span class="sp-ba-tag sp-ba-tag--after">After</span>
                 </div>
               </div>
               <div class="sp-ba-panel__content">
-                <h3 class="sp-ba-panel__title">{{BEFORE_AFTER_1_NAME}}</h3>
-                <span class="mono sp-ba-panel__meta">{{BEFORE_AFTER_1_META}}</span>
+                <h3 class="sp-ba-panel__title">Chanel Classic Flap</h3>
+                <span class="mono sp-ba-panel__meta">Lambskin · Color Revival & Scuff Repair</span>
                 <ul class="sp-ba-panel__bullets">
-                  <li>{{BEFORE_AFTER_1_BULLET_1}}</li>
-                  <li>{{BEFORE_AFTER_1_BULLET_2}}</li>
-                  <li>{{BEFORE_AFTER_1_BULLET_3}}</li>
+                  <li>Precision pigment match for deep black lacquer finish</li>
+                  <li>Corner leather rebuild and structural reinforcement</li>
+                  <li>24k gold plated CC turnlock polish & tarnish removal</li>
                 </ul>
               </div>
             </div>
@@ -368,21 +368,21 @@
             <div class="sp-ba-panel__grid">
               <div class="sp-ba-panel__images">
                 <div class="sp-ba-img-container">
-                  <img src="{{BEFORE_AFTER_2_BEFORE}}" alt="Before treatment" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80&auto=format&fit=crop" alt="Before treatment" loading="lazy" />
                   <span class="sp-ba-tag sp-ba-tag--before">Before</span>
                 </div>
                 <div class="sp-ba-img-container">
-                  <img src="{{BEFORE_AFTER_2_AFTER}}" alt="After treatment" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80&auto=format&fit=crop" alt="After treatment" loading="lazy" />
                   <span class="sp-ba-tag sp-ba-tag--after">After</span>
                 </div>
               </div>
               <div class="sp-ba-panel__content">
-                <h3 class="sp-ba-panel__title">{{BEFORE_AFTER_2_NAME}}</h3>
-                <span class="mono sp-ba-panel__meta">{{BEFORE_AFTER_2_META}}</span>
+                <h3 class="sp-ba-panel__title">Louis Vuitton Speedy 30</h3>
+                <span class="mono sp-ba-panel__meta">Monogram Canvas · Vachetta Rebuild</span>
                 <ul class="sp-ba-panel__bullets">
-                  <li>{{BEFORE_AFTER_2_BULLET_1}}</li>
-                  <li>{{BEFORE_AFTER_2_BULLET_2}}</li>
-                  <li>{{BEFORE_AFTER_2_BULLET_3}}</li>
+                  <li>Replacement of dried & cracked Vachetta leather trims</li>
+                  <li>Hand-stitched rolled leather handles using yellow French thread</li>
+                  <li>Oxidation removal and polish on brass rivets and padlocks</li>
                 </ul>
               </div>
             </div>
@@ -393,21 +393,21 @@
             <div class="sp-ba-panel__grid">
               <div class="sp-ba-panel__images">
                 <div class="sp-ba-img-container">
-                  <img src="{{BEFORE_AFTER_3_BEFORE}}" alt="Before treatment" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc15a4a0?w=900&q=80&auto=format&fit=crop" alt="Before treatment" loading="lazy" />
                   <span class="sp-ba-tag sp-ba-tag--before">Before</span>
                 </div>
                 <div class="sp-ba-img-container">
-                  <img src="{{BEFORE_AFTER_3_AFTER}}" alt="After treatment" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc15a4a0?w=900&q=80&auto=format&fit=crop" alt="After treatment" loading="lazy" />
                   <span class="sp-ba-tag sp-ba-tag--after">After</span>
                 </div>
               </div>
               <div class="sp-ba-panel__content">
-                <h3 class="sp-ba-panel__title">{{BEFORE_AFTER_3_NAME}}</h3>
-                <span class="mono sp-ba-panel__meta">{{BEFORE_AFTER_3_META}}</span>
+                <h3 class="sp-ba-panel__title">Hermès Birkin 35</h3>
+                <span class="mono sp-ba-panel__meta">Togo Leather · Orange H Pigment Match</span>
                 <ul class="sp-ba-panel__bullets">
-                  <li>{{BEFORE_AFTER_3_BULLET_1}}</li>
-                  <li>{{BEFORE_AFTER_3_BULLET_2}}</li>
-                  <li>{{BEFORE_AFTER_3_BULLET_3}}</li>
+                  <li>Extraction of grease stains from handles & base seams</li>
+                  <li>Custom edge paint formulation and multi-layer hand application</li>
+                  <li>Rebuilding shape using interior structural supports to fix sagging</li>
                 </ul>
               </div>
             </div>
@@ -467,33 +467,33 @@
 
         <div class="sp-capabilities__grid">
           <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_1_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_1_DESC}}</p>
+            <h3 class="sp-capability-card__title">Bespoke Pigment Matching</h3>
+            <p class="sp-capability-card__desc">Our colorists match brand pigments entirely by hand under natural daylight, avoiding flat paint finishes.</p>
           </article>
 
           <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_2_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_2_DESC}}</p>
+            <h3 class="sp-capability-card__title">Edge Glazing & Painting</h3>
+            <p class="sp-capability-card__desc">Multi-layer edge paint sealing for handles and straps, sanded smooth between applications.</p>
           </article>
 
           <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_3_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_3_DESC}}</p>
+            <h3 class="sp-capability-card__title">Traditional Hand-Stitch</h3>
+            <p class="sp-capability-card__desc">Saddle-stitching loose seams using traditional French linen thread for structural strength.</p>
           </article>
 
           <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_4_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_4_DESC}}</p>
+            <h3 class="sp-capability-card__title">Hardware Replating & Polish</h3>
+            <p class="sp-capability-card__desc">Micro-scratch polishing and custom 24k gold or palladium immersion plating for hardware accessories.</p>
           </article>
 
           <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_5_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_5_DESC}}</p>
+            <h3 class="sp-capability-card__title">Lining Re-crafting</h3>
+            <p class="sp-capability-card__desc">Replacing stained or torn linings with premium grosgrain silk, genuine pigskin, or canvas.</p>
           </article>
 
           <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_6_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_6_DESC}}</p>
+            <h3 class="sp-capability-card__title">Shape & Piping Rebuilds</h3>
+            <p class="sp-capability-card__desc">Replacing cracked plastic piping with genuine leather rolls and reinforcing internal stiffener sheets.</p>
           </article>
         </div>
       </div>
@@ -534,7 +534,7 @@
       <div class="wrap">
         <div class="sp-video__frame">
           <!-- NextJS Tip: Render conditionally. Static HTML uses CSS :has / :empty or src check to hide. -->
-          <iframe src="{{VIDEO_EMBED_URL}}" title="De Leather Craft Atelier Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="De Leather Craft Atelier Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -554,28 +554,28 @@
         <div class="sp-testimonials__grid">
           <div class="sp-testimonial-card">
             <div class="sp-testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-            <blockquote class="sp-testimonial-card__quote">&ldquo;{{TESTIMONIAL_1_QUOTE}}&rdquo;</blockquote>
+            <blockquote class="sp-testimonial-card__quote">&ldquo;De Leather Craft brought my vintage Chanel bag back to life! The faded corners look brand new and the leather feels incredibly soft. The color match is exact.&rdquo;</blockquote>
             <div class="sp-testimonial-card__author">
-              <cite class="sp-testimonial-card__name">{{TESTIMONIAL_1_NAME}}</cite>
-              <span class="mono sp-testimonial-card__meta">{{TESTIMONIAL_1_META}}</span>
+              <cite class="sp-testimonial-card__name">Karan Johar</cite>
+              <span class="mono sp-testimonial-card__meta">Mumbai · Chanel Lambskin</span>
             </div>
           </div>
 
           <div class="sp-testimonial-card">
             <div class="sp-testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-            <blockquote class="sp-testimonial-card__quote">&ldquo;{{TESTIMONIAL_2_QUOTE}}&rdquo;</blockquote>
+            <blockquote class="sp-testimonial-card__quote">&ldquo;Outstanding work on my Hermes Birkin. The handle grease stains are completely gone and the sagging shape has been corrected. High-end craftsmanship.&rdquo;</blockquote>
             <div class="sp-testimonial-card__author">
-              <cite class="sp-testimonial-card__name">{{TESTIMONIAL_2_NAME}}</cite>
-              <span class="mono sp-testimonial-card__meta">{{TESTIMONIAL_2_META}}</span>
+              <cite class="sp-testimonial-card__name">Priya Sharma</cite>
+              <span class="mono sp-testimonial-card__meta">Delhi · Hermès Birkin 35</span>
             </div>
           </div>
 
           <div class="sp-testimonial-card">
             <div class="sp-testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-            <blockquote class="sp-testimonial-card__quote">&ldquo;{{TESTIMONIAL_3_QUOTE}}&rdquo;</blockquote>
+            <blockquote class="sp-testimonial-card__quote">&ldquo;Highly recommend! They replaced the cracked handles on my Louis Vuitton Speedy. The stitching is absolutely flawless and matches the original perfectly.&rdquo;</blockquote>
             <div class="sp-testimonial-card__author">
-              <cite class="sp-testimonial-card__name">{{TESTIMONIAL_3_NAME}}</cite>
-              <span class="mono sp-testimonial-card__meta">{{TESTIMONIAL_3_META}}</span>
+              <cite class="sp-testimonial-card__name">Ananya Iyer</cite>
+              <span class="mono sp-testimonial-card__meta">Bangalore · LV Speedy</span>
             </div>
           </div>
         </div>
@@ -597,66 +597,66 @@
           <details class="sp-faq__item">
             <summary>
               <span class="mono sp-faq__num">Q01</span>
-              <span class="sp-faq__q">{{FAQ_Q1}}</span>
+              <span class="sp-faq__q">How long does a typical bag restoration take?</span>
               <span class="sp-faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="sp-faq__body">
-              <p>{{FAQ_A1}}</p>
+              <p>Most handbag restorations take 3 to 4 weeks. If structural reconstructions (like custom strap rebuilding or interior lining replacement) are needed, it may take up to 6 weeks.</p>
             </div>
           </details>
 
           <details class="sp-faq__item">
             <summary>
               <span class="mono sp-faq__num">Q02</span>
-              <span class="sp-faq__q">{{FAQ_Q2}}</span>
+              <span class="sp-faq__q">Will restoring the color affect the bag's feel?</span>
               <span class="sp-faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="sp-faq__body">
-              <p>{{FAQ_A2}}</p>
+              <p>No. We use water-based, luxury-grade pigments and thin binding sealers that penetrate leather pores. This preserves the original grain texture and soft hand-feel of calfskin and lambskin.</p>
             </div>
           </details>
 
           <details class="sp-faq__item">
             <summary>
               <span class="mono sp-faq__num">Q03</span>
-              <span class="sp-faq__q">{{FAQ_Q3}}</span>
+              <span class="sp-faq__q">Do you repair internal linings and pockets?</span>
               <span class="sp-faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="sp-faq__body">
-              <p>{{FAQ_A3}}</p>
+              <p>Yes. We offer interior detailing including pocket re-sewing, ink extraction, zipper repairs, and complete lining replacements using premium silk, suede, or genuine leather.</p>
             </div>
           </details>
 
           <details class="sp-faq__item">
             <summary>
               <span class="mono sp-faq__num">Q04</span>
-              <span class="sp-faq__q">{{FAQ_Q4}}</span>
+              <span class="sp-faq__q">Can you fix cracked Vachetta leather on Louis Vuitton bags?</span>
               <span class="sp-faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="sp-faq__body">
-              <p>{{FAQ_A4}}</p>
+              <p>Once leather is deeply cracked and split, it cannot be safely glued. We perform panel replacements, replacing the old trim with premium untreated Vachetta leather which will patina naturally over time.</p>
             </div>
           </details>
 
           <details class="sp-faq__item">
             <summary>
               <span class="mono sp-faq__num">Q05</span>
-              <span class="sp-faq__q">{{FAQ_Q5}}</span>
+              <span class="sp-faq__q">Are my luxury bags insured during transport?</span>
               <span class="sp-faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="sp-faq__body">
-              <p>{{FAQ_A5}}</p>
+              <p>Yes, all items picked up by our doorstep couriers or sent by post are fully insured up to their current fair market valuation for complete peace of mind.</p>
             </div>
           </details>
 
           <details class="sp-faq__item">
             <summary>
               <span class="mono sp-faq__num">Q06</span>
-              <span class="sp-faq__q">{{FAQ_Q6}}</span>
+              <span class="sp-faq__q">Do you provide warranty on stitching and repairs?</span>
               <span class="sp-faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="sp-faq__body">
-              <p>{{FAQ_A6}}</p>
+              <p>We offer a 6-month warranty covering stitching, leather bonding, handle replacements, and edge paint adhesion on all bag restoration orders.</p>
             </div>
           </details>
         </div>
@@ -686,7 +686,7 @@
         </div>
 
         <div class="sp-final-cta__form-container">
-          <form class="sp-final-cta__form" action="#" method="post" aria-label="{{SERVICE_NAME}} quote request">
+          <form class="sp-final-cta__form" action="#" method="post" aria-label="Leather Bag Restoration quote request">
             <label class="sp-final-cta__field">
               <span>Your Name</span>
               <input type="text" name="name" required placeholder="John Doe" />
