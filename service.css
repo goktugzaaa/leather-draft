@@ -1165,6 +1165,61 @@
 .sp-final-cta__submit {
   margin-top: 8px;
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: 2px;
+  background: var(--cognac);
+  border: 1px solid var(--cognac);
+  color: #fbf3df;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sp-final-cta__submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #fbf3df;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.44s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.sp-final-cta__submit span,
+.sp-final-cta__submit svg {
+  position: relative;
+  z-index: 2;
+}
+
+.sp-final-cta__submit svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.28s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.sp-final-cta__submit:hover {
+  color: var(--ink);
+  border-color: #fbf3df;
+  box-shadow: 0 12px 28px -8px rgba(138, 77, 44, 0.3);
+}
+
+.sp-final-cta__submit:hover::before {
+  transform: scaleX(1);
+}
+
+.sp-final-cta__submit:hover svg {
+  transform: translateX(3px);
 }
 
 .sp-final-cta__legal {
