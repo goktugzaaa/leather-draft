@@ -482,10 +482,11 @@
 
 @media (max-width: 520px) {
   .sp-ba-panel__images {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr; /* Keep side-by-side for easy visual comparison */
+    gap: 8px;                      /* Tighter gap for small screen sizes */
   }
   .sp-ba-img-container {
-    aspect-ratio: 4/3;
+    aspect-ratio: 1/1;             /* Retain the premium square crop */
   }
 }
 
