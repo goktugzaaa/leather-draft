@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#221610" />
+
+  <!-- ==========================================================================
+       PRODUCTION-READY SERVICE PAGE TEMPLATE (13 SECTIONS)
+       --------------------------------------------------------------------------
+       This is a reusable page template for leather services (cleaning, repair, etc.).
+       Structure is fully semantic, componentized, and Next.js friendly.
+
+       Next.js Component Mapping:
+       1.  Header           -> <Header /> (Shared)
+       2.  Hero             -> <ServiceHero />
+       3.  Problem          -> <ProblemGrid />
+       4.  Solution         -> <SolutionOverview />
+       5.  Before / After   -> <BeforeAfterGallery />
+       6.  Process          -> <ProcessTimeline />
+       7.  Capabilities     -> <CapabilitiesGrid />
+       8.  Trust            -> <TrustSignals />
+       9.  Video            -> <VideoSection /> (Collapses if empty)
+       10. Testimonials     -> <Testimonials />
+       11. FAQ              -> <FaqAccordion />
+       12. Final CTA & Form -> <FinalCta />
+       13. Footer           -> <Footer /> (Shared)
+       ========================================================================== -->
+
+  <title>{{SERVICE_TITLE}} &mdash; De Leather Craft</title>
+  <meta name="description" content="{{SERVICE_META_DESCRIPTION}}" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link class="canonical" rel="canonical" href="https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}" />
+
+  <!-- Social Graphs -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="De Leather Craft" />
+  <meta property="og:title" content="{{SERVICE_TITLE}} &mdash; De Leather Craft" />
+  <meta property="og:description" content="{{SERVICE_META_DESCRIPTION}}" />
+  <meta property="og:url" content="https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}" />
+  <meta property="og:image" content="https://leather-draft.vercel.app{{SOCIAL_SHARE_IMAGE}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://leather-draft.vercel.app{{SOCIAL_SHARE_IMAGE}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter+Tight:wght@300;400;500;600;700&display=swap" />
+
+  <!-- Preload dynamic hero visual -->
+  <link rel="preload" as="image" href="{{HERO_IMAGE_PATH}}" fetchpriority="high" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/service.css" />
+
+  <!-- SEO Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}#service",
+        "serviceType": "{{SERVICE_NAME}}",
+        "name": "{{SERVICE_NAME}}",
+        "description": "{{SERVICE_META_DESCRIPTION}}",
+        "provider": {
+          "@type": "Organization",
+          "name": "De Leather Craft",
+          "url": "https://leather-draft.vercel.app/"
+        },
+        "areaServed": "India",
+        "url": "https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://leather-draft.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://leather-draft.vercel.app/#services" },
+          { "@type": "ListItem", "position": 3, "name": "{{SERVICE_NAME}}", "item": "https://leather-draft.vercel.app/services/{{SERVICE_SLUG}}" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q1}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A1}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q2}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A2}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q3}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A3}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q4}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A4}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q5}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A5}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q6}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A6}}" }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- =====================================================================
+       1. HEADER (Same as Homepage)
+       data-component="Header"
+       ===================================================================== -->
+  <header class="site-header" data-component="Header">
+    <div class="wrap site-header__inner">
+
+      <a href="/" class="dlc-logo" aria-label="De Leather Craft — home">
+        <svg class="dlc-logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 150" aria-hidden="true">
+          <text y="85" font-size="84" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="700">
+            <tspan x="39" class="dlc-logo__charcoal">De</tspan>
+            <tspan x="174" class="dlc-logo__tan">Leather</tspan>
+            <tspan x="502" class="dlc-logo__charcoal">Craft</tspan>
+          </text>
+          <text x="202" y="132" font-size="28" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="300" letter-spacing="0.5" class="dlc-logo__charcoal dlc-logo__tagline">
+            luxury care for your luxury leather...
+          </text>
+        </svg>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="/#services"     class="nav-link">Services</a>
+        <a href="/#categories"   class="nav-link">What we restore</a>
+        <a href="/#before-after" class="nav-link">Transformation</a>
+        <a href="/#brands"       class="nav-link">Brands</a>
+        <a href="/#atelier"      class="nav-link">Atelier</a>
+        <a href="/#reviews"      class="nav-link">Reviews</a>
+        <a href="/#faq"          class="nav-link">FAQ</a>
+        <a href="#contact"       class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-desktop-cta">
+        <a href="#contact" class="btn btn--ghost">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+          <path id="burgerPath" d="M2 2 L16 2 M2 7 L16 7 M2 12 L16 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav__list">
+        <li><a href="/#services"     class="mobile-nav__link">Services</a></li>
+        <li><a href="/#categories"   class="mobile-nav__link">What we restore</a></li>
+        <li><a href="/#before-after" class="mobile-nav__link">Transformation</a></li>
+        <li><a href="/#brands"       class="mobile-nav__link">Brands</a></li>
+        <li><a href="/#atelier"      class="mobile-nav__link">Atelier</a></li>
+        <li><a href="/#reviews"      class="mobile-nav__link">Reviews</a></li>
+        <li><a href="/#faq"          class="mobile-nav__link">FAQ</a></li>
+        <li><a href="#contact"       class="mobile-nav__link">Contact</a></li>
+      </ul>
+      <div class="mobile-nav__cta">
+        <a href="#contact" class="btn btn--primary btn--cognac btn--lg" style="justify-content:center;">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+        <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="mobile-nav__whatsapp">WhatsApp us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================================
+         2. HERO SECTION
+         data-component="ServiceHero"
+         Split premium layout: Left text details, Right image frame.
+         ===================================================================== -->
+    <section class="sp-hero" data-component="ServiceHero" aria-label="{{SERVICE_NAME}}">
+      <nav class="sp-breadcrumb" aria-label="Breadcrumb" data-component="Breadcrumb">
+        <div class="wrap">
+          <ol class="sp-breadcrumb__list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li aria-current="page">{{SERVICE_NAME}}</li>
+          </ol>
+        </div>
+      </nav>
+
+      <div class="wrap sp-hero__grid">
+        <div class="sp-hero__content">
+          <div class="sp-hero__eyebrow">
+            <span class="rule"></span>
+            <span class="eyebrow">De Leather Craft &middot; Speciality Care</span>
+          </div>
+
+          <h1 class="sp-hero__title">
+            {{SERVICE_NAME}} <br /><em>{{SERVICE_TAGLINE}}</em>
+          </h1>
+
+          <p class="sp-hero__sub">
+            {{SERVICE_HERO_SUB}}
+          </p>
+
+          <div class="sp-hero__actions">
+            <a href="#contact" class="btn btn--primary btn--cognac btn--lg">
+              GET IN TOUCH
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sp-hero__visual">
+          <img class="sp-hero__img" src="{{HERO_IMAGE_PATH}}" alt="{{SERVICE_NAME}} restoration" fetchpriority="high" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. PROBLEM SECTION ("Common Issues We Fix")
+         data-component="ProblemGrid"
+         Displays damage types for client matching and SEO search keyword mapping.
+         ===================================================================== -->
+    <section class="sp-problems section" data-component="ProblemGrid">
+      <div class="wrap">
+        <header class="sp-problems__head">
+          <div class="eyebrow">Common Issues</div>
+          <h2 class="section-title">Common damage we <em>resolve.</em></h2>
+        </header>
+
+        <div class="sp-problems__grid">
+          <article class="sp-problem-card">
+            <span class="sp-problem-card__indicator"></span>
+            <h3 class="sp-problem-card__title">{{PROBLEM_1_TITLE}}</h3>
+            <p class="sp-problem-card__desc">{{PROBLEM_1_DESC}}</p>
+          </article>
+
+          <article class="sp-problem-card">
+            <span class="sp-problem-card__indicator"></span>
+            <h3 class="sp-problem-card__title">{{PROBLEM_2_TITLE}}</h3>
+            <p class="sp-problem-card__desc">{{PROBLEM_2_DESC}}</p>
+          </article>
+
+          <article class="sp-problem-card">
+            <span class="sp-problem-card__indicator"></span>
+            <h3 class="sp-problem-card__title">{{PROBLEM_3_TITLE}}</h3>
+            <p class="sp-problem-card__desc">{{PROBLEM_3_DESC}}</p>
+          </article>
+
+          <article class="sp-problem-card">
+            <span class="sp-problem-card__indicator"></span>
+            <h3 class="sp-problem-card__title">{{PROBLEM_4_TITLE}}</h3>
+            <p class="sp-problem-card__desc">{{PROBLEM_4_DESC}}</p>
+          </article>
+
+          <article class="sp-problem-card">
+            <span class="sp-problem-card__indicator"></span>
+            <h3 class="sp-problem-card__title">{{PROBLEM_5_TITLE}}</h3>
+            <p class="sp-problem-card__desc">{{PROBLEM_5_DESC}}</p>
+          </article>
+
+          <article class="sp-problem-card">
+            <span class="sp-problem-card__indicator"></span>
+            <h3 class="sp-problem-card__title">{{PROBLEM_6_TITLE}}</h3>
+            <p class="sp-problem-card__desc">{{PROBLEM_6_DESC}}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. SOLUTION SECTION ("How We Fix It")
+         data-component="SolutionOverview"
+         Clean authority cards highlighting Cleaning, Repair, and Restoration.
+         ===================================================================== -->
+    <section class="sp-solutions section" data-component="SolutionOverview">
+      <div class="wrap">
+        <header class="sp-solutions__head">
+          <div class="eyebrow">Our Methodology</div>
+          <h2 class="section-title">How we fix <em>it.</em></h2>
+        </header>
+
+        <div class="sp-solutions__grid">
+          <article class="sp-solution-card">
+            <span class="mono sp-solution-card__num">01</span>
+            <h3 class="sp-solution-card__title">Cleaning & Conditioning</h3>
+            <p class="sp-solution-card__desc">{{SOLUTION_CLEANING_DESC}}</p>
+          </article>
+
+          <article class="sp-solution-card">
+            <span class="mono sp-solution-card__num">02</span>
+            <h3 class="sp-solution-card__title">Atelier Repair</h3>
+            <p class="sp-solution-card__desc">{{SOLUTION_REPAIR_DESC}}</p>
+          </article>
+
+          <article class="sp-solution-card">
+            <span class="mono sp-solution-card__num">03</span>
+            <h3 class="sp-solution-card__title">Pigment Restoration</h3>
+            <p class="sp-solution-card__desc">{{SOLUTION_RESTORATION_DESC}}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. BEFORE / AFTER SECTION
+         data-component="BeforeAfterGallery"
+         Interactive client showcases with metadata and dynamic treatments.
+         ===================================================================== -->
+    <section class="sp-before-after section" data-component="BeforeAfterGallery">
+      <div class="wrap">
+        <header class="sp-before-after__head">
+          <div class="eyebrow">Visual Proof</div>
+          <h2 class="section-title">Before & After <em>Cases.</em></h2>
+        </header>
+
+        <div class="sp-ba-tabs">
+          <div class="sp-ba-tabs__nav" role="tablist" aria-label="Before/After transformations">
+            <button class="sp-ba-tabs__btn is-active" role="tab" aria-selected="true" aria-controls="ba-panel-1" id="ba-tab-1">Piece 01</button>
+            <button class="sp-ba-tabs__btn" role="tab" aria-selected="false" aria-controls="ba-panel-2" id="ba-tab-2" tabindex="-1">Piece 02</button>
+            <button class="sp-ba-tabs__btn" role="tab" aria-selected="false" aria-controls="ba-panel-3" id="ba-tab-3" tabindex="-1">Piece 03</button>
+          </div>
+
+          <!-- Panel 1 -->
+          <div class="sp-ba-panel is-active" id="ba-panel-1" role="tabpanel" aria-labelledby="ba-tab-1">
+            <div class="sp-ba-panel__grid">
+              <div class="sp-ba-panel__images">
+                <div class="sp-ba-img-container">
+                  <img src="{{BEFORE_AFTER_1_BEFORE}}" alt="Before treatment" loading="lazy" />
+                  <span class="sp-ba-tag sp-ba-tag--before">Before</span>
+                </div>
+                <div class="sp-ba-img-container">
+                  <img src="{{BEFORE_AFTER_1_AFTER}}" alt="After treatment" loading="lazy" />
+                  <span class="sp-ba-tag sp-ba-tag--after">After</span>
+                </div>
+              </div>
+              <div class="sp-ba-panel__content">
+                <h3 class="sp-ba-panel__title">{{BEFORE_AFTER_1_NAME}}</h3>
+                <span class="mono sp-ba-panel__meta">{{BEFORE_AFTER_1_META}}</span>
+                <ul class="sp-ba-panel__bullets">
+                  <li>{{BEFORE_AFTER_1_BULLET_1}}</li>
+                  <li>{{BEFORE_AFTER_1_BULLET_2}}</li>
+                  <li>{{BEFORE_AFTER_1_BULLET_3}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2 -->
+          <div class="sp-ba-panel" id="ba-panel-2" role="tabpanel" aria-labelledby="ba-tab-2" hidden>
+            <div class="sp-ba-panel__grid">
+              <div class="sp-ba-panel__images">
+                <div class="sp-ba-img-container">
+                  <img src="{{BEFORE_AFTER_2_BEFORE}}" alt="Before treatment" loading="lazy" />
+                  <span class="sp-ba-tag sp-ba-tag--before">Before</span>
+                </div>
+                <div class="sp-ba-img-container">
+                  <img src="{{BEFORE_AFTER_2_AFTER}}" alt="After treatment" loading="lazy" />
+                  <span class="sp-ba-tag sp-ba-tag--after">After</span>
+                </div>
+              </div>
+              <div class="sp-ba-panel__content">
+                <h3 class="sp-ba-panel__title">{{BEFORE_AFTER_2_NAME}}</h3>
+                <span class="mono sp-ba-panel__meta">{{BEFORE_AFTER_2_META}}</span>
+                <ul class="sp-ba-panel__bullets">
+                  <li>{{BEFORE_AFTER_2_BULLET_1}}</li>
+                  <li>{{BEFORE_AFTER_2_BULLET_2}}</li>
+                  <li>{{BEFORE_AFTER_2_BULLET_3}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3 -->
+          <div class="sp-ba-panel" id="ba-panel-3" role="tabpanel" aria-labelledby="ba-tab-3" hidden>
+            <div class="sp-ba-panel__grid">
+              <div class="sp-ba-panel__images">
+                <div class="sp-ba-img-container">
+                  <img src="{{BEFORE_AFTER_3_BEFORE}}" alt="Before treatment" loading="lazy" />
+                  <span class="sp-ba-tag sp-ba-tag--before">Before</span>
+                </div>
+                <div class="sp-ba-img-container">
+                  <img src="{{BEFORE_AFTER_3_AFTER}}" alt="After treatment" loading="lazy" />
+                  <span class="sp-ba-tag sp-ba-tag--after">After</span>
+                </div>
+              </div>
+              <div class="sp-ba-panel__content">
+                <h3 class="sp-ba-panel__title">{{BEFORE_AFTER_3_NAME}}</h3>
+                <span class="mono sp-ba-panel__meta">{{BEFORE_AFTER_3_META}}</span>
+                <ul class="sp-ba-panel__bullets">
+                  <li>{{BEFORE_AFTER_3_BULLET_1}}</li>
+                  <li>{{BEFORE_AFTER_3_BULLET_2}}</li>
+                  <li>{{BEFORE_AFTER_3_BULLET_3}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. PROCESS SECTION ("How It Works")
+         data-component="ProcessTimeline"
+         Horizontal layout on desktop, stacked vertically on mobile.
+         ===================================================================== -->
+    <section class="sp-process section" data-component="ProcessTimeline">
+      <div class="wrap">
+        <header class="sp-process__head">
+          <div class="eyebrow">The Experience</div>
+          <h2 class="section-title">How it <em>works.</em></h2>
+        </header>
+
+        <ol class="sp-process__timeline">
+          <li class="sp-process__step">
+            <span class="mono sp-process__num">01</span>
+            <h3 class="sp-process__step-title">Connect & Quote</h3>
+            <p class="sp-process__step-desc">WhatsApp photos or send an inquiry. Get a detailed evaluation and quote.</p>
+          </li>
+          <li class="sp-process__step">
+            <span class="mono sp-process__num">02</span>
+            <h3 class="sp-process__step-title">Insured Pick Up</h3>
+            <p class="sp-process__step-desc">Free door-to-door courier service across our 12 service hubs in India.</p>
+          </li>
+          <li class="sp-process__step">
+            <span class="mono sp-process__num">03</span>
+            <h3 class="sp-process__step-title">Artisan Restoration</h3>
+            <p class="sp-process__step-desc">Your item is assigned to a dedicated specialist in our physical atelier.</p>
+          </li>
+          <li class="sp-process__step">
+            <span class="mono sp-process__num">04</span>
+            <h3 class="sp-process__step-title">Hand Delivery</h3>
+            <p class="sp-process__step-desc">Returned in luxury packaging with a 6-month warranty on work.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. CAPABILITIES SECTION ("What We Offer")
+         data-component="CapabilitiesGrid"
+         Granular skill details. Fully dynamic variables per page.
+         ===================================================================== -->
+    <section class="sp-capabilities section" data-component="CapabilitiesGrid">
+      <div class="wrap">
+        <header class="sp-capabilities__head">
+          <div class="eyebrow">Specialist Capabilities</div>
+          <h2 class="section-title">What we <em>offer.</em></h2>
+        </header>
+
+        <div class="sp-capabilities__grid">
+          <article class="sp-capability-card">
+            <h3 class="sp-capability-card__title">{{CAPABILITY_1_TITLE}}</h3>
+            <p class="sp-capability-card__desc">{{CAPABILITY_1_DESC}}</p>
+          </article>
+
+          <article class="sp-capability-card">
+            <h3 class="sp-capability-card__title">{{CAPABILITY_2_TITLE}}</h3>
+            <p class="sp-capability-card__desc">{{CAPABILITY_2_DESC}}</p>
+          </article>
+
+          <article class="sp-capability-card">
+            <h3 class="sp-capability-card__title">{{CAPABILITY_3_TITLE}}</h3>
+            <p class="sp-capability-card__desc">{{CAPABILITY_3_DESC}}</p>
+          </article>
+
+          <article class="sp-capability-card">
+            <h3 class="sp-capability-card__title{{CAPABILITY_4_TITLE_HIDDEN}}">{{CAPABILITY_4_TITLE}}</h3>
+            <p class="sp-capability-card__desc">{{CAPABILITY_4_DESC}}</p>
+          </article>
+
+          <article class="sp-capability-card">
+            <h3 class="sp-capability-card__title">{{CAPABILITY_5_TITLE}}</h3>
+            <p class="sp-capability-card__desc">{{CAPABILITY_5_DESC}}</p>
+          </article>
+
+          <article class="sp-capability-card">
+            <h3 class="sp-capability-card__title">{{CAPABILITY_6_TITLE}}</h3>
+            <p class="sp-capability-card__desc">{{CAPABILITY_6_DESC}}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. TRUST SECTION
+         data-component="TrustSignals"
+         Experience claims in a minimal, high-whitespace premium band.
+         ===================================================================== -->
+    <section class="sp-trust" data-component="TrustSignals">
+      <div class="wrap">
+        <div class="sp-trust__ribbon">
+          <div class="sp-trust__stat">
+            <span class="sp-trust__stat-number">20+</span>
+            <span class="sp-trust__stat-label">Years of Fine Craftsmanship</span>
+          </div>
+          <div class="sp-trust__divider" aria-hidden="true"></div>
+          <div class="sp-trust__stat">
+            <span class="sp-trust__stat-number">100%</span>
+            <span class="sp-trust__stat-label">Dedicated Atelier Artisans</span>
+          </div>
+          <div class="sp-trust__divider" aria-hidden="true"></div>
+          <div class="sp-trust__stat">
+            <span class="sp-trust__stat-number">12</span>
+            <span class="sp-trust__stat-label">Cities Covered with Free Pickup</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         9. OPTIONAL VIDEO SECTION
+         data-component="VideoSection"
+         Uses a CSS rule (or NextJS condition) to auto-hide if URL/iframe is empty.
+         ===================================================================== -->
+    <section class="sp-video section" data-component="VideoSection" id="brand-video">
+      <div class="wrap">
+        <div class="sp-video__frame">
+          <!-- NextJS Tip: Render conditionally. Static HTML uses CSS :has / :empty or src check to hide. -->
+          <iframe src="{{VIDEO_EMBED_URL}}" title="De Leather Craft Atelier Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         10. TESTIMONIALS SECTION
+         data-component="Testimonials"
+         Simple, luxury-spaced testimonial review cards.
+         ===================================================================== -->
+    <section class="sp-testimonials section" data-component="Testimonials">
+      <div class="wrap">
+        <header class="sp-testimonials__head">
+          <div class="eyebrow">Client Journals</div>
+          <h2 class="section-title">Atelier <em>reviews.</em></h2>
+        </header>
+
+        <div class="sp-testimonials__grid">
+          <div class="sp-testimonial-card">
+            <div class="sp-testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <blockquote class="sp-testimonial-card__quote">&ldquo;{{TESTIMONIAL_1_QUOTE}}&rdquo;</blockquote>
+            <div class="sp-testimonial-card__author">
+              <cite class="sp-testimonial-card__name">{{TESTIMONIAL_1_NAME}}</cite>
+              <span class="mono sp-testimonial-card__meta">{{TESTIMONIAL_1_META}}</span>
+            </div>
+          </div>
+
+          <div class="sp-testimonial-card">
+            <div class="sp-testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <blockquote class="sp-testimonial-card__quote">&ldquo;{{TESTIMONIAL_2_QUOTE}}&rdquo;</blockquote>
+            <div class="sp-testimonial-card__author">
+              <cite class="sp-testimonial-card__name">{{TESTIMONIAL_2_NAME}}</cite>
+              <span class="mono sp-testimonial-card__meta">{{TESTIMONIAL_2_META}}</span>
+            </div>
+          </div>
+
+          <div class="sp-testimonial-card">
+            <div class="sp-testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <blockquote class="sp-testimonial-card__quote">&ldquo;{{TESTIMONIAL_3_QUOTE}}&rdquo;</blockquote>
+            <div class="sp-testimonial-card__author">
+              <cite class="sp-testimonial-card__name">{{TESTIMONIAL_3_NAME}}</cite>
+              <span class="mono sp-testimonial-card__meta">{{TESTIMONIAL_3_META}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         11. FAQ SECTION (SEO Layer)
+         data-component="FaqAccordion"
+         ===================================================================== -->
+    <section class="sp-faq section" id="faq" data-component="FaqAccordion">
+      <div class="wrap">
+        <header class="sp-faq__head">
+          <div class="eyebrow">Atelier Knowledge</div>
+          <h2 class="section-title">Common <em>questions.</em></h2>
+        </header>
+
+        <div class="sp-faq__list">
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q01</span>
+              <span class="sp-faq__q">{{FAQ_Q1}}</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>{{FAQ_A1}}</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q02</span>
+              <span class="sp-faq__q">{{FAQ_Q2}}</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>{{FAQ_A2}}</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q03</span>
+              <span class="sp-faq__q">{{FAQ_Q3}}</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>{{FAQ_A3}}</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q04</span>
+              <span class="sp-faq__q">{{FAQ_Q4}}</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>{{FAQ_A4}}</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q05</span>
+              <span class="sp-faq__q">{{FAQ_Q5}}</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>{{FAQ_A5}}</p>
+            </div>
+          </details>
+
+          <details class="sp-faq__item">
+            <summary>
+              <span class="mono sp-faq__num">Q06</span>
+              <span class="sp-faq__q">{{FAQ_Q6}}</span>
+              <span class="sp-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="sp-faq__body">
+              <p>{{FAQ_A6}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         12. FINAL CTA SECTION (Strong closing + Inline quote/contact form)
+         data-component="FinalCta"
+         ===================================================================== -->
+    <section class="sp-final-cta section" id="contact" data-component="FinalCta">
+      <div class="wrap sp-final-cta__grid">
+        <div class="sp-final-cta__content">
+          <div class="eyebrow">Get Started</div>
+          <h2 class="sp-final-cta__title">
+            Ready to restore your leather's original <em>character?</em>
+          </h2>
+          <p class="sp-final-cta__desc">
+            Submit a photo for a complimentary, no-obligation estimate from our master artisans within the hour, or connect with us directly on WhatsApp.
+          </p>
+          <div class="sp-final-cta__actions">
+            <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="btn btn--hero btn--hero-xl">
+              <span>GET IN TOUCH</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="sp-final-cta__form-container">
+          <form class="sp-final-cta__form" action="#" method="post" aria-label="{{SERVICE_NAME}} quote request">
+            <label class="sp-final-cta__field">
+              <span>Your Name</span>
+              <input type="text" name="name" required placeholder="John Doe" />
+            </label>
+            <label class="sp-final-cta__field">
+              <span>WhatsApp Number</span>
+              <input type="tel" name="phone" required placeholder="+91 98765 43210" />
+            </label>
+            <label class="sp-final-cta__field">
+              <span>Describe the Piece</span>
+              <textarea name="description" rows="3" placeholder="Brief description of the brand, leather type, and issues."></textarea>
+            </label>
+            <label class="sp-final-cta__field">
+              <span>Attach Photos (Optional)</span>
+              <input type="file" name="photos" accept="image/*" multiple class="sp-final-cta__file-input" />
+            </label>
+            <button type="submit" class="btn btn--primary btn--cognac btn--lg sp-final-cta__submit">
+              Send for Quote
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+            <p class="sp-final-cta__legal">
+              By submitting, you agree to our terms. We protect your data and only use it to contact you.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       13. FOOTER (Same as Homepage)
+       data-component="Footer"
+       ===================================================================== -->
+  <footer class="site-footer" data-component="Footer">
+    <div class="wrap">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="/" class="footer-brand__logo" aria-label="De Leather Craft — home">
+            <svg class="footer-brand__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 150" aria-hidden="true">
+              <text y="85" font-size="84" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="700">
+                <tspan x="39" class="footer-brand__charcoal">De</tspan>
+                <tspan x="174" class="footer-brand__tan">Leather</tspan>
+                <tspan x="502" class="footer-brand__charcoal">Craft</tspan>
+              </text>
+              <text x="202" y="132" font-size="28" font-family="'Montserrat','Century Gothic','Apple Gothic',sans-serif" font-weight="300" letter-spacing="0.5" class="footer-brand__charcoal">
+                luxury care for your luxury leather...
+              </text>
+            </svg>
+          </a>
+          <p class="footer-brand__text">
+            An independent leather atelier founded in Mumbai, 2005. Repair, cleaning and
+            restoration of fine leather across India.
+          </p>
+          <div class="footer-contact">
+            <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="footer-contact__whatsapp">+91 95607 35941 (WhatsApp)</a>
+            <a href="mailto:deleathercraft@gmail.com" class="footer-contact__email">deleathercraft@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Services</div>
+          <ul>
+            <li><a href="/services/restoration">Restoration</a></li>
+            <li><a href="/services/cleaning">Cleaning</a></li>
+            <li><a href="/services/repair">Repair</a></li>
+            <li><a href="/services/alteration">Alteration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Categories</div>
+          <ul>
+            <li><a href="/#categories">Handbags</a></li>
+            <li><a href="/#categories">Shoes</a></li>
+            <li><a href="/#categories">Jackets</a></li>
+            <li><a href="/#categories">Sofas</a></li>
+            <li><a href="/#categories">Wallets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="mono footer-col__title">Company</div>
+          <ul>
+            <li><a href="/#atelier">About</a></li>
+            <li><a href="/#before-after">Process</a></li>
+            <li><a href="/#reviews">Reviews</a></li>
+            <li><a href="/#contact">Locations</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-cities">
+        <div class="mono footer-cities__label">We serve · pan India</div>
+        <ul class="footer-cities__list">
+          <li>Mumbai</li>
+          <li>Delhi</li>
+          <li>Bangalore</li>
+          <li>Pune</li>
+          <li>Hyderabad</li>
+          <li>Kolkata</li>
+          <li>Ahmedabad</li>
+          <li>Jaipur</li>
+          <li>Chandigarh</li>
+          <li>Gurgaon</li>
+          <li>Noida</li>
+          <li>Surat</li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <div class="mono footer-social__label">Follow us</div>
+        <ul class="footer-social__list">
+          <li><a href="https://www.instagram.com/deleathercraft" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.facebook.com/Deleathercraft" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://twitter.com/Deleathercraft" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+          <li><a href="https://deleathercraft.com" target="_blank" rel="noopener noreferrer">deleathercraft.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 De Leather Craft. All rights reserved.</div>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       Client script — mobile nav + header transparency observer + interactive tabs.
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- Mobile navigation ---------------------------------- */
+      var burger = document.getElementById('navBurger');
+      var mobileNav = document.getElementById('mobileNav');
+      var burgerPath = document.getElementById('burgerPath');
+      var headerEl = document.querySelector('.site-header');
+      var ICON_CLOSED = 'M2 2 L16 2 M2 7 L16 7 M2 12 L16 12';
+      var ICON_OPEN   = 'M2 2 L16 12 M2 12 L16 2';
+
+      if (burger && mobileNav) {
+        burger.addEventListener('click', function () {
+          var open = mobileNav.classList.toggle('is-open');
+          burger.setAttribute('aria-expanded', String(open));
+          burgerPath.setAttribute('d', open ? ICON_OPEN : ICON_CLOSED);
+          if (headerEl) headerEl.classList.toggle('site-header--menu-open', open);
+        });
+
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileNav.classList.remove('is-open');
+            burger.setAttribute('aria-expanded', 'false');
+            burgerPath.setAttribute('d', ICON_CLOSED);
+            if (headerEl) headerEl.classList.remove('site-header--menu-open');
+          });
+        });
+      }
+
+      /* ---- Header transparency observer ----------------------- */
+      /* transparent over hero, solid over trust/content sections */
+      var hero = document.querySelector('.sp-hero');
+      if (hero && headerEl && 'IntersectionObserver' in window) {
+        headerEl.classList.add('site-header--over-hero');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              headerEl.classList.add('site-header--over-hero');
+            } else {
+              headerEl.classList.remove('site-header--over-hero');
+            }
+          });
+        }, { threshold: 0.1 });
+        io.observe(hero);
+      }
+
+      /* ---- Before / After Tab Switcher ------------------------ */
+      var tabNav = document.querySelector('.sp-ba-tabs__nav');
+      if (tabNav) {
+        var buttons = tabNav.querySelectorAll('.sp-ba-tabs__btn');
+        var panels = document.querySelectorAll('.sp-ba-panel');
+
+        buttons.forEach(function (button, index) {
+          button.addEventListener('click', function () {
+            // Deactivate all buttons
+            buttons.forEach(function (btn) {
+              btn.classList.remove('is-active');
+              btn.setAttribute('aria-selected', 'false');
+              btn.setAttribute('tabindex', '-1');
+            });
+            // Activate clicked
+            button.classList.add('is-active');
+            button.setAttribute('aria-selected', 'true');
+            button.removeAttribute('tabindex');
+
+            // Hide all panels
+            panels.forEach(function (panel) {
+              panel.classList.remove('is-active');
+              panel.setAttribute('hidden', '');
+            });
+            // Show corresponding panel
+            if (panels[index]) {
+              panels[index].classList.add('is-active');
+              panels[index].removeAttribute('hidden');
+            }
+          });
+
+          // Keyboard navigation support
+          button.addEventListener('keydown', function (e) {
+            var newIndex = -1;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+              newIndex = (index + 1) % buttons.length;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+              newIndex = (index - 1 + buttons.length) % buttons.length;
+            }
+
+            if (newIndex > -1) {
+              buttons[newIndex].focus();
+              buttons[newIndex].click();
+            }
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
