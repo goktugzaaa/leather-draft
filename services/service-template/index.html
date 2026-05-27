@@ -699,9 +699,21 @@
               <span>Describe the Piece</span>
               <textarea name="description" rows="3" placeholder="Brief description of the brand, leather type, and issues."></textarea>
             </label>
-            <label class="sp-final-cta__field">
+            <label class="sp-final-cta__field sp-final-cta__field--file">
               <span>Attach Photos (Optional)</span>
-              <input type="file" name="photos" accept="image/*" multiple class="sp-final-cta__file-input" />
+              <div class="sp-final-cta__upload-zone">
+                <input type="file" name="photos" id="file-upload" accept="image/*" multiple class="sp-final-cta__file-input" />
+                <div class="sp-final-cta__upload-content">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="sp-final-cta__upload-icon">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                  </svg>
+                  <span class="sp-final-cta__upload-text">Drag & drop your images here or <span class="accent">browse</span></span>
+                  <span class="sp-final-cta__upload-hint">JPEG, PNG or WEBP up to 10MB</span>
+                </div>
+                <div class="sp-final-cta__file-preview" id="file-preview" style="display: none;"></div>
+              </div>
             </label>
             <button type="submit" class="btn btn--primary btn--cognac btn--lg sp-final-cta__submit">
               Send for Quote
@@ -915,6 +927,33 @@
               buttons[newIndex].click();
             }
           });
+        });
+      }
+
+      /* ---- File input preview helper ------------------------- */
+      var fileInput = document.getElementById('file-upload');
+      var filePreview = document.getElementById('file-preview');
+      var uploadContent = document.querySelector('.sp-final-cta__upload-content');
+      var uploadZone = document.querySelector('.sp-final-cta__upload-zone');
+
+      if (fileInput && filePreview) {
+        fileInput.addEventListener('change', function () {
+          var files = fileInput.files;
+          if (files.length > 0) {
+            var fileNames = [];
+            for (var i = 0; i < files.length; i++) {
+              fileNames.push('<span class="file-tag">' + files[i].name + ' (' + Math.round(files[i].size / 1024) + ' KB)</span>');
+            }
+            filePreview.innerHTML = fileNames.join('');
+            filePreview.style.display = 'flex';
+            if (uploadContent) uploadContent.style.opacity = '0.35';
+            if (uploadZone) uploadZone.classList.add('has-files');
+          } else {
+            filePreview.innerHTML = '';
+            filePreview.style.display = 'none';
+            if (uploadContent) uploadContent.style.opacity = '1';
+            if (uploadZone) uploadZone.classList.remove('has-files');
+          }
         });
       }
     })();
