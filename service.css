@@ -151,26 +151,34 @@
   gap: 14px;
 }
 
-/* WhatsApp action — solid brand-green button, paired with the outline CTA.
-   Squared corners match .btn--hero so the hero pair reads as a set. */
+/* WhatsApp action — quiet secondary "ghost" paired with the outline CTA.
+   Hairline border + rose icon accent keep it in the atelier palette;
+   the brand-green is reserved for the floating FAB only. Squared corners
+   match .btn--hero so the hero pair reads as one set. */
 .btn--whatsapp {
-  padding: 17px 30px;
+  padding: 18px 30px;
   border-radius: 2px;
-  background: #25d366;
-  border: 1px solid #25d366;
-  color: #07301c;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  background: transparent;
+  border: 1px solid rgba(247, 239, 225, 0.22);
+  color: rgba(247, 239, 225, 0.88);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  box-shadow: 0 14px 34px -16px rgba(37, 211, 102, 0.7);
+}
+
+.btn--whatsapp svg {
+  color: var(--rose);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .btn--whatsapp:hover {
-  background: #1fb957;
-  border-color: #1fb957;
-  transform: translateY(-2px);
+  border-color: var(--rose);
+  color: #fff;
+  background: rgba(247, 239, 225, 0.04);
 }
+
+.btn--whatsapp:hover svg { transform: scale(1.08); }
 
 @media (max-width: 520px) {
   .sp-hero__actions { gap: 12px; }
