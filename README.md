@@ -27,11 +27,13 @@ delivery/
 │   ├── services-photos/    # High-quality service landing images
 │   └── video/              # Promo videos
 ├── services/
-│   └── restoration/
-│       └── index.html      # Production Restoration service detail page
+│   ├── service-template/
+│   │   └── index.html      # Service Detail MASTER TEMPLATE ({{placeholder}} tokens)
+│   ├── leather-bag-restoration/
+│   │   └── index.html      # Example service page (template filled with real data)
+│   └── generate_example.py # Helper: fills the master template into a service page
 ├── index.html              # Main Landing page / Home
 ├── style.css               # Core design system and main styles
-├── service.html            # Service Detail Page Master Template (for future services)
 ├── service.css             # Service detail page-specific styles
 ├── sitemap.xml             # Search engine sitemap
 ├── robots.txt              # Crawler instructions
@@ -44,7 +46,7 @@ delivery/
 
 - **Core**: Semantic HTML5, Vanilla CSS3 (CSS Variables, Flexbox, CSS Grid)
 - **Logic**: Vanilla ES6+ JavaScript (Intersection Observer API for transparent headers, custom slider logic, mobile drawer navigation)
-- **Deployment**: Optimized for Vercel (Supports clean URLs `/services/restoration`)
+- **Deployment**: Optimized for Vercel (Supports clean URLs `/services/leather-bag-restoration`)
 
 ---
 
@@ -61,13 +63,13 @@ npx serve .
 ```
 
 ### Deploy to Vercel
-You can deploy this repository directly to Vercel. The `vercel.json` configuration will automatically configure clean URL paths (e.g., `/services/restoration` instead of `/services/restoration/index.html`).
+You can deploy this repository directly to Vercel. The `vercel.json` configuration will automatically configure clean URL paths (e.g., `/services/leather-bag-restoration` instead of `/services/leather-bag-restoration/index.html`).
 
 ---
 
 ## 📐 Next.js Integration Plan
 
-The service template (`service.html`) contains detailed comments outlining a 1:1 integration path into a Next.js setup:
+The service template (`services/service-template/index.html`) contains detailed comments outlining a 1:1 integration path into a Next.js setup:
 - **Route**: `app/services/[slug]/page.tsx`
 - **TypeScript Data Model**: Outlined inside the template for easy data schema modeling.
 - **Component Map**: 1:1 component breakdown (`<Header />`, `<ServiceHero />`, `<Transformation />`, etc.).

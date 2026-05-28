@@ -6,12 +6,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://leather-draft.vercel.app/services/restoration</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://leather-draft.vercel.app/services/service-template</loc>
+    <loc>https://leather-draft.vercel.app/services/leather-bag-restoration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
