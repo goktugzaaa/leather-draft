@@ -10,6 +10,33 @@
    ============================================================================= */
 
 /* ==========================================================================
+   0. SERVICE-PAGE DENSITY
+   Tighter vertical rhythm than the homepage. service.css only loads on
+   service pages, so these overrides never touch the homepage spacing.
+   ========================================================================== */
+.section {
+  padding: clamp(56px, 8vw, 104px) 0;
+}
+
+@media (max-width: 960px) {
+  .section { padding: 64px 0; }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 48px 0; }
+}
+
+/* Section headings sit closer to their content. */
+.sp-problems__head,
+.sp-solutions__head,
+.sp-before-after__head,
+.sp-process__head,
+.sp-testimonials__head,
+.sp-faq__head {
+  margin-bottom: clamp(24px, 3.5vw, 40px) !important;
+}
+
+/* ==========================================================================
    1. BREADCRUMBS
    ========================================================================== */
 .sp-breadcrumb {
@@ -632,73 +659,7 @@
 }
 
 /* ==========================================================================
-   7. CAPABILITIES SECTION
-   ========================================================================== */
-.sp-capabilities {
-  background: var(--paper-2);
-}
-
-.sp-capabilities__head {
-  margin-bottom: clamp(36px, 5vw, 56px);
-  max-width: 640px;
-}
-
-.sp-capabilities__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2.5vw, 32px);
-}
-
-.sp-capability-card {
-  padding: clamp(24px, 3vw, 36px);
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-}
-
-.sp-capability-card__title {
-  margin: 0 0 8px;
-  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(20px, 2vw, 24px);
-  color: var(--ink);
-}
-
-.sp-capability-card__desc {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink-2);
-}
-
-@media (max-width: 900px) {
-  .sp-capabilities__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  .sp-capability-card {
-    padding: 24px 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .sp-capabilities__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .sp-capability-card {
-    padding: 20px 16px;
-  }
-}
-
-@media (max-width: 420px) {
-  .sp-capabilities__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==========================================================================
-   8. TRUST SECTION
+   7. TRUST SECTION
    ========================================================================== */
 .sp-trust {
   background: var(--paper);
@@ -760,40 +721,7 @@
 }
 
 /* ==========================================================================
-   9. VIDEO SECTION (Cinematic and Gracefully Collapsible)
-   ========================================================================== */
-.sp-video {
-  background: var(--bg);
-}
-
-.sp-video__frame {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  aspect-ratio: 16/9;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: 0 20px 40px rgba(34, 22, 16, 0.06);
-  background: #000;
-}
-
-.sp-video__frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Graceful auto-collapse rule using modern CSS :has selector */
-.sp-video:has(iframe[src=""]),
-.sp-video:has(iframe[src="{{VIDEO_EMBED_URL}}"]) {
-  display: none;
-}
-
-/* ==========================================================================
-   10. TESTIMONIALS SECTION
+   8. TESTIMONIALS SECTION
    ========================================================================== */
 .sp-testimonials {
   background: var(--paper-2);

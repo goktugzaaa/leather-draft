@@ -18,13 +18,11 @@
        4.  Solution         -> <SolutionOverview />
        5.  Before / After   -> <BeforeAfterGallery />
        6.  Process          -> <ProcessTimeline />
-       7.  Capabilities     -> <CapabilitiesGrid />
-       8.  Trust            -> <TrustSignals />
-       9.  Video            -> <VideoSection /> (Collapses if empty)
-       10. Testimonials     -> <Testimonials />
-       11. FAQ              -> <FaqAccordion />
-       12. Final CTA & Form -> <FinalCta />
-       13. Footer           -> <Footer /> (Shared)
+       7.  Trust            -> <TrustSignals />
+       8.  Testimonials     -> <Testimonials />
+       9.  FAQ              -> <FaqAccordion />
+       10. Final CTA & Form -> <FinalCta />
+       11. Footer           -> <Footer /> (Shared)
        ========================================================================== -->
 
   <title>{{SERVICE_TITLE}} &mdash; De Leather Craft</title>
@@ -458,53 +456,7 @@
     </section>
 
     <!-- =====================================================================
-         7. CAPABILITIES SECTION ("What We Offer")
-         data-component="CapabilitiesGrid"
-         Granular skill details. Fully dynamic variables per page.
-         ===================================================================== -->
-    <section class="sp-capabilities section" data-component="CapabilitiesGrid">
-      <div class="wrap">
-        <header class="sp-capabilities__head">
-          <div class="eyebrow">Specialist Capabilities</div>
-          <h2 class="section-title">What we <em>offer.</em></h2>
-        </header>
-
-        <div class="sp-capabilities__grid">
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_1_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_1_DESC}}</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_2_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_2_DESC}}</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_3_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_3_DESC}}</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_4_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_4_DESC}}</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_5_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_5_DESC}}</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">{{CAPABILITY_6_TITLE}}</h3>
-            <p class="sp-capability-card__desc">{{CAPABILITY_6_DESC}}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         8. TRUST SECTION
+         7. TRUST SECTION
          data-component="TrustSignals"
          Experience claims in a minimal, high-whitespace premium band.
          ===================================================================== -->
@@ -530,21 +482,7 @@
     </section>
 
     <!-- =====================================================================
-         9. OPTIONAL VIDEO SECTION
-         data-component="VideoSection"
-         Uses a CSS rule (or NextJS condition) to auto-hide if URL/iframe is empty.
-         ===================================================================== -->
-    <section class="sp-video section" data-component="VideoSection" id="brand-video">
-      <div class="wrap">
-        <div class="sp-video__frame">
-          <!-- NextJS Tip: Render conditionally. Static HTML uses CSS :has / :empty or src check to hide. -->
-          <iframe src="{{VIDEO_EMBED_URL}}" title="De Leather Craft Atelier Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         10. TESTIMONIALS SECTION
+         8. TESTIMONIALS SECTION
          data-component="Testimonials"
          Simple, luxury-spaced testimonial review cards.
          ===================================================================== -->
@@ -587,7 +525,7 @@
     </section>
 
     <!-- =====================================================================
-         11. FAQ SECTION (SEO Layer)
+         9. FAQ SECTION (SEO Layer)
          data-component="FaqAccordion"
          ===================================================================== -->
     <section class="sp-faq section" id="faq" data-component="FaqAccordion">
@@ -668,7 +606,7 @@
     </section>
 
     <!-- =====================================================================
-         12. FINAL CTA SECTION (Strong closing + Inline quote/contact form)
+         10. FINAL CTA SECTION (Strong closing + Inline quote/contact form)
          data-component="FinalCta"
          ===================================================================== -->
     <section class="sp-final-cta section" id="contact" data-component="FinalCta">
@@ -742,7 +680,7 @@
   </a>
 
   <!-- =====================================================================
-       13. FOOTER (Same as Homepage)
+       11. FOOTER (Same as Homepage)
        data-component="Footer"
        ===================================================================== -->
   <footer class="site-footer" data-component="Footer">

@@ -66,23 +66,6 @@ replacements = {
     "{{BEFORE_AFTER_3_BULLET_2}}": "Custom edge paint formulation and multi-layer hand application",
     "{{BEFORE_AFTER_3_BULLET_3}}": "Rebuilding shape using interior structural supports to fix sagging",
 
-    # Capabilities Section (6 items)
-    "{{CAPABILITY_1_TITLE}}": "Bespoke Pigment Matching",
-    "{{CAPABILITY_1_DESC}}": "Our colorists match brand pigments entirely by hand under natural daylight, avoiding flat paint finishes.",
-    "{{CAPABILITY_2_TITLE}}": "Edge Glazing & Painting",
-    "{{CAPABILITY_2_DESC}}": "Multi-layer edge paint sealing for handles and straps, sanded smooth between applications.",
-    "{{CAPABILITY_3_TITLE}}": "Traditional Hand-Stitch",
-    "{{CAPABILITY_3_DESC}}": "Saddle-stitching loose seams using traditional French linen thread for structural strength.",
-    "{{CAPABILITY_4_TITLE}}": "Hardware Replating & Polish",
-    "{{CAPABILITY_4_DESC}}": "Micro-scratch polishing and custom 24k gold or palladium immersion plating for hardware accessories.",
-    "{{CAPABILITY_5_TITLE}}": "Lining Re-crafting",
-    "{{CAPABILITY_5_DESC}}": "Replacing stained or torn linings with premium grosgrain silk, genuine pigskin, or canvas.",
-    "{{CAPABILITY_6_TITLE}}": "Shape & Piping Rebuilds",
-    "{{CAPABILITY_6_DESC}}": "Replacing cracked plastic piping with genuine leather rolls and reinforcing internal stiffener sheets.",
-
-    # Video Section
-    "{{VIDEO_EMBED_URL}}": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-
     # Testimonials Section (3 items)
     "{{TESTIMONIAL_1_QUOTE}}": "De Leather Craft brought my vintage Chanel bag back to life! The faded corners look brand new and the leather feels incredibly soft. The color match is exact.",
     "{{TESTIMONIAL_1_NAME}}": "Karan Johar",
