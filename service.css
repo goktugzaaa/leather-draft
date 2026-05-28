@@ -145,6 +145,36 @@
 
 .sp-hero__actions {
   margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+/* WhatsApp action — solid brand-green button, paired with the outline CTA.
+   Squared corners match .btn--hero so the hero pair reads as a set. */
+.btn--whatsapp {
+  padding: 17px 30px;
+  border-radius: 2px;
+  background: #25d366;
+  border: 1px solid #25d366;
+  color: #07301c;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 34px -16px rgba(37, 211, 102, 0.7);
+}
+
+.btn--whatsapp:hover {
+  background: #1fb957;
+  border-color: #1fb957;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 520px) {
+  .sp-hero__actions { gap: 12px; }
+  .sp-hero__actions .btn { flex: 1 1 100%; justify-content: center; }
 }
 
 .sp-hero__visual {
@@ -1248,9 +1278,48 @@
   .sp-faq__icon::after,
   .sp-faq__q,
   .sp-final-cta__field input,
-  .sp-final-cta__field textarea {
+  .sp-final-cta__field textarea,
+  .sp-fab {
     transition: none !important;
     transform: none !important;
     animation: none !important;
   }
+}
+
+/* ==========================================================================
+   14. STICKY WHATSAPP FAB
+   Floating action button, fixed bottom-right on every viewport.
+   ========================================================================== */
+.sp-fab {
+  position: fixed;
+  right: clamp(16px, 4vw, 28px);
+  bottom: clamp(16px, 4vw, 28px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 10px 30px -6px rgba(7, 48, 28, 0.55);
+  transition: transform 0.28s cubic-bezier(0.2, 0.6, 0.2, 1),
+              box-shadow 0.3s ease, background 0.25s ease;
+}
+
+.sp-fab:hover {
+  background: #1fb957;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 16px 38px -8px rgba(7, 48, 28, 0.6);
+}
+
+.sp-fab:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.5);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .sp-fab { width: 54px; height: 54px; }
 }
