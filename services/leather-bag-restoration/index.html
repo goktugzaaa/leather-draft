@@ -15,16 +15,13 @@
        1.  Header           -> <Header /> (Shared)
        2.  Hero             -> <ServiceHero />
        3.  Problem          -> <ProblemGrid />
-       4.  Solution         -> <SolutionOverview />
-       5.  Before / After   -> <BeforeAfterGallery />
-       6.  Process          -> <ProcessTimeline />
-       7.  Capabilities     -> <CapabilitiesGrid />
-       8.  Trust            -> <TrustSignals />
-       9.  Video            -> <VideoSection /> (Collapses if empty)
-       10. Testimonials     -> <Testimonials />
-       11. FAQ              -> <FaqAccordion />
-       12. Final CTA & Form -> <FinalCta />
-       13. Footer           -> <Footer /> (Shared)
+       4.  Before / After   -> <BeforeAfterGallery />
+       5.  Process          -> <ProcessTimeline />
+       6.  Trust            -> <TrustSignals />
+       7.  Testimonials     -> <Testimonials />
+       8.  FAQ              -> <FaqAccordion />
+       9.  Final CTA & Form -> <FinalCta />
+       10. Footer           -> <Footer /> (Shared)
        ========================================================================== -->
 
   <title>Designer Leather Bag Restoration & Repair &mdash; De Leather Craft</title>
@@ -159,7 +156,7 @@
       </div>
 
       <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
-        <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+        <svg width="20" height="16" viewBox="0 0 18 14" aria-hidden="true">
           <path id="burgerPath" d="M2 2 L16 2 M2 7 L16 7 M2 12 L16 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
         </svg>
       </button>
@@ -221,8 +218,12 @@
 
           <div class="sp-hero__actions">
             <a href="#contact" class="btn btn--hero btn--hero-xl">
-              <span>GET IN TOUCH</span>
+              <span>GET A QUOTE</span>
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L12 7 M8 3 L12 7 L8 11" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </a>
+            <a href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.736-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+              <span>WHATSAPP US</span>
             </a>
           </div>
         </div>
@@ -247,37 +248,49 @@
 
         <div class="sp-problems__grid">
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">Scuffs & Abrasions</h3>
             <p class="sp-problem-card__desc">Friction along base corners, piping, and edges strips color pigments and degrades delicate lambskin or calfskin.</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">Deep Surface Stains</h3>
             <p class="sp-problem-card__desc">Ink spills, dye transfers from denim, watermarks, makeup, and oils penetrate raw leather grain causing permanent discoloration.</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">Color Fading</h3>
             <p class="sp-problem-card__desc">Continuous exposure to UV rays and hand oils bleaches out original brand-specific pigments and dries out texture.</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">Torn Stitching & Piping</h3>
             <p class="sp-problem-card__desc">Heavy load carrying pulls stress points loose, tearing seams, handles, strap loops, and exposing plastic piping cords.</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">Hardware Tarnish & Scratches</h3>
             <p class="sp-problem-card__desc">Bespoke gold or silver brand hardware undergoes oxidizing, dulling, micro-scratching, or complete clasp failure.</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">Lining Tears & Odors</h3>
             <p class="sp-problem-card__desc">Interior silk, suede, or canvas linings gather dirt, ink marks, structural tears, or mold odors over years of storage.</p>
           </article>
@@ -286,41 +299,7 @@
     </section>
 
     <!-- =====================================================================
-         4. SOLUTION SECTION ("How We Fix It")
-         data-component="SolutionOverview"
-         Clean authority cards highlighting Cleaning, Repair, and Restoration.
-         ===================================================================== -->
-    <section class="sp-solutions section" data-component="SolutionOverview">
-      <div class="wrap">
-        <header class="sp-solutions__head">
-          <div class="eyebrow">Our Methodology</div>
-          <h2 class="section-title">How we fix <em>it.</em></h2>
-        </header>
-
-        <div class="sp-solutions__grid">
-          <article class="sp-solution-card">
-            <span class="mono sp-solution-card__num">01</span>
-            <h3 class="sp-solution-card__title">Cleaning & Conditioning</h3>
-            <p class="sp-solution-card__desc">Biological solvent wash to lift deep oils, followed by ozone sanitization and pH-neutral leather conditioning.</p>
-          </article>
-
-          <article class="sp-solution-card">
-            <span class="mono sp-solution-card__num">02</span>
-            <h3 class="sp-solution-card__title">Atelier Repair</h3>
-            <p class="sp-solution-card__desc">Structural seam re-stitching, piping rebuilds, hardware replating, and complete inner-lining replacements.</p>
-          </article>
-
-          <article class="sp-solution-card">
-            <span class="mono sp-solution-card__num">03</span>
-            <h3 class="sp-solution-card__title">Pigment Restoration</h3>
-            <p class="sp-solution-card__desc">Manual pigment color matching, airbrush surface dye application, texturizing, and protective water-repellent sealing.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         5. BEFORE / AFTER SECTION
+         4. BEFORE / AFTER SECTION
          data-component="BeforeAfterGallery"
          Interactive client showcases with metadata and dynamic treatments.
          ===================================================================== -->
@@ -431,7 +410,7 @@
         <ol class="sp-process__timeline">
           <li class="sp-process__step">
             <span class="mono sp-process__num">01</span>
-            <h3 class="sp-process__step-title">Connect & Quote</h3>
+            <h3 class="sp-process__step-title">Connect &amp; Quote</h3>
             <p class="sp-process__step-desc">WhatsApp photos or send an inquiry. Get a detailed evaluation and quote.</p>
           </li>
           <li class="sp-process__step">
@@ -454,53 +433,7 @@
     </section>
 
     <!-- =====================================================================
-         7. CAPABILITIES SECTION ("What We Offer")
-         data-component="CapabilitiesGrid"
-         Granular skill details. Fully dynamic variables per page.
-         ===================================================================== -->
-    <section class="sp-capabilities section" data-component="CapabilitiesGrid">
-      <div class="wrap">
-        <header class="sp-capabilities__head">
-          <div class="eyebrow">Specialist Capabilities</div>
-          <h2 class="section-title">What we <em>offer.</em></h2>
-        </header>
-
-        <div class="sp-capabilities__grid">
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">Bespoke Pigment Matching</h3>
-            <p class="sp-capability-card__desc">Our colorists match brand pigments entirely by hand under natural daylight, avoiding flat paint finishes.</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">Edge Glazing & Painting</h3>
-            <p class="sp-capability-card__desc">Multi-layer edge paint sealing for handles and straps, sanded smooth between applications.</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">Traditional Hand-Stitch</h3>
-            <p class="sp-capability-card__desc">Saddle-stitching loose seams using traditional French linen thread for structural strength.</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">Hardware Replating & Polish</h3>
-            <p class="sp-capability-card__desc">Micro-scratch polishing and custom 24k gold or palladium immersion plating for hardware accessories.</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">Lining Re-crafting</h3>
-            <p class="sp-capability-card__desc">Replacing stained or torn linings with premium grosgrain silk, genuine pigskin, or canvas.</p>
-          </article>
-
-          <article class="sp-capability-card">
-            <h3 class="sp-capability-card__title">Shape & Piping Rebuilds</h3>
-            <p class="sp-capability-card__desc">Replacing cracked plastic piping with genuine leather rolls and reinforcing internal stiffener sheets.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         8. TRUST SECTION
+         7. TRUST SECTION
          data-component="TrustSignals"
          Experience claims in a minimal, high-whitespace premium band.
          ===================================================================== -->
@@ -526,21 +459,7 @@
     </section>
 
     <!-- =====================================================================
-         9. OPTIONAL VIDEO SECTION
-         data-component="VideoSection"
-         Uses a CSS rule (or NextJS condition) to auto-hide if URL/iframe is empty.
-         ===================================================================== -->
-    <section class="sp-video section" data-component="VideoSection" id="brand-video">
-      <div class="wrap">
-        <div class="sp-video__frame">
-          <!-- NextJS Tip: Render conditionally. Static HTML uses CSS :has / :empty or src check to hide. -->
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="De Leather Craft Atelier Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         10. TESTIMONIALS SECTION
+         8. TESTIMONIALS SECTION
          data-component="Testimonials"
          Simple, luxury-spaced testimonial review cards.
          ===================================================================== -->
@@ -583,7 +502,7 @@
     </section>
 
     <!-- =====================================================================
-         11. FAQ SECTION (SEO Layer)
+         9. FAQ SECTION (SEO Layer)
          data-component="FaqAccordion"
          ===================================================================== -->
     <section class="sp-faq section" id="faq" data-component="FaqAccordion">
@@ -664,7 +583,7 @@
     </section>
 
     <!-- =====================================================================
-         12. FINAL CTA SECTION (Strong closing + Inline quote/contact form)
+         10. FINAL CTA SECTION (Strong closing + Inline quote/contact form)
          data-component="FinalCta"
          ===================================================================== -->
     <section class="sp-final-cta section" id="contact" data-component="FinalCta">
@@ -730,7 +649,15 @@
   </main>
 
   <!-- =====================================================================
-       13. FOOTER (Same as Homepage)
+       STICKY WHATSAPP FAB — persistent conversion shortcut.
+       data-component="WhatsAppFab"  (single floating action button)
+       ===================================================================== -->
+  <a class="sp-fab" href="https://wa.me/919560735941" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" data-component="WhatsAppFab">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.736-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+  </a>
+
+  <!-- =====================================================================
+       11. FOOTER (Same as Homepage)
        data-component="Footer"
        ===================================================================== -->
   <footer class="site-footer" data-component="Footer">
@@ -880,6 +807,18 @@
           });
         }, { threshold: 0.1 });
         io.observe(hero);
+      }
+
+      /* ---- Scroll-start solid header (mobile) ------------------ */
+      /* Add .site-header--scrolled as soon as the page leaves the top
+         so the header reads solid right away on phones (CSS gates the
+         visual change to <=1200px). */
+      if (headerEl) {
+        var onScroll = function () {
+          headerEl.classList.toggle('site-header--scrolled', window.scrollY > 8);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
       }
 
       /* ---- Before / After Tab Switcher ------------------------ */
