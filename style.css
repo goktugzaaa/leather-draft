@@ -361,15 +361,15 @@ button {
 .dlc-logo__tan      { fill: #a46839; transition: fill 0.3s ease; }
 
 @media (max-width: 960px) {
-  .dlc-logo__svg { height: 44px; }
+  .dlc-logo__svg { height: 46px; }
 }
 
 @media (max-width: 520px) {
-  .dlc-logo__svg { height: 36px; }
+  .dlc-logo__svg { height: 40px; }
 }
 
 @media (max-width: 380px) {
-  .dlc-logo__svg { height: 32px; }
+  .dlc-logo__svg { height: 35px; }
   /* Hide the tagline line on tiny phones to keep the wordmark legible */
   .dlc-logo__tagline { display: none; }
 }
@@ -445,8 +445,8 @@ button {
 /* Burger toggle */
 .nav-burger {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--line);
@@ -518,6 +518,23 @@ button {
   .nav-desktop,
   .nav-desktop-cta { display: none; }
   .nav-burger { display: flex; }
+
+  /* On mobile the header goes solid the moment the page scrolls,
+     not when the hero ends. JS adds .site-header--scrolled past a
+     few px; this wins over --over-hero (later in source, +1 class). */
+  .site-header--over-hero.site-header--scrolled {
+    background-color: rgba(247, 239, 225, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom-color: var(--line);
+  }
+  .site-header--over-hero.site-header--scrolled .dlc-logo__charcoal { fill: #464646; }
+  .site-header--over-hero.site-header--scrolled .dlc-logo__tan      { fill: #a46839; }
+  .site-header--over-hero.site-header--scrolled .dlc-logo__svg      { filter: none; }
+  .site-header--over-hero.site-header--scrolled .nav-burger {
+    border-color: var(--line);
+    color: var(--ink);
+  }
 }
 
 

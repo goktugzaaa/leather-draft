@@ -15,14 +15,13 @@
        1.  Header           -> <Header /> (Shared)
        2.  Hero             -> <ServiceHero />
        3.  Problem          -> <ProblemGrid />
-       4.  Solution         -> <SolutionOverview />
-       5.  Before / After   -> <BeforeAfterGallery />
-       6.  Process          -> <ProcessTimeline />
-       7.  Trust            -> <TrustSignals />
-       8.  Testimonials     -> <Testimonials />
-       9.  FAQ              -> <FaqAccordion />
-       10. Final CTA & Form -> <FinalCta />
-       11. Footer           -> <Footer /> (Shared)
+       4.  Before / After   -> <BeforeAfterGallery />
+       5.  Process          -> <ProcessTimeline />
+       6.  Trust            -> <TrustSignals />
+       7.  Testimonials     -> <Testimonials />
+       8.  FAQ              -> <FaqAccordion />
+       9.  Final CTA & Form -> <FinalCta />
+       10. Footer           -> <Footer /> (Shared)
        ========================================================================== -->
 
   <title>{{SERVICE_TITLE}} &mdash; De Leather Craft</title>
@@ -157,7 +156,7 @@
       </div>
 
       <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
-        <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true">
+        <svg width="20" height="16" viewBox="0 0 18 14" aria-hidden="true">
           <path id="burgerPath" d="M2 2 L16 2 M2 7 L16 7 M2 12 L16 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
         </svg>
       </button>
@@ -249,37 +248,49 @@
 
         <div class="sp-problems__grid">
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">{{PROBLEM_1_TITLE}}</h3>
             <p class="sp-problem-card__desc">{{PROBLEM_1_DESC}}</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">{{PROBLEM_2_TITLE}}</h3>
             <p class="sp-problem-card__desc">{{PROBLEM_2_DESC}}</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">{{PROBLEM_3_TITLE}}</h3>
             <p class="sp-problem-card__desc">{{PROBLEM_3_DESC}}</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">{{PROBLEM_4_TITLE}}</h3>
             <p class="sp-problem-card__desc">{{PROBLEM_4_DESC}}</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">{{PROBLEM_5_TITLE}}</h3>
             <p class="sp-problem-card__desc">{{PROBLEM_5_DESC}}</p>
           </article>
 
           <article class="sp-problem-card">
-            <span class="sp-problem-card__indicator"></span>
+            <span class="sp-problem-card__indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.2 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.2a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </span>
             <h3 class="sp-problem-card__title">{{PROBLEM_6_TITLE}}</h3>
             <p class="sp-problem-card__desc">{{PROBLEM_6_DESC}}</p>
           </article>
@@ -288,41 +299,7 @@
     </section>
 
     <!-- =====================================================================
-         4. SOLUTION SECTION ("How We Fix It")
-         data-component="SolutionOverview"
-         Clean authority cards highlighting Cleaning, Repair, and Restoration.
-         ===================================================================== -->
-    <section class="sp-solutions section" data-component="SolutionOverview">
-      <div class="wrap">
-        <header class="sp-solutions__head">
-          <div class="eyebrow">Our Methodology</div>
-          <h2 class="section-title">How we fix <em>it.</em></h2>
-        </header>
-
-        <div class="sp-solutions__grid">
-          <article class="sp-solution-card">
-            <span class="mono sp-solution-card__num">01</span>
-            <h3 class="sp-solution-card__title">Cleaning & Conditioning</h3>
-            <p class="sp-solution-card__desc">{{SOLUTION_CLEANING_DESC}}</p>
-          </article>
-
-          <article class="sp-solution-card">
-            <span class="mono sp-solution-card__num">02</span>
-            <h3 class="sp-solution-card__title">Atelier Repair</h3>
-            <p class="sp-solution-card__desc">{{SOLUTION_REPAIR_DESC}}</p>
-          </article>
-
-          <article class="sp-solution-card">
-            <span class="mono sp-solution-card__num">03</span>
-            <h3 class="sp-solution-card__title">Pigment Restoration</h3>
-            <p class="sp-solution-card__desc">{{SOLUTION_RESTORATION_DESC}}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         5. BEFORE / AFTER SECTION
+         4. BEFORE / AFTER SECTION
          data-component="BeforeAfterGallery"
          Interactive client showcases with metadata and dynamic treatments.
          ===================================================================== -->
@@ -433,7 +410,7 @@
         <ol class="sp-process__timeline">
           <li class="sp-process__step">
             <span class="mono sp-process__num">01</span>
-            <h3 class="sp-process__step-title">Connect & Quote</h3>
+            <h3 class="sp-process__step-title">Connect &amp; Quote</h3>
             <p class="sp-process__step-desc">WhatsApp photos or send an inquiry. Get a detailed evaluation and quote.</p>
           </li>
           <li class="sp-process__step">
@@ -830,6 +807,18 @@
           });
         }, { threshold: 0.1 });
         io.observe(hero);
+      }
+
+      /* ---- Scroll-start solid header (mobile) ------------------ */
+      /* Add .site-header--scrolled as soon as the page leaves the top
+         so the header reads solid right away on phones (CSS gates the
+         visual change to <=1200px). */
+      if (headerEl) {
+        var onScroll = function () {
+          headerEl.classList.toggle('site-header--scrolled', window.scrollY > 8);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
       }
 
       /* ---- Before / After Tab Switcher ------------------------ */

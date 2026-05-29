@@ -36,11 +36,6 @@ replacements = {
     "{{PROBLEM_6_TITLE}}": "Lining Tears & Odors",
     "{{PROBLEM_6_DESC}}": "Interior silk, suede, or canvas linings gather dirt, ink marks, structural tears, or mold odors over years of storage.",
 
-    # Solution Section
-    "{{SOLUTION_CLEANING_DESC}}": "Biological solvent wash to lift deep oils, followed by ozone sanitization and pH-neutral leather conditioning.",
-    "{{SOLUTION_REPAIR_DESC}}": "Structural seam re-stitching, piping rebuilds, hardware replating, and complete inner-lining replacements.",
-    "{{SOLUTION_RESTORATION_DESC}}": "Manual pigment color matching, airbrush surface dye application, texturizing, and protective water-repellent sealing.",
-
     # Before / After Gallery (3 items)
     "{{BEFORE_AFTER_1_BEFORE}}": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=80&auto=format&fit=crop",
     "{{BEFORE_AFTER_1_AFTER}}": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=80&auto=format&fit=crop",
