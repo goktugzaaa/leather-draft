@@ -3180,9 +3180,87 @@ button {
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
-@media (max-width: 520px) {
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; }
+@media (max-width: 640px) {
+  /* Tight grouped layout on mobile: single brand block on top, then a
+     compact 3-up row of link columns instead of three stacked blocks.
+     Cities collapse to a single horizontal chip strip and social goes
+     inline so the footer reads as four short bands, not eight rows. */
+  .site-footer { padding: 36px 0 18px; }
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 16px;
+    margin-bottom: 18px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(247, 239, 225, 0.12);
+  }
+  /* Bump the footer logo so the inline tagline ("luxury care for your
+     luxury leather…") stays legible — at 34px the tagline rendered at
+     ~6px and visually disappeared. */
+  .footer-brand__svg { height: 56px; }
+  .footer-brand__text {
+    margin-top: 10px;
+    font-size: 12.5px;
+    max-width: none;
+    /* Two lines max — the long marketing blurb was eating ~60px on a
+       phone and adding to the "elongated" feel. */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .footer-contact { margin-top: 12px; flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
+  .footer-contact__whatsapp,
+  .footer-contact__email { font-size: 12.5px; }
+  .footer-col__title { font-size: 9.5px; margin-bottom: 10px; }
+  .footer-col ul { gap: 7px; }
+  .footer-col a { font-size: 12.5px; }
+
+  /* Cities — label on top, single-row horizontal scroll strip below.
+     Inline label was eating ~40% of the row width and squeezing the
+     chip list into ~160px, which clipped after the third city. */
+  .footer-cities {
+    padding: 12px 0 14px;
+    margin-bottom: 8px;
+  }
+  .footer-cities__label { font-size: 9.5px; margin: 0 0 8px; }
+  .footer-cities__list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    font-size: 11.5px;
+    gap: 0 10px;
+    padding-right: 16px;
+  }
+  .footer-cities__list::-webkit-scrollbar { display: none; }
+  .footer-cities__list li { white-space: nowrap; }
+
+  /* Social — label + links on the same row, no wrap. */
+  .footer-social {
+    padding: 10px 0;
+    gap: 12px;
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .footer-social::-webkit-scrollbar { display: none; }
+  .footer-social__label { font-size: 9.5px; flex: 0 0 auto; }
+  .footer-social__list { gap: 14px; flex-wrap: nowrap; }
+  .footer-social__list a { font-size: 12px; white-space: nowrap; }
+
+  .footer-bottom { padding-top: 14px; font-size: 11px; }
+}
+
+@media (max-width: 340px) {
+  /* Very small phones (iPhone SE-class) drop to a 2-up grid so the link
+     labels don't squeeze. iPhone X/12/13/14 (375px) stay 3-up. */
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
 }
 
 

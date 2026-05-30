@@ -37,6 +37,9 @@ replacements = {
     "{{PROBLEM_6_DESC}}": "Interior silk, suede, or canvas linings gather dirt, ink marks, structural tears, or mold odors over years of storage.",
 
     # Before / After Gallery (3 items)
+    "{{BEFORE_AFTER_1_TAB}}": "Chanel Flap",
+    "{{BEFORE_AFTER_2_TAB}}": "LV Speedy",
+    "{{BEFORE_AFTER_3_TAB}}": "Hermès Birkin",
     "{{BEFORE_AFTER_1_BEFORE}}": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=80&auto=format&fit=crop",
     "{{BEFORE_AFTER_1_AFTER}}": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900&q=80&auto=format&fit=crop",
     "{{BEFORE_AFTER_1_NAME}}": "Chanel Classic Flap",
