@@ -231,6 +231,14 @@
   .sp-hero__visual {
     display: none;
   }
+  /* Cap the sub-headline at three lines so any service's copy stays
+     compact and the CTAs sit near the fold. */
+  .sp-hero__sub {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* ==========================================================================
@@ -300,12 +308,21 @@
 }
 
 @media (max-width: 600px) {
+  /* Tighter card width lets a sliver of card 2 peek in — the strongest
+     swipe hint there is. Wrapper carries the fade on its right edge for
+     a second cue. */
+  .sp-problems {
+    position: relative;
+  }
+  .sp-problems .wrap {
+    position: relative;
+  }
   .sp-problems__grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 16px;
+    gap: 14px;
     padding: 8px 16px 20px;
     margin: 0 -16px;
     -webkit-overflow-scrolling: touch;
@@ -315,8 +332,18 @@
     display: none;
   }
   .sp-problem-card {
-    flex: 0 0 82%;
+    flex: 0 0 78%;
     scroll-snap-align: start;
+  }
+  .sp-problems .wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 48px;
+    background: linear-gradient(to right, rgba(247, 239, 225, 0) 0%, var(--bg) 90%);
+    pointer-events: none;
   }
 }
 
@@ -585,14 +612,16 @@
 }
 
 @media (max-width: 820px) {
-  /* Horizontal swipe strip — whole process stays one compact band. */
+  /* Horizontal swipe strip — narrower cards reveal step 2 sliver as a
+     swipe hint; the .wrap fade on the right edge reinforces it. */
+  .sp-process .wrap { position: relative; }
   .sp-process__timeline {
     display: flex;
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 14px;
+    gap: 12px;
     padding: 4px 16px 18px;
     margin: 0 -16px;
     -webkit-overflow-scrolling: touch;
@@ -600,13 +629,23 @@
   }
   .sp-process__timeline::-webkit-scrollbar { display: none; }
   .sp-process__step {
-    flex: 0 0 72%;
+    flex: 0 0 62%;
     scroll-snap-align: start;
-    padding: 18px;
+    padding: 16px;
     border: 1px solid rgba(247, 239, 225, 0.14);
     border-radius: 4px;
   }
   .sp-process__num { background: transparent; padding-right: 0; }
+  .sp-process .wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 48px;
+    background: linear-gradient(to right, rgba(34, 22, 16, 0) 0%, var(--ink) 90%);
+    pointer-events: none;
+  }
 }
 
 /* ==========================================================================
@@ -1151,6 +1190,32 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+}
+
+/* Mobile-only compression — the section was ~1.4 viewports tall; this
+   trims gaps, paddings, and chrome so it stays under ~700px. */
+@media (max-width: 640px) {
+  .sp-final-cta__grid { gap: 24px; }
+  .sp-final-cta__content { gap: 14px; }
+  .sp-final-cta__title { font-size: clamp(26px, 7vw, 32px); }
+  .sp-final-cta__desc {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .sp-final-cta__actions { margin-top: 4px; }
+  .sp-final-cta__form { padding: 18px; gap: 14px; }
+  .sp-final-cta__field { gap: 6px; }
+  .sp-final-cta__field input,
+  .sp-final-cta__field textarea { padding: 10px 14px; font-size: 14px; }
+  .sp-final-cta__field textarea { min-height: 64px; }
+  .sp-final-cta__upload-zone { min-height: 88px; padding: 16px 12px; }
+  .sp-final-cta__upload-icon { width: 20px; height: 20px; }
+  .sp-final-cta__upload-text { font-size: 12.5px; }
+  .sp-final-cta__submit { padding: 14px 28px; }
+  .sp-final-cta__legal { font-size: 11px; }
 }
 
 /* ==========================================================================
