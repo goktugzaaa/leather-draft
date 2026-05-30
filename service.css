@@ -531,21 +531,10 @@
   }
 }
 
-/* Fix 2 — Show all BA panels stacked on mobile instead of hiding 2/3
-   behind tabs. This makes 100% of the visual proof visible without
-   tapping, which is the strongest conversion lever on the page. */
-@media (max-width: 820px) {
-  .sp-ba-tabs__nav { display: none; }
-  .sp-ba-panel {
-    display: block !important;
-    animation: none !important;
-  }
-  .sp-ba-panel + .sp-ba-panel {
-    margin-top: 36px;
-    padding-top: 36px;
-    border-top: 1px solid var(--line);
-  }
-}
+/* Keep the tab interaction on mobile too — the stacked-all variant
+   tripled the section height and felt crowded. Tabs are clearly
+   labelled with brand names so users can tell which case is which
+   before tapping. */
 
 /* ==========================================================================
    6. PROCESS SECTION
