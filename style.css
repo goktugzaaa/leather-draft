@@ -3196,7 +3196,10 @@ button {
     padding-bottom: 4px;
     border-bottom: 1px solid rgba(247, 239, 225, 0.12);
   }
-  .footer-brand__svg { height: 34px; }
+  /* Bump the footer logo so the inline tagline ("luxury care for your
+     luxury leather…") stays legible — at 34px the tagline rendered at
+     ~6px and visually disappeared. */
+  .footer-brand__svg { height: 56px; }
   .footer-brand__text {
     margin-top: 10px;
     font-size: 12.5px;
