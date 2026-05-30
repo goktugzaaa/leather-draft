@@ -1256,12 +1256,12 @@
    13. MOBILE-FIRST POLISH
    ========================================================================== */
 @media (max-width: 640px) {
-  /* Fix 4 — Section titles were 36px, nearly matching the hero title
-     (38px), which broke the typographic hierarchy. */
+  /* Section titles were 36px, nearly matching the hero title (38px),
+     which broke the typographic hierarchy. */
   .section-title { font-size: 28px; }
 
-  /* Fix 7 — Problem card descriptions were 5-6 lines of text on mobile.
-     Clamp to 3 lines so cards stay compact in the swipe strip. */
+  /* Problem card descriptions were 5-6 lines of text on mobile. Clamp
+     to 3 lines so cards stay compact in the swipe strip. */
   .sp-problem-card__desc {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -1269,9 +1269,57 @@
     overflow: hidden;
   }
 
-  /* Fix 6 — FinalCTA and Footer are both dark (ink bg) with no visual
+  /* Final CTA and Footer are both dark (ink bg) with no visual
      boundary, which makes them merge into one block. */
   .sp-final-cta { border-bottom: 1px solid rgba(247, 239, 225, 0.12); }
+
+  /* Before/After bullets hidden on mobile — bullets repeat what the
+     panel title + image pair already says. Drops each panel by ~100px
+     and the section by ~300px overall (3 panels stacked). */
+  .sp-ba-panel__bullets { display: none; }
+
+  /* Process step descriptions are short ("Free door-to-door…") and the
+     step title alone communicates the step. Hide the desc on mobile to
+     compress the strip cards. */
+  .sp-process__step-desc { display: none; }
+
+  /* Process header was eyebrow + 2-line title + breathing room ~140px.
+     Tighten on mobile so the dark strip feels punchy not preamble-heavy. */
+  .sp-process__head { margin-bottom: 18px !important; }
+  .sp-process .eyebrow { font-size: 10px; margin-bottom: 4px; }
+
+  /* Testimonials get a dark band on mobile — adds drama and balances
+     the krem run (Problems → BA → Testimonials → FAQ) with a third
+     dark moment alongside Trust and Process. */
+  .sp-testimonials { background: var(--ink); }
+  .sp-testimonials .section-title { color: var(--paper); }
+  .sp-testimonials .section-title em { color: var(--rose); }
+  .sp-testimonials .eyebrow { color: var(--rose); }
+  .sp-testimonial-card {
+    background: rgba(247, 239, 225, 0.04);
+    border-color: rgba(247, 239, 225, 0.12);
+  }
+  .sp-testimonial-card,
+  .sp-testimonial-card p,
+  .sp-testimonial-card__quote { color: var(--paper); }
+  .sp-testimonial-card__author,
+  .sp-testimonial-card__name { color: var(--paper); }
+  .sp-testimonial-card__meta { color: rgba(247, 239, 225, 0.55); }
+
+  /* FAQ compress — 6 items × ~125px was eating a full screen. Trim
+     padding and shrink the question font so it feels denser. */
+  .sp-faq__item summary,
+  .sp-faq details summary { padding: 14px 0; }
+  .sp-faq__q { font-size: 15.5px; }
+  .sp-faq__num { font-size: 10px; }
+  .sp-faq__body { padding-bottom: 14px; }
+  .sp-faq__body p { font-size: 13.5px; }
+
+  /* Final CTA — the entire content block (eyebrow + title + desc +
+     "GET IN TOUCH" CTA) repeats what the hero CTA already says and adds
+     ~250px of scroll. Hide it on mobile; the form alone is the action. */
+  .sp-final-cta__content { display: none; }
+  .sp-final-cta__grid { grid-template-columns: 1fr; gap: 0; }
 }
 
 /* ==========================================================================
